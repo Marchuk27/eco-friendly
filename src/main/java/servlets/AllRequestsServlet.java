@@ -16,11 +16,11 @@ public class AllRequestsServlet extends HttpServlet {
 
         Map<String, Object> pageVariables = createPageVariablesMap(request);
         pageVariables.put("message", "");
+        response.setContentType("text/html;charset=utf-8");
+        response.setStatus(HttpServletResponse.SC_OK);
 
         response.getWriter().println(PageGenerator.instance().getPage("start_page.html", pageVariables));
 
-        response.setContentType("text/html;charset=utf-8");
-        response.setStatus(HttpServletResponse.SC_OK);
 
     }
 

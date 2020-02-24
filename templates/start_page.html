@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="windows-1251"/>
-    <title>Eco-friendly project</title>
-</head>
-<body>
-<form action="/templates/start_page.html" method="POST">
-    Категория мусора <input type="text" name="message"/>
-    <input type="submit" value="Ok">
-</form>
-
-<p>Сообщение: ${message}</p>
-
-<p>Method: ${method}</p>
-
-<p>URL: ${URL}</p>
-
-<p>PathInfo: ${pathInfo}</p>
-
-<p>SessionId: ${sessionId}</p>
-
-<p>Parameters: ${parameters}</p>
-
-</body>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Eco-friendly project</title>
+    </head>
+    <body>
+        <form action="/templates/start_page.html" method="POST">
+            <label for="category">Категория мусора</label>
+            <input type="text" id="category" name="message"/>
+            <input type="submit" value="Ok">
+        </form>
+        <div class="roflan">
+            <p>Сообщение: ${message}</p>
+            <p>Method: ${method}</p>
+            <p>URL: ${URL}</p>
+            <p>PathInfo: ${pathInfo}</p>
+            <p>SessionId: ${sessionId}</p>
+            <p>Parameters: ${parameters}</p>
+        </div>
+    </body>
 </html>
