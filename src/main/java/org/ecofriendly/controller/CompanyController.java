@@ -7,14 +7,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/companies")
 public class CompanyController {
 	@Autowired
 	private CompanyService companyService;
 	@RequestMapping(path = "/{name}")
-	public Company getCompanyByName(@PathVariable String name){
+	public List<Company> getCompaniesByName(@PathVariable String name){
 		//TODO: Return template view(company)
-		return companyService.findByName(name);
+		return companyService.findAllByName(name);
 	}
 }

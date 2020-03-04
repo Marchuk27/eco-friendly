@@ -2,6 +2,8 @@ package org.ecofriendly.service;
 
 import org.ecofriendly.model.Company;
 
+import java.util.List;
+
 public interface CompanyService {
-	Company findByName(String entity);
+	List<Company> findAllByName(String name);
 }
