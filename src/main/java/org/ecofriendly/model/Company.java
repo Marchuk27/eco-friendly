@@ -10,7 +10,7 @@ public class Company {
 	private String address;
 	private String category;
 	private String email;
-	private String entity;
+	private String name;
 	private double latitude;
 	private double longitude;
 	private String phone;
@@ -47,12 +47,12 @@ public class Company {
 		this.email = email;
 	}
 
-	public String getEntity() {
-		return entity;
+	public String getName() {
+		return name;
 	}
 
-	public void setEntity(String entity) {
-		this.entity = entity;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public double getLatitude() {

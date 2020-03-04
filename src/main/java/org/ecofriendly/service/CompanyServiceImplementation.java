@@ -11,8 +11,8 @@ public class CompanyServiceImplementation implements CompanyService {
 	@Autowired
 	private CompanyRepository repository;
 	@Override
-	public Company findByEntity(String entity) {
+	public Company findByName(String entity) {
 		//TODO: Checks
-		return repository.findByEntity(entity);
+		return repository.findByName(entity);
 	}
 }

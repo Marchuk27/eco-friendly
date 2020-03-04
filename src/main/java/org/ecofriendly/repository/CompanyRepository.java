@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CompanyRepository extends CrudRepository<Company, String> {
-	Company findByEntity(String entity);
+	Company findByName(String entity);
 }
