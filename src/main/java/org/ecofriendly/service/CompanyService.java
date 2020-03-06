@@ -1,6 +1,6 @@
 package org.ecofriendly.service;
 
-import org.ecofriendly.model.Company;
+import org.ecofriendly.database.entity.Company;
 
 import java.util.List;
 import java.util.Optional;
