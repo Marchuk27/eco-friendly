@@ -1,6 +1,6 @@
 package org.ecofriendly.service;
 
-import org.ecofriendly.database.entity.Company;
+import org.ecofriendly.model.Company;
 import org.ecofriendly.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

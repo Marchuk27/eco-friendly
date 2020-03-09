@@ -1,4 +1,4 @@
-package org.ecofriendly.database.entity;
+package org.ecofriendly.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int    id;
 	private String address;
 	private String category;
 	private String email;

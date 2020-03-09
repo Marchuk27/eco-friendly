@@ -1,6 +1,6 @@
 package org.ecofriendly.repository;
 
-import org.ecofriendly.database.entity.Company;
+import org.ecofriendly.model.Company;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
