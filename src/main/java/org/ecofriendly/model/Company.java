@@ -1,84 +1,29 @@
 package org.ecofriendly.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+import org.ecofriendly.model.company.Address;
+import org.ecofriendly.model.company.Category;
+import org.ecofriendly.model.company.Email;
+import org.ecofriendly.model.company.Phone;
 
-@Entity
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Set;
+
+@Entity @Setter @Getter
 public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int    id;
-	private String address;
-	private String category;
-	private String email;
+	private int id;
+	@NotNull
 	private String name;
-	private double latitude;
-	private double longitude;
-	private String phone;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	public double getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+	@ManyToMany(mappedBy = "company")
+	private Set<Address> address;
+	@OneToMany
+	private Set<Email> email;
+	@OneToMany
+	private Set<Phone> phone;
+	@ManyToMany(mappedBy = "company")
+	private Set<Category> category;
 }
