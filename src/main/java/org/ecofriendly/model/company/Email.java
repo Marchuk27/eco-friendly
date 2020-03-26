@@ -6,9 +6,10 @@ import lombok.Setter;
 import org.ecofriendly.model.Company;
 
 import javax.persistence.*;
-import java.util.Set;
 
-@Entity @Setter@Getter
+@Entity
+@Setter
+@Getter
 public class Email {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
