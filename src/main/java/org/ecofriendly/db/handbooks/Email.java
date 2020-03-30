@@ -9,6 +9,6 @@ import javax.persistence.*;
 public class Email {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	private String email;
 }

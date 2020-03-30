@@ -1,6 +1,7 @@
 package org.ecofriendly.db.entity;
 
 import lombok.Data;
+
 import org.ecofriendly.db.handbooks.Email;
 import org.ecofriendly.db.handbooks.company.Address;
 import org.ecofriendly.db.handbooks.company.Category;
@@ -15,7 +16,7 @@ import java.util.Set;
 public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	@NotNull
 	private String name;
 	@ManyToMany(mappedBy = "company")
