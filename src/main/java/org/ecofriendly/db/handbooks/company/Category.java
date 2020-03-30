@@ -1,6 +1,7 @@
 package org.ecofriendly.db.handbooks.company;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.ecofriendly.db.entity.Company;
@@ -9,8 +10,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Setter
-@Getter
+@Data
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

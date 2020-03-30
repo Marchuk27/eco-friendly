@@ -1,7 +1,6 @@
 package org.ecofriendly.db.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.ecofriendly.db.handbooks.Email;
 import org.ecofriendly.db.handbooks.company.Address;
 import org.ecofriendly.db.handbooks.company.Category;
@@ -12,9 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
-@Table(name = "companies")
-@Setter
-@Getter
+@Data
 public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

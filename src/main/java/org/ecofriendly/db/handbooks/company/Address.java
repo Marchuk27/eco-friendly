@@ -1,16 +1,14 @@
 package org.ecofriendly.db.handbooks.company;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.ecofriendly.db.entity.Company;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Setter
-@Getter
+@Data
 public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

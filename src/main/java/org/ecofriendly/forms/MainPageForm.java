@@ -1,10 +1,8 @@
 package org.ecofriendly.forms;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class MainPageForm {
     private boolean isPlastic;
     private boolean isPaper;

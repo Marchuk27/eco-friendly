@@ -1,20 +1,14 @@
 package org.ecofriendly.db.handbooks;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
-@Setter
-@Getter
-@Table(name = "phones")
+@Data
 public class Phone {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String phone;
-	/*@ManyToOne
-	@JsonIgnore
-	private Company company;*/
 }
