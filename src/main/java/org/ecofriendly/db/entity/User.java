@@ -3,8 +3,12 @@ package org.ecofriendly.db.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.ecofriendly.enumeration.Months;
+import org.ecofriendly.enumeration.Gender;
+import org.hibernate.annotations.Table;
 
+import java.time.LocalDate;
+
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,10 +16,8 @@ public class User {
     private String name;
     private String surname;
     private String fatherName;
-    private int dayOfBirth;
-    private Months monthOfBirth;
-    private int yearOfBirth;
-    private boolean isMan;
+    private LocalDate birthDate;
+    private Gender gender;
     private String email;
     private String password;
 }

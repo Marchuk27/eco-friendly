@@ -2,10 +2,10 @@ package org.ecofriendly.db.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.ecofriendly.db.model.company.Address;
-import org.ecofriendly.db.model.company.Category;
-import org.ecofriendly.db.model.company.Email;
-import org.ecofriendly.db.model.company.Phone;
+import org.ecofriendly.db.handbooks.Email;
+import org.ecofriendly.db.handbooks.company.Address;
+import org.ecofriendly.db.handbooks.company.Category;
+import org.ecofriendly.db.handbooks.Phone;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

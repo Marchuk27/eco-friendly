@@ -1,4 +1,4 @@
-package org.ecofriendly.db.model.company;
+package org.ecofriendly.db.handbooks.company;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -11,13 +11,11 @@ import java.util.Set;
 @Entity
 @Setter
 @Getter
-public class Address {
+public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String address;
-	private double latitude;
-	private double longitude;
+	private String category;
 	@ManyToMany
 	@JsonIgnore
 	private Set<Company> company;
