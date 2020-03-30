@@ -14,10 +14,10 @@ import java.util.Set;
 public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	private String address;
-	private double latitude;
-	private double longitude;
+	private Double latitude;
+	private Double longitude;
 	@ManyToMany
 	@JsonIgnore
 	private Set<Company> company;
