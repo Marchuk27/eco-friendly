@@ -1,13 +1,11 @@
 package org.ecofriendly.service;
 
-import org.ecofriendly.model.Company;
-import org.ecofriendly.model.company.Category;
+import org.ecofriendly.db.entity.Company;
 import org.ecofriendly.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class CompanyServiceImplementation implements CompanyService{

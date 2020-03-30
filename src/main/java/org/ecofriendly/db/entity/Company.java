@@ -1,17 +1,20 @@
-package org.ecofriendly.model;
+package org.ecofriendly.db.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.ecofriendly.model.company.Address;
-import org.ecofriendly.model.company.Category;
-import org.ecofriendly.model.company.Email;
-import org.ecofriendly.model.company.Phone;
+import org.ecofriendly.db.model.company.Address;
+import org.ecofriendly.db.model.company.Category;
+import org.ecofriendly.db.model.company.Email;
+import org.ecofriendly.db.model.company.Phone;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-@Entity @Setter @Getter
+@Entity
+@Table(name = "companies")
+@Setter
+@Getter
 public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,6 +1,6 @@
-package org.ecofriendly.controller;
+package org.ecofriendly.controllers;
 
-import org.ecofriendly.model.Company;
+import org.ecofriendly.db.entity.Company;
 import org.ecofriendly.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

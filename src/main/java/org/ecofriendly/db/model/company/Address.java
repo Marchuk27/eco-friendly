@@ -1,9 +1,9 @@
-package org.ecofriendly.model.company;
+package org.ecofriendly.db.model.company;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import org.ecofriendly.model.Company;
+import org.ecofriendly.db.entity.Company;
 
 import javax.persistence.*;
 import java.util.Set;
