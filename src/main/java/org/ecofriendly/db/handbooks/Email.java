@@ -1,6 +1,7 @@
 package org.ecofriendly.db.handbooks;
 
 import lombok.Data;
+import org.ecofriendly.enumeration.LegalAttachment;
 
 import javax.persistence.*;
 
@@ -11,4 +12,5 @@ public class Email {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String email;
+	private LegalAttachment attachment;
 }
