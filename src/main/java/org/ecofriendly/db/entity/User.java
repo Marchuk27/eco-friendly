@@ -1,5 +1,6 @@
 package org.ecofriendly.db.entity;
 
+import lombok.Data;
 import org.ecofriendly.db.handbooks.Email;
 import org.ecofriendly.db.handbooks.Phone;
 import org.ecofriendly.enumeration.Gender;
