@@ -1,10 +1,10 @@
 package org.ecofriendly.db.entity;
 
-import lombok.Data;
 
+import lombok.Data;
 import org.ecofriendly.db.handbooks.Email;
-import org.ecofriendly.db.handbooks.company.Address;
-import org.ecofriendly.db.handbooks.company.Category;
+import org.ecofriendly.db.entity.company.Address;
+import org.ecofriendly.db.entity.company.Category;
 import org.ecofriendly.db.handbooks.Phone;
 
 import javax.persistence.*;
