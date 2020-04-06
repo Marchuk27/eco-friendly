@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class CompanyServiceImplementation implements CompanyService{
@@ -20,5 +21,9 @@ public class CompanyServiceImplementation implements CompanyService{
 	@Override
 	public Optional<Company> getCompanyById(int id) {
 		return companyRepository.findById(id);
+	}
+
+	public Iterable<Company> findAllCompaniesByName(String name) {
+		return companyRepository.findAllByName(name);
 	}
 }
