@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Petrona&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-areas: "sidemenu" "map" "sideinfo";
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 100%;
+    grid-gap: 10px;
+    justify-content: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  #types-of-waste {
+    justify-content: center;
+    align-content: center;
+  }
+
+  aside {
+    margin: 0;
+  }
+}
+@media (min-width: 768px) {
+  main {
+    grid-template-areas: "sidemenu map sideinfo";
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto;
+  }
+  main > * {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  main > *:last-child {
+    margin-right: 10px;
+  }
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  font-family: Montserrat, sans-serif;
+}
+
+main {
+  padding-top: 105px;
+  display: grid;
+}
+
+nav {
+  font-size: 20px;
+  background-color: #F8F4F4;
+  padding: 10px;
+  border: 1px solid #929090;
+  border-radius: 7px;
+  max-height: 450px;
+  grid-area: sidemenu;
+}
+nav > h2 {
+  margin: 0px;
+  margin-bottom: 10px;
+  font-family: "Petrona", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+}
+nav > .nav-button {
+  margin-top: 100px;
+}
+nav > .nav-button > button {
+  width: 50%;
+}
+
+#types-of-waste {
+  display: grid;
+  grid-template-columns: 78px 78px 78px;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  background-color: white;
+  padding: 5px;
+  justify-items: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.type-of-waste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.type-of-waste__logo {
+  width: 60px;
+  height: 57px;
+  display: block;
+  /*box-shadow: 0 3px 4px rgba(0,0,0,0.25);
+  border-radius: 0px;*/
+}
+.type-of-waste__logo:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.type-of-waste__label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.container {
+  grid-area: map;
+}
+
+#map {
+  height: 66vh;
+  border: 1px solid #929090;
+}
+
+aside {
+  font-size: 20px;
+  grid-area: sideinfo;
+  padding: 10px;
+  border: 1px solid #929090;
+  border-radius: 7px;
+  background-color: #F8F4F4;
+}
+aside > h2 {
+  margin: 0px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.company {
+  font-family: "Roboto", sans-serif;
+}
+.company > * {
+  margin-bottom: 10px;
+}
+.company__address > * {
+  margin-bottom: 5px;
+}
+.company__address > *:last-child {
+  margin-bottom: 0px;
+}
+.company__address__label {
+  color: #181313;
+  font-size: 18px;
+}
+.company__address__value {
+  color: #585050;
+  font-size: 16px;
+}
+.company__contacts > * {
+  margin-bottom: 5px;
+}
+.company__contacts > *:last-child {
+  margin-bottom: 0px;
+}
+.company__contacts__label {
+  color: #181313;
+  font-size: 18px;
+}
+.company__contacts__list__item {
+  display: flex;
+  flex-direction: row;
+}
+.company__contacts__list__item > * {
+  margin-right: 10px;
+}
+.company__contacts__list__item > *:last-child {
+  margin-right: 0px;
+}
+.company__contacts__list__item__logo {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: cover;
+  color: blue;
+}
+.company__contacts__list__item__value {
+  display: block;
+  color: #585050;
+  font-size: 16px;
+}
+.company__categories > * {
+  margin-bottom: 5px;
+}
+.company__categories > *:last-child {
+  margin-bottom: 0px;
+}
+.company__categories__label {
+  color: #181313;
+  font-size: 18px;
+}
+.company__categories__list {
+  display: grid;
+  grid-template-columns: 78px 78px 78px;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  padding: 5px;
+  justify-items: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+.company__additional-info > * {
+  margin-bottom: 5px;
+}
+.company__additional-info > *:last-child {
+  margin-bottom: 0px;
+}
+.company__additional-info__label {
+  color: #181313;
+  font-size: 18px;
+}
+.company__additional-info__value {
+  color: #585050;
+  font-size: 16px;
+}
+
+.btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+.btn.btn-search {
+  background-color: #57977C;
+  color: white;
+}
+
+.nav-button {
+  display: flex;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=main.css.map */

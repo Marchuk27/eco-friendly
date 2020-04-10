@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+$header__height: 105px;
+$nav__color:#F6F8F4;
+$nav__text-color: rgba(41, 47, 44, 0.7);
+$nav__text-color__active: #395348;
+$container__text-color: #25312C;
+$card__backround: rgba(209, 223, 217, 0.5);
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+}
+
+main{
+    padding: $header__height 90px $header__height 40px;
+    display: grid;
+    grid-template-areas: "nav container";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    grid-gap: 75px;
+}
+
+nav{
+    grid-area: nav;
+    background-color: $nav__color;
+    border-radius: 5px;
+    margin-top: 32.5px;
+    padding: 15px 0px;
+    width: 340px;
+    max-height: 215px;
+    >ul{
+        list-style: none;
+        >li{
+            padding: 0 60px 0px 40px;
+            margin-bottom: 12px;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+            >a{
+                font-size: 23px;
+                color: $nav__text-color;
+                text-decoration: none;
+                &:hover{
+                    font-weight: 600;
+                    color: $nav__text-color__active;
+                }
+                &:focus{
+                    font-weight: 600;
+                    color: $nav__text-color__active;
+                }
+                &:visited{
+                    font-weight: 600;
+                    color: $nav__text-color__active;
+                }
+            }
+        }
+    }
+}
+
+.container{
+    grid-area: container;
+    margin-top: 32.5px;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    >*{
+        margin-bottom: 25px;
+    }
+    >*:last-child{
+        margin-bottom: 0px;
+    }
+    &__search{
+        display: flex;
+        >*{
+            margin-right: 10px;
+        }
+        >*:last-child{
+            margin-right: 0px;
+        }
+        &__label{
+            font-size: 21px;
+            color: #000000;
+        }
+        &__input{
+            border: 1px solid #776C6C;
+            border-radius: 8px;
+            padding: 6px;
+            outline: none;
+            font-family: "Montserrat", sans-serif;
+        }
+    }
+    &__advice{
+        font-size: 18px;
+        color: #000000;
+    }
+}
+
+.cards-container{
+    display: flex;
+    flex-direction: column;
+    >*{
+        margin-bottom: 40px;
+    }
+    >*:last-child{
+        margin-bottom: 0px;
+    }
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    background: $card__backround;
+    padding: 20px 40px;
+    border-radius: 24px;
+    &__header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: initial;
+        margin-bottom: 10px;
+        &__title{
+            font-size: 35px;
+            font-weight: bold;
+        }
+    }
+    &__content{
+        display: flex;
+        justify-content: space-between;
+        >*{
+            margin-right: 100px;
+        }
+        >*:last-child{
+            margin-right: 0px;
+        }
+
+        &__other{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+        }
+        &__note{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+            &__value{
+                font-size: 23px;
+                font-weight: 500;
+                margin-bottom: 15px;
+            }
+            &__label{
+                text-align: center;
+                font-size: 25px;
+                font-weight: 600;
+                color: #91958F;
+            }
+        }
+        &__packages{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            &__value{
+                font-size: 23px;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+            &__label{
+                font-size: 25px;
+                font-weight: 600;
+                color: #91958F;
+            }
+        }
+        &__transcript{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 15px;    
+            &__value{
+                font-size: 25px;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+            &__label{
+                font-size: 25px;
+                font-weight: 600;
+                color: #91958F;
+            }
+        }
+    }
+}
+
+#current{
+    font-weight: 600;
+    color: $nav__text-color__active;
+}

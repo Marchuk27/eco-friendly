@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body, html {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  font-family: Montserrat, sans-serif; }
+
+main {
+  padding: 105px 120px 105px 40px;
+  display: grid;
+  grid-template-areas: "nav container";
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
+  grid-gap: 120px; }
+
+nav {
+  background-color: #F6F8F4;
+  border-radius: 5px;
+  margin-top: 32.5px;
+  padding: 15px 0px;
+  width: 340px;
+  max-height: 215px; }
+  nav > ul {
+    list-style: none; }
+    nav > ul > li {
+      padding: 0 60px 0px 40px;
+      margin-bottom: 12px; }
+      nav > ul > li:last-child {
+        margin-bottom: 0px; }
+      nav > ul > li > a {
+        font-size: 23px;
+        color: rgba(41, 47, 44, 0.7);
+        text-decoration: none; }
+        nav > ul > li > a:hover {
+          font-weight: 600;
+          color: #395348; }
+        nav > ul > li > a:focus {
+          font-weight: 600;
+          color: #395348; }
+
+.container {
+  margin-top: 65px; }
+  .container > p {
+    font-size: 28px;
+    color: #25312C;
+    margin-bottom: 40px; }
+    .container > p:last-child {
+      margin-bottom: 0px; }
+
+/*# sourceMappingURL=faq.css.map */
