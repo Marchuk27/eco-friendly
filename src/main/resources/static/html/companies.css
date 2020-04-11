@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body, html {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  font-family: Montserrat, sans-serif; }
+
+main {
+  padding: 105px 40px 105px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.information {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+  text-align: center;
+  color: #395348;
+  width: 60vw; }
+
+.register-form {
+  border: 1px solid #736565;
+  border-radius: 7px;
+  padding: 30px 40px;
+  width: 40vw;
+  /*min-width: 800px;*/ }
+  .register-form__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; }
+    .register-form__group input[type="text"] {
+      height: 36px;
+      border: 1px solid #423E3E;
+      border-radius: 3px;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: Montserrat, sans-serif;
+      padding: 0px 7px; }
+    .register-form__group:last-child {
+      margin-bottom: 0px;
+      align-items: center; }
+    .register-form__group__label {
+      font-size: 22px;
+      margin-bottom: 10px; }
+  .register-form__submit {
+    max-width: 200px;
+    width: 200px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    border-radius: 7px;
+    background: #90C7E7;
+    padding: 4px 20px;
+    transition: 0.3s; }
+    .register-form__submit:hover {
+      background-color: white;
+      border: 1px solid #90C7E7;
+      color: #90C7E7;
+      transition: color 0.1s, background-color 0.5s; }
+
+.address__container, .contacts__container {
+  display: flex;
+  flex-direction: column; }
+  .address__container > *, .contacts__container > * {
+    margin-bottom: 10px; }
+  .address__container > *:last-child, .contacts__container > *:last-child {
+    margin-bottom: 0px; }
+
+.street, .house, .building, .floor, .flat, .phone, .mail {
+  display: flex;
+  align-items: center; }
+  .street__label, .house__label, .building__label, .floor__label, .flat__label, .phone__label, .mail__label {
+    font-size: 20px;
+    margin-right: 0px; }
+
+.street {
+  display: flex;
+  width: 70%; }
+  .street__value {
+    width: 100%; }
+  .street__label {
+    min-width: 80px; }
+
+.house__label {
+  min-width: 80px;
+  margin-right: 0px; }
+
+.phone__label {
+  width: 110px;
+  min-width: 110px;
+  margin-right: 0px; }
+.phone__value {
+  max-width: 200px;
+  width: 200px; }
+
+.mail__label {
+  width: 110px;
+  min-width: 110px; }
+.mail__value {
+  max-width: 200px;
+  width: 200px; }
+
+.house__value, .building__value, .floor__value, .flat__value {
+  text-align: center; }
+
+.other {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  align-content: center;
+  grid-gap: 10px; }
+  .other > div {
+    justify-content: space-between; }
+  .other input {
+    width: 60px; }
+
+.grid-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+
+.is-export__value label {
+  margin-right: 25px; }
+  .is-export__value label:last-of-type {
+    margin-right: 0px; }
+
+/*# sourceMappingURL=companies.css.map */
