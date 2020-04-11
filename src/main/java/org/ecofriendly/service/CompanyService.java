@@ -6,10 +6,10 @@ import org.ecofriendly.db.entity.company.Category;
 import java.util.Optional;
 
 public interface CompanyService {
-	//Set<Company> getCompaniesByCategories(Set<Category> categories);
-	Optional<Company> getCompanyById(int id);
+
+	Optional<Company> getCompanyById(Long id);
 
 	Iterable<Company> findAllCompaniesByName(String name);
 
-	Iterable<Company> findAllCompaniesByCategory(Category category);
+	Iterable<Company> findAllCompaniesByCategories(Iterable<Category> categories);
 }

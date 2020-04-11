@@ -1,9 +1,9 @@
 package org.ecofriendly.repository.company;
 
 import org.ecofriendly.db.entity.company.Category;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CategoryRepository extends CrudRepository<Category, Integer> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 }

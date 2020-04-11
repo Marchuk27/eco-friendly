@@ -14,7 +14,7 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long         id;
 	private String       name;
-	@ManyToMany
+	@ManyToMany(mappedBy = "categories")
 	@JsonIgnore
-	private Set<Company> company;
+	private Set<Company> companySet;
 }
