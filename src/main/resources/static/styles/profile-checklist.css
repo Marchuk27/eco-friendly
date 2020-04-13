@@ -76,10 +76,15 @@ main {
       color: white;
       outline: none;
       text-decoration: none;
-      border: none;
+      border: 1px solid rgba(0, 0, 0, 0);
       border-radius: 7px;
       background: #5A6963;
       padding: 8px 30px;
       transition: 0.3s; }
+      .ideas-container__item__submit-container button:hover {
+        background-color: white;
+        border: 1px solid #5A6963;
+        color: #5A6963;
+        transition: color 0.1s, background-color 0.5s; }
 
 /*# sourceMappingURL=profile-checklist.css.map */

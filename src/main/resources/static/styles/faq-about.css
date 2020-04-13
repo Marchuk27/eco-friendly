@@ -10,26 +10,65 @@ body, html {
   min-height: 100vh;
   font-family: Montserrat, sans-serif; }
 
+@media (max-width: 359px) {
+  main {
+    padding: 40px 40px 40px 40px;
+    grid-template-areas: "nav" "container";
+    grid-template-rows: auto;
+    grid-gap: 20px; }
+
+  .container > p {
+    font-size: 20px; } }
+@media (min-width: 360px) and (max-width: 768px) {
+  main {
+    padding: 40px 40px 40px 40px;
+    grid-template-areas: "nav" "container";
+    grid-template-rows: auto;
+    grid-gap: 20px; }
+
+  nav {
+    width: 100%; }
+    nav ul {
+      width: 100%; }
+      nav ul > li {
+        padding: 0 20px 0px 10px;
+        width: 100%; }
+        nav ul > li > a {
+          display: flex;
+          width: 100%; }
+
+  .container > p {
+    font-size: 23px; } }
+@media (min-width: 768px) {
+  main {
+    padding: 105px 120px 105px 40px;
+    grid-template-areas: "nav container";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    grid-gap: 120px; }
+
+  nav {
+    width: 340px;
+    max-height: 215px; }
+    nav ul > li {
+      padding: 0 60px 0px 40px; }
+
+  .container {
+    margin-top: 65px; }
+    .container > p {
+      font-size: 28px; } }
 main {
-  padding: 105px 120px 105px 40px;
-  display: grid;
-  grid-template-areas: "nav container";
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: auto;
-  grid-gap: 120px; }
+  display: grid; }
 
 nav {
   grid-area: nav;
   background-color: #F6F8F4;
   border-radius: 5px;
   margin-top: 32.5px;
-  padding: 15px 0px;
-  width: 340px;
-  max-height: 215px; }
+  padding: 15px 0px; }
   nav > ul {
     list-style: none; }
     nav > ul > li {
-      padding: 0 60px 0px 40px;
       margin-bottom: 12px; }
       nav > ul > li:last-child {
         margin-bottom: 0px; }
@@ -48,10 +87,8 @@ nav {
           color: #395348; }
 
 .container {
-  grid-area: container;
-  margin-top: 65px; }
+  grid-area: container; }
   .container > p {
-    font-size: 28px;
     color: #25312C;
     margin-bottom: 40px; }
     .container > p:last-child {
