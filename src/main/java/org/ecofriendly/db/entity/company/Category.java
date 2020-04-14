@@ -12,9 +12,9 @@ import java.util.Set;
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	private String category;
-	@ManyToMany
+	private Long         id;
+	private String       name;
+	@ManyToMany(mappedBy = "categories")
 	@JsonIgnore
-	private Set<Company> company;
+	private Set<Company> companySet;
 }

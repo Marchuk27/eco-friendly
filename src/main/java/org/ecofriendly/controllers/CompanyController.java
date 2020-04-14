@@ -17,11 +17,12 @@ public class CompanyController {
 	CompanyService companyService;
 
 	@RequestMapping(path = "/")
-	public Optional<Company> getCompanyById(@RequestParam int id){
+	public Optional<Company> getCompanyById(@RequestParam Long id) {
 		return companyService.getCompanyById(id);
 	}
+
 	@RequestMapping("/{name}")
-	public Iterable<Company> findAllCompaniesByName(@PathVariable String name){
+	public Iterable<Company> findAllCompaniesByName(@PathVariable String name) {
 		return companyService.findAllCompaniesByName(name);
 	}
 }
