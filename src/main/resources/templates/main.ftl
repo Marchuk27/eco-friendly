@@ -1,4 +1,4 @@
-<#import "shared/navbars/navbar-main.ftl" as navbar/>
+<#import "shared/navbar.ftl" as navbar/>
 <!DOCTYPE html>
 <html lang="eng">
 <head>
@@ -12,7 +12,7 @@
     <script src="js/placemark.js" type="text/javascript"></script>
 </head>
 <body>
-    <@navbar.navbarTemplate/>
+<@navbar.navbar/>
     <main>
         <nav>
             <h2>Виды отходов</h2>
