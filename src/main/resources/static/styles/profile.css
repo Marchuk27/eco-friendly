@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+* {
+  box-sizing: border-box; }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  font-family: Montserrat, sans-serif; }
+
+main {
+  padding-top: 160px;
+  /*105px+55px*/
+  display: flex;
+  margin: 0 10vw 65px; }
+
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%; }
+  .banner-container > * {
+    margin-bottom: 50px; }
+  .banner-container > *:last-child {
+    margin-bottom: 0px; }
+
+.form-container {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 32.5px 80px 20px 55px;
+  border: 1px solid #36614F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  max-height: 270px; }
+  .form > * {
+    margin-bottom: 25px; }
+  .form > *:last-child {
+    margin-bottom: 0px; }
+  .form__input {
+    border: 1px solid #36614F;
+    border-radius: 3px;
+    height: 35px;
+    width: 240px;
+    padding: 5px 5px 5px 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px; }
+  .form__container-button {
+    display: flex;
+    justify-content: flex-start; }
+  .form__button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    border-radius: 7px;
+    background-color: black;
+    padding: 4px 20px;
+    transition: 0.3s; }
+    .form__button.signin {
+      background-color: #317434; }
+      .form__button.signin:hover {
+        background-color: white;
+        border: 1px solid #317434;
+        color: #317434;
+        transition: color 0.1s, background-color 0.5s; }
+    .form__button.register {
+      background-color: #7F9348; }
+      .form__button.register:hover {
+        background-color: white;
+        border: 1px solid #7F9348;
+        color: #7F9348;
+        transition: color 0.1s, background-color 0.5s; }
+
+.banner__image {
+  max-width: 600px;
+  max-height: 300px;
+  border: 1px solid #36614F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px; }
+
+/*# sourceMappingURL=profile.css.map */

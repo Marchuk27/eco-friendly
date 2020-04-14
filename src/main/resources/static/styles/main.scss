@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Petrona&display=swap');
+
+$h2-font-size: 20px;
+$company_item_label_fontsize: 18px;
+$company_item_label_color: #181313;
+$company_item_value_fontsize: 16px;
+$company_item_value_color: #585050;
+$company_font-family: "Roboto", sans-serif;
+$nav_h2_font-family: "Petrona", sans-serif;
+
+*{
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px){
+    main{
+        grid-template-areas: "sidemenu"
+                              "map"
+                              "sideinfo";
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+        justify-content: center;
+    }
+    nav{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    #types-of-waste{
+        justify-content: center;
+        align-content: center;
+    }
+    aside{
+        margin: 0;
+    }
+}
+
+@media (min-width: 768px){
+    main{
+        grid-template-areas: "sidemenu map sideinfo";
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: auto;
+        >*{
+            margin-top: 10px;
+            margin-left: 10px;
+    
+            &:last-child{
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+}
+
+main{
+    padding-top: 105px;
+    display: grid;
+}
+
+nav{
+    font-size: 20px;
+    background-color: #F8F4F4;
+    padding: 10px;
+    border: 1px solid #929090;
+    border-radius: 7px;
+    max-height: 450px;
+    grid-area: sidemenu;
+    >h2{
+        margin: 0px;
+        margin-bottom: 10px;
+        font-family: $nav_h2_font-family;
+        font-size: $h2-font-size;
+        font-style: normal;
+        font-weight: normal;
+    }
+    >.nav-button{
+        margin-top: 100px;
+        >button{
+            width: 50%;
+        }
+    }
+}
+
+#types-of-waste{
+    display: grid;
+    grid-template-columns: 78px 78px 78px;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    background-color: white;
+    padding: 5px;
+    justify-items: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.type-of-waste{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__logo{
+        width: 60px;
+        height: 57px;
+        display: block;
+        /*box-shadow: 0 3px 4px rgba(0,0,0,0.25);
+        border-radius: 0px;*/
+        &:hover{
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+    }
+
+    &__label{
+        font-size: 13px;
+        font-weight: 600;
+    }
+}
+
+.container{
+    grid-area: map;
+}
+
+#map{
+    height: 66vh;
+    border: 1px solid #929090;
+}
+
+aside{
+    font-size: 20px;
+    grid-area: sideinfo;
+    padding: 10px;
+    border: 1px solid #929090;
+    border-radius: 7px;
+    background-color: #F8F4F4;
+    >h2{
+        margin: 0px;
+        margin-bottom: 10px;
+        font-size: $h2-font-size;
+        font-style: normal;
+        font-weight: 600;
+    }
+}
+
+.company{
+    font-family: $company_font-family;
+    >*{
+        margin-bottom: 10px;
+    }
+    &__address{
+        >*{
+            margin-bottom: 5px;
+        }
+        >*:last-child{
+            margin-bottom: 0px;
+        }
+        &__label{
+            color: $company_item_label_color;
+            font-size: $company_item_label_fontsize;
+        }
+        &__value{
+            color: $company_item_value_color;
+            font-size: $company_item_value_fontsize;
+        }
+    }
+    &__contacts{
+        >*{
+            margin-bottom: 5px;
+        }
+        >*:last-child{
+            margin-bottom: 0px;
+        }
+        &__label{
+            color: $company_item_label_color;
+            font-size: $company_item_label_fontsize;
+        }
+        &__list{
+            &__item{
+                display: flex;
+                flex-direction: row;
+                >*{
+                    margin-right: 10px;
+                }
+                >*:last-child{
+                    margin-right: 0px;
+                }
+                &__logo{
+                    display: block;
+                    width: 18px;
+                    height: 18px;
+                    object-fit: cover;
+                    color: blue;
+                }
+                &__value{
+                    display: block;
+                    color: $company_item_value_color;
+                    font-size: $company_item_value_fontsize;
+                }
+            }
+        }
+    }
+    &__categories{
+        >*{
+            margin-bottom: 5px;
+        }
+        >*:last-child{
+            margin-bottom: 0px;
+        }
+        &__label{
+            color: $company_item_label_color;
+            font-size: $company_item_label_fontsize;
+        }
+        &__list{
+            display: grid;
+            grid-template-columns: 78px 78px 78px;
+            grid-template-rows: 1fr;
+            grid-gap: 10px;
+            padding: 5px;
+            justify-items: center;
+            align-items: center;
+            font-family: "Montserrat", sans-serif;
+        }
+    }
+    &__additional-info{
+        >*{
+            margin-bottom: 5px;
+        }
+        >*:last-child{
+            margin-bottom: 0px;
+        }
+        &__label{
+            color: $company_item_label_color;
+            font-size: $company_item_label_fontsize;
+        }
+        &__value{
+            color: $company_item_value_color;
+            font-size: $company_item_value_fontsize;
+        }
+    }
+}
+
+.btn{
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    &.btn-search{
+        background-color: #57977C;
+        color: white;
+    }
+}
+
+.nav-button{
+    display: flex;
+    justify-content: center;
+}

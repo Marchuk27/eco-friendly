@@ -73,5 +73,6 @@ public class MainController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("faq");
         return modelAndView;
+
     }
 }
