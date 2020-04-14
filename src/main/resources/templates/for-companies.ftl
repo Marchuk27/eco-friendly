@@ -1,4 +1,4 @@
-<#import "shared/navbars/nabar-comp.ftl" as navbar/>
+<#import "shared/navbar.ftl" as navbar/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/header.css'>
 </head>
 <body>
-<@navbar.navbarTemplate/>
+<@navbar.navbar/>
     <main>
         <div class="information">
             Если ваша компания занимается сбором отходов, заполните форму ниже, и после проверки данных мы добавим вас на карту.

@@ -1,9 +1,9 @@
-package org.ecofriendly.config;
+//package org.ecofriendly.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
-@Configuration
-@EnableWebSecurity
-public class SecurityConfig {
-}
+//@Configuration
+//@EnableWebSecurity
+//public class SecurityConfig {
+//}

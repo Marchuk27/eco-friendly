@@ -1,4 +1,4 @@
-<#import "shared/navbars/nabar-faq.ftl" as navbar/>
+<#import "shared/navbar.ftl" as navbar/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/header.css'>
 </head>
 <body>
-    <@navbar.navbarTemplate/>
+<@navbar.navbar/>
     <main>
         <nav>
             <ul>
