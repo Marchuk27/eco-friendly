@@ -1,6 +1,6 @@
 <#import "shared/navbars/nabar-faq.ftl" as navbar/>
 <!DOCTYPE html>
-<html>
+<html lang="eng">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -10,14 +10,14 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/header.css'>
 </head>
 <body>
-<@navbar.navbar/>
+<@navbar.navbarTemplate/>
     <main>
         <nav>
             <ul>
                 <li><a href="/faq" id="current">О проекте</a></li>
                 <li><a href="#">Виды отходов</a></li>
-                <li><a href="#">Сроки разложения</a></li>
-                <li><a href="#">Маркировки на упаковках</a></li>
+                <li><a href="/faq/periods">Сроки разложения</a></li>
+                <li><a href="/faq/marks">Маркировки на упаковках</a></li>
             </ul>
         </nav>
         <div class="container">

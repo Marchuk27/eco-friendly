@@ -30,4 +30,19 @@ public class MainController {
     public String faqController() {
         return "faq";
     }
+
+    @GetMapping(value = "/faq/categories")
+    public String faqCategoriesController() {
+        return "faq-categories";
+    }
+
+    @GetMapping(value = "/faq/periods")
+    public String faqPeriodsController() {
+        return "faq-periods";
+    }
+
+    @GetMapping(value = "/faq/marks")
+    public String faqMarkersController() {
+        return "faq-marks";
+    }
 }

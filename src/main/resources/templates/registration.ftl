@@ -10,7 +10,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='/css/header.css'>
 </head>
 <body>
-<@navbar.navbar/>
+<@navbar.navbarTemplate/>
     <main>
         <div class="banner-container">
             <div class="banner">
