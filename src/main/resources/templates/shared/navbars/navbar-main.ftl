@@ -5,8 +5,8 @@
             <div class="logo__name">Eco-Friendly Project</div>
         </div>
         <ul class="navbar">
-            <li><a href="/main" id="header-current">Главная</a></li>
-            <li><a href="/personal-cabinet">Личный кабинет</a></li>
+            <li><a href="/" id="header-current">Главная</a></li>
+            <li><a href="/profile">Личный кабинет</a></li>
             <li><a href="/for-companies">Компаниям</a></li>
             <li><a href="/faq">FAQ</a></li>
         </ul>

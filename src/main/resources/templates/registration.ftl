@@ -1,4 +1,4 @@
-<#import "shared/navbar.ftl" as navbar/>
+<#import "shared/navbars/nabar-lk.ftl" as navbar/>
 <!DOCTYPE html>
 <html lang="eng">
 <head>

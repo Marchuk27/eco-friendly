@@ -1,4 +1,4 @@
-<#import "shared/navbar.ftl" as navbar/>
+<#import "shared/navbars/nabar-comp.ftl" as navbar/>
 <!DOCTYPE html>
 <html>
 <head>
