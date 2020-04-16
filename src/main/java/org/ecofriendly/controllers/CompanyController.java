@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,6 +20,11 @@ public class CompanyController {
 	@RequestMapping(path = "/")
 	public Optional<Company> getCompanyById(@RequestParam Long id) {
 		return companyService.getCompanyById(id);
+	}
+
+	@RequestMapping("/all")
+	public List<Company> getAllCompanies() {
+		return companyService.getAllCompanies();
 	}
 
 	@RequestMapping("/{name}")
