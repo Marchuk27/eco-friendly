@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.hasItem;
@@ -25,6 +26,19 @@ class CompanyRepositoryTest {
 	private CompanyRepository  repository;
 	@Autowired
 	private CategoryRepository categoryRepository;
+
+	@Test
+	public void getAllCompanies() {
+		Company company1 = new Company(), company2 = new Company();
+		company1.setName("company1");
+		company2.setName("company2");
+		repository.save(company1);
+		repository.save(company2);
+		List<Company> found = repository.findAll();
+		Assert.assertThat(found, hasItems(company1));
+		Assert.assertThat(found, hasItem(company2));
+		repository.deleteAll();
+	}
 
 	@Test
 	public void findAllByName() {
