@@ -104,7 +104,7 @@ nav{
     border-radius: 5px;
 }
 
-.type-of-waste{
+.type-of-waste, .company__categories__list__item{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,9 +134,11 @@ nav{
 #map{
     height: 66vh;
     border: 1px solid #929090;
+    /*max-width: 752px;*/
 }
 
 aside{
+    visibility: hidden;
     font-size: 20px;
     grid-area: sideinfo;
     padding: 10px;

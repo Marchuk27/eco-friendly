@@ -8,7 +8,8 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='header.css'>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=cce8c8c9-a3d9-45a9-a1ec-ce763a37a4b8" type="text/javascript"></script>
-    <script src="placemark.js" type="text/javascript"></script>
+    <script src="groups.js" type="text/javascript"></script>
+    <script src="main.js" type="text/javascript"></script>
 </head>
 <body>
     <header>
@@ -27,39 +28,39 @@
         <nav>
             <h2>Виды отходов</h2>
             <div id="types-of-waste">
-                <div class="type-of-waste">
+                <div class="type-of-waste" id="plastic">
                     <img class="type-of-waste__logo" src="images/plasticLogo.png" alt="logo">
                     <div class="type-of-waste__label">Пластик</div>
                 </div>
-                <div class="type-of-waste">
+                <div class="type-of-waste" id="glass">
                     <img class="type-of-waste__logo" src="images/glass.png" alt="logo">
                     <div class="type-of-waste__label">Стекло</div>
                 </div>
-                <div class="type-of-waste">
+                <div class="type-of-waste" id="paper">
                     <img class="type-of-waste__logo" src="images/paper.png" alt="logo">
                     <div class="type-of-waste__label">Бумага</div>
                 </div>
-                <div class="type-of-waste">
+                <div class="type-of-waste" id="clothes">
                     <img class="type-of-waste__logo" src="images/clothes.png" alt="logo">
                     <div class="type-of-waste__label">Одежда</div>
                 </div>
-                <div class="type-of-waste">
+                <div class="type-of-waste" id="accums">
                     <img class="type-of-waste__logo" src="images/accums.png" alt="logo">
                     <div class="type-of-waste__label">Батарейки</div>
                 </div>
-                <div class="type-of-waste">
+                <div class="type-of-waste" id="techn">
                     <img class="type-of-waste__logo" src="images/techn.png" alt="logo">
                     <div class="type-of-waste__label">Быт.техника</div>
                 </div>
-                <div class="type-of-waste">
+                <div class="type-of-waste" id="metal">
                     <img class="type-of-waste__logo" src="images/metal.png" alt="logo">
                     <div class="type-of-waste__label">Металл</div>
                 </div>
-                <div class="type-of-waste">
+                <div class="type-of-waste" id="dangerous">
                     <img class="type-of-waste__logo" src="images/dangerous.png" alt="logo">
                     <div class="type-of-waste__label">Опасное</div>
                 </div>
-                <div class="type-of-waste">
+                <div class="type-of-waste" id="other">
                     <img class="type-of-waste__logo" src="images/other.png" alt="logo">
                     <div class="type-of-waste__label">Другое</div>
                 </div>
@@ -80,7 +81,7 @@
             <div class="company__contacts">
                 <div class="company__contacts__label">Контакты:</div>
                 <div class="company__contacts__list">
-                    <div class=company__contacts__list__item>
+                    <!--<div class=company__contacts__list__item>
                         <img class="company__contacts__list__item__logo" src="images/ig-logo.png" alt="logo"/>
                         <div class="company__contacts__list__item__value">rojiblancos1627</div>
                     </div>
@@ -99,28 +100,28 @@
                     <div class=company__contacts__list__item>
                         <img class="company__contacts__list__item__logo" src="images/web-logo-2.png" alt="logo"/>
                         <div class="company__contacts__list__item__value">domena.net</div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="company__categories">
                 <div class="company__categories__label">Категории:</div>
                 <div class="company__categories__list">
-                    <div class="type-of-waste">
-                        <img class="type-of-waste__logo" src="images/other.png" alt="logo">
-                        <div class="type-of-waste__label">Другое</div>
+                    <!--<div class="company__categories__list__item">
+                        <img class="company__categories__list__item__logo" src="images/other.png" alt="logo">
+                        <div class="company__categories__list__item__label">Другое</div>
                     </div>
-                    <div class="type-of-waste">
-                        <img class="type-of-waste__logo" src="images/paper.png" alt="logo">
-                        <div class="type-of-waste__label">Бумага</div>
+                    <div class="company__categories__list__item">
+                        <img class="company__categories__list__item__logo" src="images/paper.png" alt="logo">
+                        <div class="company__categories__list__item__label">Бумага</div>
                     </div>
-                    <div class="type-of-waste">
-                        <img class="type-of-waste__logo" src="images/clothes.png" alt="logo">
-                        <div class="type-of-waste__label">Одежда</div>
+                    <div class="company__categories__list__item">
+                        <img class="company__categories__list__item__logo" src="images/clothes.png" alt="logo">
+                        <div class="company__categories__list__item__label">Одежда</div>
                     </div>
-                    <div class="type-of-waste">
-                        <img class="type-of-waste__logo" src="images/accums.png" alt="logo">
-                        <div class="type-of-waste__label">Батарейки</div>
-                    </div>
+                    <div class="company__categories__list__item">
+                        <img class="company__categories__list__item__logo" src="images/accums.png" alt="logo">
+                        <div class="company__categories__list__item__label">Батарейки</div>
+                    </div>-->
                 </div>
             </div>
             <div class="company__additional-info">
