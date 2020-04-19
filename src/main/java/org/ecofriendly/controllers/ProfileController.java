@@ -1,23 +1,24 @@
 package org.ecofriendly.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/profile")
 public class ProfileController {
-	@RequestMapping()
+	@GetMapping()
 	public String profile() {
 		return "profile";
 	}
 
-	@RequestMapping(path = "/registration")
+	@GetMapping("/registration")
 	public String registrationPage() {
 		return "registration";
 	}
 
-	@RequestMapping(method = RequestMethod.POST, path = "/registration")
+	@PostMapping("/registration")
 	public String register() {
 		return null; //redirect
 	}

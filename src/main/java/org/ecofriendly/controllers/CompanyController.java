@@ -3,10 +3,7 @@ package org.ecofriendly.controllers;
 import org.ecofriendly.db.entity.Company;
 import org.ecofriendly.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,18 +14,20 @@ public class CompanyController {
 	@Autowired
 	CompanyService companyService;
 
-	@RequestMapping(path = "/")
+	@GetMapping(path = "/")
 	public Optional<Company> getCompanyById(@RequestParam Long id) {
 		return companyService.getCompanyById(id);
 	}
 
-	@RequestMapping("/all")
+	@GetMapping("/all")
 	public List<Company> getAllCompanies() {
 		return companyService.getAllCompanies();
 	}
 
-	@RequestMapping("/{name}")
+	@GetMapping("/{name}")
 	public Iterable<Company> findAllCompaniesByName(@PathVariable String name) {
 		return companyService.findAllCompaniesByName(name);
 	}
+
+
 }
