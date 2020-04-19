@@ -51,8 +51,12 @@ class CompanyRepositoryTest {
 		repository.delete(company);
 	}
 
+	/**
+	 * Test for findAllByCategoriesIn
+	 * One Company - One Category
+	 */
 	@Test
-	public void findOneCompanyByOneCategory() {
+	public void findOneByCategory() {
 		Company company = new Company();
 		company.setName("company1");
 		Category category = new Category();
@@ -73,8 +77,12 @@ class CompanyRepositoryTest {
 		repository.deleteAll();
 	}
 
+	/**
+	 * Test for findAllByCategoriesIn
+	 * Two Companies, One Category
+	 */
 	@Test
-	public void findMultipleCompaniesByOneCategory() {
+	public void findAllByCategory() {
 		Company company1 = new Company(), company2 = new Company();
 		company1.setName("company1");
 		company2.setName("company2");
@@ -99,7 +107,7 @@ class CompanyRepositoryTest {
 	}
 
 	@Test
-	public void findAllCompaniesByCategories() {
+	public void findAllByCategoriesIn() {
 		Company company1 = new Company(), company2 = new Company();
 		company1.setName("company1");
 		company2.setName("company2");
@@ -126,6 +134,27 @@ class CompanyRepositoryTest {
 		categories.add(category2);
 
 		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoriesIn(categories);
+		Assert.assertThat(found, hasItems(company1, company2));
+		categoryRepository.deleteAll();
+		repository.deleteAll();
+	}
+
+	@Test
+	public void findAllByCategoryIs() {
+		Company company1 = new Company(), company2 = new Company();
+		company1.setName("company1");
+		company2.setName("company2");
+
+		Category category = new Category();
+		category.setName("category");
+		categoryRepository.save(category);
+		Set<Category> set = new HashSet<>();
+		set.add(category);
+		company1.setCategories(set);
+		company2.setCategories(set);
+		repository.save(company1);
+		repository.save(company2);
+		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoriesIs(category);
 		Assert.assertThat(found, hasItems(company1, company2));
 		categoryRepository.deleteAll();
 		repository.deleteAll();

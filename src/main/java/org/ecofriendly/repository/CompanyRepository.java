@@ -13,4 +13,6 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
 
     Iterable<Company> findAllByName(String name);
     Iterable<Company> findAllByCategoriesIn(Iterable<Category> category);
+
+    Iterable<Company> findAllByCategoriesIs(Category category);
 }
