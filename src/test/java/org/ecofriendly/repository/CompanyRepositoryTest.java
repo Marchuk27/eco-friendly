@@ -63,7 +63,7 @@ class CompanyRepositoryTest {
 		category.setName("category1");
 		Set<Category> categorySet = new HashSet<>();
 		categorySet.add(category);
-		company.setCategories(categorySet);
+		company.setCategory(categorySet);
 		//Set<Company>  companySet  = new HashSet<>();|
 		//companySet.add(company);		              | Causes StackOverflow Exception
 		//category.setCompanySet(companySet);		  |
@@ -71,7 +71,7 @@ class CompanyRepositoryTest {
 		repository.save(company);
 		ArrayList<Category> categories = new ArrayList<>();
 		categories.add(category);
-		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoriesIn(categories);
+		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoryIn(categories);
 		Assert.assertThat(found, hasItem(company));
 		categoryRepository.deleteAll();
 		repository.deleteAll();
@@ -93,14 +93,14 @@ class CompanyRepositoryTest {
 
 		Set<Category> set = new HashSet<>();
 		set.add(category);
-		company1.setCategories(set);
-		company2.setCategories(set);
+		company1.setCategory(set);
+		company2.setCategory(set);
 
 		repository.save(company1);
 		repository.save(company2);
 		ArrayList<Category> categories = new ArrayList<>();
 		categories.add(category);
-		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoriesIn(categories);
+		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoryIn(categories);
 		Assert.assertThat(found, hasItems(company1, company2));
 		categoryRepository.deleteAll();
 		repository.deleteAll();
@@ -123,8 +123,8 @@ class CompanyRepositoryTest {
 		set1.add(category1);
 		set2.add(category2);
 
-		company1.setCategories(set1);
-		company2.setCategories(set2);
+		company1.setCategory(set1);
+		company2.setCategory(set2);
 
 		repository.save(company1);
 		repository.save(company2);
@@ -133,7 +133,7 @@ class CompanyRepositoryTest {
 		categories.add(category1);
 		categories.add(category2);
 
-		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoriesIn(categories);
+		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoryIn(categories);
 		Assert.assertThat(found, hasItems(company1, company2));
 		categoryRepository.deleteAll();
 		repository.deleteAll();
@@ -150,11 +150,11 @@ class CompanyRepositoryTest {
 		categoryRepository.save(category);
 		Set<Category> set = new HashSet<>();
 		set.add(category);
-		company1.setCategories(set);
-		company2.setCategories(set);
+		company1.setCategory(set);
+		company2.setCategory(set);
 		repository.save(company1);
 		repository.save(company2);
-		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoriesIs(category);
+		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoryIs(category);
 		Assert.assertThat(found, hasItems(company1, company2));
 		categoryRepository.deleteAll();
 		repository.deleteAll();

@@ -66,9 +66,9 @@ class CompanyServiceImplementationTest {
 		company2cat1and2.setName("company2cat1and2");
 		company3cat3.setName("company3cat3");
 
-		company1cat1.setCategories(cat1Set);
-		company2cat1and2.setCategories(cat1and2Set);
-		company3cat3.setCategories(cat3Set);
+		company1cat1.setCategory(cat1Set);
+		company2cat1and2.setCategory(cat1and2Set);
+		company3cat3.setCategory(cat3Set);
 
 		List<Company> cat1List = new ArrayList<>(),
 				cat2List = new ArrayList<>(),

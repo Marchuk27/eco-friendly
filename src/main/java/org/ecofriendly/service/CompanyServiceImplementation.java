@@ -36,14 +36,14 @@ public class CompanyServiceImplementation implements CompanyService {
 
 	@Override
 	public Iterable<Company> findAllCompaniesByCategories(Iterable<Category> categories) {
-		return companyRepository.findAllByCategoriesIn(categories);
+		return companyRepository.findAllByCategoryIn(categories);
 	}
 
 	@Override
 	public Dictionary<String, List<Company>> getCategoryCompanies(Iterable<Category> categories) {
 		Dictionary<String, List<Company>> dictionary = new Hashtable<>();
 		for (Category category : categories) {
-			dictionary.put(category.getName(), (List<Company>) companyRepository.findAllByCategoriesIs(category));
+			dictionary.put(category.getName(), (List<Company>) companyRepository.findAllByCategoryIs(category));
 		}
 		return dictionary;
 	}
