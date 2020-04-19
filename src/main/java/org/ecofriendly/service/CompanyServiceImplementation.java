@@ -3,7 +3,6 @@ package org.ecofriendly.service;
 import org.ecofriendly.db.entity.Company;
 import org.ecofriendly.db.entity.company.Category;
 import org.ecofriendly.repository.CompanyRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Dictionary;
@@ -14,8 +13,11 @@ import java.util.Optional;
 @Service
 public class CompanyServiceImplementation implements CompanyService {
 
-	@Autowired
-	private CompanyRepository companyRepository;
+	private final CompanyRepository companyRepository;
+
+	public CompanyServiceImplementation(CompanyRepository companyRepository) {
+		this.companyRepository = companyRepository;
+	}
 
 	@Override
 	public List<Company> getAllCompanies() {
