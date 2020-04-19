@@ -3,6 +3,7 @@ package org.ecofriendly.service;
 import org.ecofriendly.db.entity.Company;
 import org.ecofriendly.db.entity.company.Category;
 
+import java.util.Dictionary;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,4 +16,6 @@ public interface CompanyService {
 	Iterable<Company> findAllCompaniesByName(String name);
 
 	Iterable<Company> findAllCompaniesByCategories(Iterable<Category> categories);
+
+	Dictionary<String, List<Company>> getCategoryCompanies(Iterable<Category> categories);
 }

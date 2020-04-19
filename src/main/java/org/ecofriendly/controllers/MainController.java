@@ -10,7 +10,7 @@ public class MainController {
     /**
      * Главная страница
      */
-    @RequestMapping()
+    @GetMapping()
     public String main() {
         return "main";
     }
@@ -18,7 +18,7 @@ public class MainController {
     /**
      * Компаниям
      */
-    @GetMapping(value = "/for-companies") //TODO:rename
+    @GetMapping("/for-companies") //TODO:rename
     public String forCompaniesController() {
         return "for-companies";
     }
@@ -26,22 +26,22 @@ public class MainController {
     /**
      * FAQ
      */
-    @GetMapping(value = "/faq")
+    @GetMapping("/faq")
     public String faqController() {
         return "faq";
     }
 
-    @GetMapping(value = "/faq/categories")
+    @GetMapping("/faq/categories")
     public String faqCategoriesController() {
         return "faq-categories";
     }
 
-    @GetMapping(value = "/faq/periods")
+    @GetMapping("/faq/periods")
     public String faqPeriodsController() {
         return "faq-periods";
     }
 
-    @GetMapping(value = "/faq/marks")
+    @GetMapping("/faq/marks")
     public String faqMarkersController() {
         return "faq-marks";
     }
