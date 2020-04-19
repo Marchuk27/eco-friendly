@@ -12,11 +12,11 @@ import java.util.Set;
 public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	private String address;
-	private Double latitude;
-	private Double longitude;
-	@ManyToMany
+	private Integer      id;
+	private String       address;
+	private Double       latitude;
+	private Double       longitude;
+	@ManyToMany(mappedBy = "address")
 	@JsonIgnore
 	private Set<Company> company;
 }
