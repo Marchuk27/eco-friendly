@@ -1,7 +1,10 @@
 package org.ecofriendly.controllers;
 
+import org.ecofriendly.forms.CompanyForm;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -20,6 +23,12 @@ public class MainController {
      */
     @GetMapping(value = "/for-companies") //TODO:rename
     public String forCompaniesController() {
+        return "for-companies";
+    }
+
+    @PostMapping("/for-companies")
+    public String sendCompanyRequest(CompanyForm companyform, Model model) {
+        model.addAttribute("companyForm", companyform);
         return "for-companies";
     }
 

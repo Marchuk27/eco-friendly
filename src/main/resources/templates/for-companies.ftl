@@ -15,111 +15,107 @@
         <div class="information">
             Если ваша компания занимается сбором отходов, заполните форму ниже, и после проверки данных мы добавим вас на карту.
         </div>
-        <form class="register-form">
+        <form class="register-form" action="/for-companies" method="post">
             <div class="register-form__group">
                 <div class="register-form__group__label">1. Название компании</div>
-                <input type="text" class="company-name__value" />
+                <input type="text" class="company-name__value" name="name" />
             </div>
             <div class="register-form__group">
-                <div class="register-form__group__label">2. Юридическое наименование (при наличии)</div>
-                <input type="text" class="legal-name__value" />
-            </div>
-            <div class="register-form__group">
-                <div class="register-form__group__label">3. Фактический адрес</div>
+                <div class="register-form__group__label">2. Фактический адрес</div>
                 <div class="address__container">
                     <div class="street">
                         <div class="street__label">Улица</div>
-                        <input type="text"  class="street__value"/>
+                        <input type="text"  class="street__value" name="street"/>
                     </div>
                     <div class="other">
                         <div class="house">
                             <div class="house__label">Дом</div>
-                            <input type="text" class="house__value"/>
+                            <input type="text" class="house__value" name="house"/>
                         </div>
                         <div class="building">
                             <div class="building__label">Корпус</div>
-                            <input type="text" class="building__value"/>
+                            <input type="text" class="building__value" name="building"/>
                         </div>
                         <div class="floor">
                             <div class="floor__label">Этаж</div>
-                            <input type="text" class="floor__value"/>
+                            <input type="text" class="floor__value" name="floor"/>
                         </div>
                         <div class="flat">
                             <div class="flat__label">Кв./офис</div>
-                            <input type="text" class="flat__value"/>
+                            <input type="text" class="flat__value" name="flat"/>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="register-form__group">
-                <div class="register-form__group__label">4. Виды принимаемых отходов</div>
+                <div class="register-form__group__label">3. Виды принимаемых отходов</div>
                 <div class="grid-checkboxes">
                     <div>
-                        <input type="checkbox" name="plactic">
-                        <label for="plactic">Пластик</label>
+                        <input type="checkbox" name="isPlastic">
+                        <label for="isPlastic">Пластик</label>
                       </div>
                       <div>
-                        <input type="checkbox" name="glass">
-                        <label for="glass">Стекло</label>
+                        <input type="checkbox" name="isPlastic">
+                        <label for="isGlass">Стекло</label>
                       </div>
                       <div>
-                        <input type="checkbox" id="scales" name="paper">
-                        <label for="paper">Бумага</label>
+                        <input type="checkbox" id="scales" name="isPaper">
+                        <label for="isPaper">Бумага</label>
                       </div>
                       <div>
-                        <input type="checkbox" name="clothes">
-                        <label for="clothes">Одежда</label>
+                        <input type="checkbox" name="isClothes">
+                        <label for="isClothes">Одежда</label>
                       </div>
                       <div>
-                        <input type="checkbox" name="batteries">
-                        <label for="batteries">Батарейки</label>
+                        <input type="checkbox" name="isAccums">
+                        <label for="isAccums">Батарейки</label>
                       </div>
                       <div>
-                        <input type="checkbox" name="techn">
-                        <label for="techn">Быт. техника</label>
+                        <input type="checkbox" name="isTechn">
+                        <label for="isTechn">Быт. техника</label>
                       </div>
                       <div>
-                        <input type="checkbox" name="metal">
-                        <label for="metal">Металл</label>
+                        <input type="checkbox" name="isMetal">
+                        <label for="isMetal">Металл</label>
                       </div>
                       <div>
-                        <input type="checkbox" name="dangerous">
-                        <label for="dangerous">Опасное</label>
+                        <input type="checkbox" name="isDangerous">
+                        <label for="isDangerous">Опасное</label>
                       </div>
                       <div>
-                        <input type="checkbox" name="other">
-                        <label for="other">Другое</label>
+                        <input type="checkbox" name="isOther">
+                        <label for="isOther">Другое</label>
                       </div>
                 </div>
             </div>
             <div class="register-form__group">
-                <div class="register-form__group__label">5. Контакты</div>
+                <div class="register-form__group__label">4. Контакты</div>
                 <div class="contacts__container">
                     <div class="phone">
                         <div class="phone__label">Телефон</div>
-                        <input type="text" class="phone__value">
+                        <input type="text" class="phone__value" name="phone">
                     </div>
                     <div class="mail">
                         <div class="mail__label">Эл. почта</div>
-                        <input type="text" class="mail__value">
+                        <input type="text" class="mail__value" name="email">
                     </div>
                 </div>
             </div>
             <div class="register-form__group">
-                <div class="register-form__group__label">6. Занимаетесь вывозом отходов или работаете только как пункт приема</div>
+                <div class="register-form__group__label">5. Занимаетесь вывозом отходов или работаете только как пункт приема</div>
                 <div class="is-export__value">
                     <label>
-                        <input type="radio" name="answer" value="yes">
+                        <input type="radio" name="isTaxi" value="true" >
                         Да, занимаемся
                     </label>
                     <label>
-                        <input type="radio" name="answer" value="no">
+                        <input type="radio" name="isTaxi" value="false">
                         Нет, мы только пункт приёма
                     </label>
                 </div>
             </div>
             <div class="register-form__group">
-                <button type="submit" class="register-form__submit">Отправить</button>
+                <button href="/for-companies" type="submit" class="register-form__submit">Отправить</button>
             </div>
         </form>
     </main>
