@@ -93,23 +93,23 @@ nav > .nav-button > button {
   border-radius: 5px;
 }
 
-.type-of-waste {
+.type-of-waste, .company__categories__list__item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.type-of-waste__logo {
+.type-of-waste__logo, .company__categories__list__item__logo {
   width: 60px;
   height: 57px;
   display: block;
   /*box-shadow: 0 3px 4px rgba(0,0,0,0.25);
   border-radius: 0px;*/
 }
-.type-of-waste__logo:hover {
+.type-of-waste__logo:hover, .company__categories__list__item__logo:hover {
   transform: scale(1.1);
   transition: 0.5s;
 }
-.type-of-waste__label {
+.type-of-waste__label, .company__categories__list__item__label {
   font-size: 13px;
   font-weight: 600;
 }
@@ -121,9 +121,11 @@ nav > .nav-button > button {
 #map {
   height: 66vh;
   border: 1px solid #929090;
+  /*max-width: 752px;*/
 }
 
 aside {
+  visibility: hidden;
   font-size: 20px;
   grid-area: sideinfo;
   padding: 10px;
@@ -141,6 +143,7 @@ aside > h2 {
 
 .company {
   font-family: "Roboto", sans-serif;
+  visibility: hidden;
 }
 .company > * {
   margin-bottom: 10px;
@@ -236,7 +239,14 @@ aside > h2 {
 }
 .btn.btn-search {
   background-color: #57977C;
+  border: 1px solid rgba(0, 0, 0, 0);
   color: white;
+}
+.btn.btn-search:hover {
+  background-color: white;
+  border: 1px solid #57977C;
+  color: #57977C;
+  transition: color 0.1s, background-color 0.5s;
 }
 
 .nav-button {

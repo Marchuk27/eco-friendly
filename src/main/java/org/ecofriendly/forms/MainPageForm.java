@@ -1,16 +1,24 @@
 package org.ecofriendly.forms;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.ecofriendly.db.entity.company.Category;
 
-@Data
+import java.util.List;
+
 public class MainPageForm {
-    private boolean isPlastic;
-    private boolean isPaper;
-    private boolean isGlass;
-    private boolean isClothes;
-    private boolean isBatteries;
-    private boolean isElectornics;
-    private boolean isMetal;
-    private boolean isDangerous;
-    private boolean isOther;
+
+    @Getter
+    @Setter
+    private List<Category> chosenCategories;
+//
+//    private boolean isPlastic;
+//    private boolean isPaper;
+//    private boolean isGlass;
+//    private boolean isClothes;
+//    private boolean isBatteries;
+//    private boolean isElectornics;
+//    private boolean isMetal;
+//    private boolean isDangerous;
+//    private boolean isOther;
 }

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller()
+@Controller
 @RequestMapping("/")
 public class MainController {
     /**
@@ -18,7 +18,7 @@ public class MainController {
     /**
      * Компаниям
      */
-    @GetMapping("/for-companies") //TODO:rename
+    @GetMapping(value = "/for-companies") //TODO:rename
     public String forCompaniesController() {
         return "for-companies";
     }
@@ -26,22 +26,22 @@ public class MainController {
     /**
      * FAQ
      */
-    @GetMapping("/faq")
+    @GetMapping(value = "/faq")
     public String faqController() {
         return "faq";
     }
 
-    @GetMapping("/faq/categories")
+    @GetMapping(value = "/faq/categories")
     public String faqCategoriesController() {
         return "faq-categories";
     }
 
-    @GetMapping("/faq/periods")
+    @GetMapping(value = "/faq/periods")
     public String faqPeriodsController() {
         return "faq-periods";
     }
 
-    @GetMapping("/faq/marks")
+    @GetMapping(value = "/faq/marks")
     public String faqMarkersController() {
         return "faq-marks";
     }
