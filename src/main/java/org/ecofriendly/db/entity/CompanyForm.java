@@ -1,17 +1,26 @@
-package org.ecofriendly.forms;
+package org.ecofriendly.db.entity;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 @Getter
 @Setter
 public class CompanyForm {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String street;
-    private Integer house;
+    private String house;
     private String building;
-    private Integer floor;
-    private Integer flat;
+    private String floor;
+    private String flat;
 
     //категории отходов
     private Boolean isPlastic;
