@@ -25,10 +25,10 @@ public class CompanyController {
 		return companyService.getCompanyById(id);
 	}
 
-//	@GetMapping("/companies")
-//	public List<Company> getAllCompanies() {
-//		return companyService.getAllCompanies();
-//	}
+	@GetMapping("/companies/")
+	public List<Company> getAllCompanies() {
+		return companyService.getAllCompanies();
+	}
 
 	@GetMapping("/companies/{name}")
 	public Iterable<Company> findAllCompaniesByName(@PathVariable String name) {
