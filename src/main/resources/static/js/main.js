@@ -1,7 +1,19 @@
+let newGroups = [];
 map = null;
 groups = null;
 geoObjects = [];
 geoObjectsCollections = [];
+typeOfWastePresetList = [
+    {typeOfWaste: "Пластик", preset: "islands#orangeIcon"},
+    {typeOfWaste: "Стекло", preset: "islands#greenIcon"},
+    {typeOfWaste: "Бумага", preset: "islands#blueIcon"},
+    {typeOfWaste: "Одежда", preset: "islands#yellowIcon"},
+    {typeOfWaste: "Батарейки", preset: "islands#pinkIcon"},
+    {typeOfWaste: "Бытовая", preset: "islands#nightIcon"},
+    {typeOfWaste: "Металл", preset: "islands#brownIcon"},
+    {typeOfWaste: "Опасные", preset: "islands#redIcon"},
+    {typeOfWaste: "Иное", preset: "islands#violetIcon"}
+]
 ymaps.ready(init);
 
 let nav = null;
@@ -101,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "techn":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Быт.техника").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Бытовая").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -127,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "dangerous":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Опасное").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Опасные").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -140,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "other":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Другое").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Иное").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -164,67 +176,82 @@ function init() {
         restrictMapArea: [[56.999959, 60.125085],[56.609430, 61.063112]],
         searchControlProvider: 'yandex#search'
     });
-    fetch("/category/?category=1&category=2&category=3&category=4&category=5&category=6&category=7&")
+    // clusterer = new ymaps.Clusterer({
+    //     clusterIconLayout: 'default#pieChart',
+    //     // Радиус диаграммы в пикселях.
+    //     clusterIconPieChartRadius: 25,
+    //     // Радиус центральной части макета.
+    //     clusterIconPieChartCoreRadius: 10,
+    //     // Ширина линий-разделителей секторов и внешней обводки диаграммы.
+    //     clusterIconPieChartStrokeWidth: 3,
+    //     groupByCoordinates: false,
+    //     clusterDisableClickZoom: true,
+    //     clusterHideIconOnBalloonOpen: false,
+    //     geoObjectHideIconOnBalloonOpen: false
+    // });
+
+    fetch("/category/?category=1&category=2&category=3&category=4&category=5&category=6&" +
+        "category=7&category=8&category=9")
         .then(response => response.json())
         .then((json)=>{
             groups = json;
             let keys = Object.keys(groups);
-            let newGroups = [];
             keys.forEach(el => newGroups.push({typeOfWaste: el, companyInfo: groups[el]}))
             setMapGeoObjects(newGroups);
         });
-    //setMapGeoObjects();
+
+    let array = [];
+    geoObjects.forEach(el => array.push(el.geoObject));
+    // clusterer.add(array);
 }
 
 function setMapGeoObjects(groups){
     if(groups != undefined)
     {
-        // groups.forEach(el => {
-        //     let collection = new ymaps.GeoObjectCollection(el, {
-        //         preset: "islands#orangeIcon"/*el.style*/,
-        //         visible: true
-        //     });
-        //     el.items.forEach(innerEl => {
-        //         let item = new ymaps.Placemark(innerEl.center, {
-        //             balloonContentHeader: innerEl.name,
-        //             balloonContentBody: innerEl.additionalInfo,
-        //             hintContent: innerEl.name
-        //         });
-        //         collection.add(item);
-        //         geoObjects.push({
-        //             name: innerEl.name,
-        //             itemInfo: innerEl,
-        //             geoObject: item,
-        //         });
-        //     });
-        //     map.geoObjects.add(collection);
-        //     geoObjectsCollections.push({
-        //         typeOfWaste: el.typeOfWaste,
-        //         collection: collection
-        //     })
-        // });
         for (let i = 0; i < groups.length; i++)
         {
             let collection = new ymaps.GeoObjectCollection(groups[i].companyInfo, {
-                preset: "islands#orangeIcon",
+                preset: typeOfWastePresetList.find(o=>o.typeOfWaste == groups[i].typeOfWaste).preset,
                 visible: true
             });
 
             for (let j = 0; j < groups[i].companyInfo.length; j++) {
+
                 if (groups[i].companyInfo[j].address.length == 0) {
                     continue;
                 }
+
+                let phoneInfo = "";
+                if(groups[i].companyInfo[j].phone === undefined || groups[i].companyInfo[j].phone.length == 0)
+                {
+                    phoneInfo = "Компания не предоставила данные";
+                }
+                else{
+                    phoneInfo = groups[i].companyInfo[j].phone[0].phone;
+                }
+
+                let emailInfo = "";
+                if(groups[i].companyInfo[j].email === undefined || groups[i].companyInfo[j].email.length == 0)
+                {
+                    emailInfo = "Компания не предоставила данные";
+                }
+                else{
+                    emailInfo = groups[i].companyInfo[j].email[0].email;
+                }
+
                 console.log(i, j,
-                    groups[i].companyInfo[j].address[0].latitude, groups[i].companyInfo[j].address[0].longitude)
+                    groups[i].companyInfo[j].address[0].latitude, groups[i].companyInfo[j].address[0].longitude);
                 let item = new ymaps.Placemark([groups[i].companyInfo[j].address[0].latitude, groups[i].companyInfo[j].address[0].longitude],
                     {
-                    balloonContentHeader: groups[i].companyInfo[j].name,
-                    balloonContentBody: groups[i].companyInfo[j].additionalInfo,
-                    hintContent: groups[i].companyInfo[j].name
-                });
+                        balloonContentHeader: groups[i].companyInfo[j].name,
+                        balloonContentBody: "<b>Адрес: </b>" + groups[i].companyInfo[j].address[0].address + "<br>" +
+                            "<b>Номер телефона: </b>" + phoneInfo + "<br>" +
+                            "<b>Электронная почта: </b>" + emailInfo,
+                        hintContent: groups[i].companyInfo[j].name
+                    });
                 collection.add(item);
                 geoObjects.push({
-                   name: groups[i].companyInfo[j].name,
+                    name: groups[i].companyInfo[j].name,
                     itemInfo: groups[i].companyInfo[j],
                     geoObject: item,
                 });
@@ -270,7 +297,7 @@ function setGeoObjectsEvents(){
 function setCompanyContainerInfo(company){
     let cmp = {
         name : company.itemInfo.name,
-        address : company.itemInfo.address,
+        address : company.itemInfo.address[0].address,
         contacts : company.itemInfo.contacts,
         categories : company.itemInfo.categories,
         additionalInfo : company.itemInfo.additionalInfo
@@ -280,7 +307,7 @@ function setCompanyContainerInfo(company){
     addСategories(cmp.categories);
     addContacts(cmp.contacts);
     document.getElementsByClassName("company__additional-info__value")[0].innerHTML = cmp.additionalInfo;
-    showCompanyContainer();
+    //showCompanyContainer();
 }
 
 function addСategories(categories){

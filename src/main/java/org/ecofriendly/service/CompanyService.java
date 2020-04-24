@@ -18,6 +18,4 @@ public interface CompanyService {
 	Iterable<Company> findAllCompaniesByCategories(Iterable<Category> categories);
 
 	Dictionary<String, List<Company>> getCategoryCompanies(Iterable<Category> categories);
-
-	Dictionary<Long, List<Company>> getategoryCompanies(Iterable<Category> categories);
 }

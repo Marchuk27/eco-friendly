@@ -46,7 +46,7 @@ class CompanyRepositoryTest {
 		Company company = new Company();
 		company.setName("test");
 		repository.save(company);
-		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByName("test");
+		List<Company> found = (List<Company>) repository.findAllByName("test");
 		Assert.assertThat(found, hasItem(company));
 		repository.delete(company);
 	}
@@ -69,9 +69,9 @@ class CompanyRepositoryTest {
 		//category.setCompanySet(companySet);		  |
 		categoryRepository.save(category);
 		repository.save(company);
-		ArrayList<Category> categories = new ArrayList<>();
+		List<Category> categories = new ArrayList<>();
 		categories.add(category);
-		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoryIn(categories);
+		List<Company> found = (List<Company>) repository.findAllByCategoryIn(categories);
 		Assert.assertThat(found, hasItem(company));
 		categoryRepository.deleteAll();
 		repository.deleteAll();
@@ -98,9 +98,9 @@ class CompanyRepositoryTest {
 
 		repository.save(company1);
 		repository.save(company2);
-		ArrayList<Category> categories = new ArrayList<>();
+		List<Category> categories = new ArrayList<>();
 		categories.add(category);
-		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoryIn(categories);
+		List<Company> found = (List<Company>) repository.findAllByCategoryIn(categories);
 		Assert.assertThat(found, hasItems(company1, company2));
 		categoryRepository.deleteAll();
 		repository.deleteAll();
@@ -129,11 +129,11 @@ class CompanyRepositoryTest {
 		repository.save(company1);
 		repository.save(company2);
 
-		ArrayList<Category> categories = new ArrayList<>();
+		List<Category> categories = new ArrayList<>();
 		categories.add(category1);
 		categories.add(category2);
 
-		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoryIn(categories);
+		List<Company> found = (List<Company>)repository.findAllByCategoryIn(categories);
 		Assert.assertThat(found, hasItems(company1, company2));
 		categoryRepository.deleteAll();
 		repository.deleteAll();
@@ -154,7 +154,7 @@ class CompanyRepositoryTest {
 		company2.setCategory(set);
 		repository.save(company1);
 		repository.save(company2);
-		ArrayList<Company> found = (ArrayList<Company>) repository.findAllByCategoryIs(category);
+		List<Company> found = repository.findAllByCategoryIs(category);
 		Assert.assertThat(found, hasItems(company1, company2));
 		categoryRepository.deleteAll();
 		repository.deleteAll();
