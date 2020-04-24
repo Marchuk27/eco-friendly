@@ -1,16 +1,42 @@
 map = null;
+groups = null;
 geoObjects = [];
 geoObjectsCollections = [];
 ymaps.ready(init);
 
+let nav = null;
+
+let heightOfHeader = 35;
+let partOfScreen = 304;/*window.innerHeight - window.innerHeight / 3; heightOfNav*/
+
+/*menu.addEventListener("touchstart", (e) => {
+    let touch = e.touches[0];
+    let y  = touch.clientY;
+    console.log("touchStart", y);
+});*/
+
 document.addEventListener('DOMContentLoaded', function(e){
     let typesOfWaste = document.getElementsByClassName("type-of-waste");
+    nav = document.getElementsByTagName("nav")[0];
+    nav.addEventListener("touchmove", (e)=>{
+        let touch = e.touches[0];
+        let y = touch.clientY;
+        if(y < window.innerHeight-partOfScreen){
+            y = window.innerHeight-partOfScreen;
+        }
+        if(y > window.innerHeight - heightOfHeader)
+        {
+            y = window.innerHeight - heightOfHeader;
+        }
+        nav.style.top = y + "px";
+        //console.log("touchMove", x);
+    });
     Array.from(typesOfWaste).forEach(element => {
         switch (element.id) {
             case "plastic":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste==="Пластик").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Пластик").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -23,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "glass":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste==="Стекло").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Стекло").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -36,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "paper":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste==="Бумага").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Бумага").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -49,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "clothes":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste==="Одежда").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Одежда").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -62,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "accums":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste==="Батарейки").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Батарейки").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -75,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "techn":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste==="Быт.техника").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Быт.техника").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -88,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "metal":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste==="Металл").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Металл").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -101,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "dangerous":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste==="Опасное").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Опасное").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -114,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             case "other":
             {
                 element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste==="Другое").collection;
+                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Другое").collection;
                     if(collection.options.get("visible")){
                         collection.options.set("visible", false);
                     }
@@ -138,29 +164,68 @@ function init() {
         restrictMapArea: [[56.999959, 60.125085],[56.609430, 61.063112]],
         searchControlProvider: 'yandex#search'
     });
-    setMapGeoObjects();
+    fetch("/category/?category=1&category=2&category=3&category=4&category=5&category=6&category=7&")
+        .then(response => response.json())
+        .then((json)=>{
+            groups = json;
+            let keys = Object.keys(groups);
+            let newGroups = [];
+            keys.forEach(el => newGroups.push({typeOfWaste: el, companyInfo: groups[el]}))
+            setMapGeoObjects(newGroups);
+        });
+    //setMapGeoObjects();
 }
 
-function setMapGeoObjects(){
-    if(groups !== undefined)
+function setMapGeoObjects(groups){
+    if(groups != undefined)
     {
-        for(let i = 0; i < groups.length; i++)
+        // groups.forEach(el => {
+        //     let collection = new ymaps.GeoObjectCollection(el, {
+        //         preset: "islands#orangeIcon"/*el.style*/,
+        //         visible: true
+        //     });
+        //     el.items.forEach(innerEl => {
+        //         let item = new ymaps.Placemark(innerEl.center, {
+        //             balloonContentHeader: innerEl.name,
+        //             balloonContentBody: innerEl.additionalInfo,
+        //             hintContent: innerEl.name
+        //         });
+        //         collection.add(item);
+        //         geoObjects.push({
+        //             name: innerEl.name,
+        //             itemInfo: innerEl,
+        //             geoObject: item,
+        //         });
+        //     });
+        //     map.geoObjects.add(collection);
+        //     geoObjectsCollections.push({
+        //         typeOfWaste: el.typeOfWaste,
+        //         collection: collection
+        //     })
+        // });
+        for (let i = 0; i < groups.length; i++)
         {
-            let collection = new ymaps.GeoObjectCollection(groups[i], {
-                preset: groups[i].style,
+            let collection = new ymaps.GeoObjectCollection(groups[i].companyInfo, {
+                preset: "islands#orangeIcon",
                 visible: true
             });
 
-            for(let j = 0; j < groups[i].items.length; j++){
-                let item = new ymaps.Placemark(groups[i].items[j].center, {
-                    balloonContentHeader: groups[i].items[j].name,
-                    balloonContentBody: groups[i].items[j].additionalInfo,
-                    hintContent: groups[i].items[j].name
+            for (let j = 0; j < groups[i].companyInfo.length; j++) {
+                if (groups[i].companyInfo[j].address.length == 0) {
+                    continue;
+                }
+                console.log(i, j,
+                    groups[i].companyInfo[j].address[0].latitude, groups[i].companyInfo[j].address[0].longitude)
+                let item = new ymaps.Placemark([groups[i].companyInfo[j].address[0].latitude, groups[i].companyInfo[j].address[0].longitude],
+                    {
+                    balloonContentHeader: groups[i].companyInfo[j].name,
+                    balloonContentBody: groups[i].companyInfo[j].additionalInfo,
+                    hintContent: groups[i].companyInfo[j].name
                 });
                 collection.add(item);
                 geoObjects.push({
-                    name: groups[i].items[j].name,
-                    itemInfo: groups[i].items[j],
+                   name: groups[i].companyInfo[j].name,
+                    itemInfo: groups[i].companyInfo[j],
                     geoObject: item,
                 });
             }
@@ -177,8 +242,8 @@ function setMapGeoObjects(){
 function showCompanyContainer(){
     let company = document.getElementsByClassName("company")[0];
     let companyStyle = window.getComputedStyle(company, null);
-    if(companyStyle.visibility === "hidden"){
-        company.style.visibility = "visible";
+    if(companyStyle.visibility=="hidden"){
+        company.style.visibility="visible";
         return;
     }
 }
@@ -223,7 +288,7 @@ function addСategories(categories){
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
-    if(categories === undefined)
+    if(categories == undefined)
     {
         return;
     }
@@ -306,6 +371,28 @@ function addContacts(contacts){
         return;
     }
     else{
+        /*let categoriesDictionary = [
+            {
+                type: "ig",
+                value:"images/ig-logo.png"
+            },
+            {
+                type: "vk",
+                value:"images/vk-logo.png"
+            },
+            {
+                type: "wapp",
+                value:"images/wapp-logo.png"
+            },
+            {
+                type: "phone",
+                value: "images/phone-logo.png"
+            },
+            {
+                type: "web",
+                value:"images/web-logo-2.png"
+            }
+        ];*/
         for (let i = 0, len=contacts.length; i < len; i++)
         {
             let item = document.createElement("div");
@@ -315,29 +402,30 @@ function addContacts(contacts){
             let logo = document.createElement("img");
             logo.className = "company__contacts__list__item__logo";
             logo.alt = "logo";
+            //logo.src = categoriesDictionary.find(o=>o.type===contacts[i].type).value;
 
             let value = document.createElement("div");
             value.className = "company__contacts__list__item__value";
             value.innerHTML=contacts[i].value;
             switch (contacts[i].type) {
                 case "ig": {
-                    logo.src="images/ig-logo.png";
+                    logo.src="images/ig-logo.png"
                     break;
                 }
                 case "vk": {
-                    logo.src="images/vk-logo.png";
+                    logo.src="images/vk-logo.png"
                     break;
                 }
                 case "wapp": {
-                    logo.src="images/wapp-logo.png";
+                    logo.src="images/wapp-logo.png"
                     break;
                 }
                 case "phone": {
-                    logo.src="images/phone-logo.png";
+                    logo.src="images/phone-logo.png"
                     break;
                 }
                 case "web": {
-                    logo.src="images/web-logo-2.png";
+                    logo.src="images/web-logo-2.png"
                     break;
                 }
                 default:

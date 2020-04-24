@@ -22,4 +22,9 @@ public class CategoryController {
 	public Dictionary<String, List<Company>> getCategoryCompaniesDictionary(@RequestParam List<Category> category) {
 		return companyService.getCategoryCompanies(category);
 	}
+
+	@GetMapping("/category1/")
+	public Dictionary<Long, List<Company>> getategoryCompaniesDictionary(@RequestParam List<Category> category) {
+		return companyService.getategoryCompanies(category);
+	}
 }

@@ -48,4 +48,13 @@ public class CompanyServiceImplementation implements CompanyService {
 		return dictionary;
 	}
 
+	@Override
+	public Dictionary<Long, List<Company>> getategoryCompanies(Iterable<Category> categories) {
+		Dictionary<Long, List<Company>> dictionary = new Hashtable<>();
+		for (Category category : categories) {
+			dictionary.put(category.getId(), (List<Company>) companyRepository.findAllByCategoryIs(category));
+		}
+		return dictionary;
+	}
+
 }
