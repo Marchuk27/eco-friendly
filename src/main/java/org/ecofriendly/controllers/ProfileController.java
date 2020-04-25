@@ -1,6 +1,11 @@
 package org.ecofriendly.controllers;
 
+import org.ecofriendly.db.entity.UserAccount;
+import org.ecofriendly.repository.UserAccountRepository;
+import org.ecofriendly.service.UserAccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/profile")
 public class ProfileController {
+	private UserAccountRepository userRepository;
+	private UserAccountService userService;
+
+	@Autowired
+	private void setUserRepository(UserAccountRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
+	@Autowired
+	private void setUserService(UserAccountService userService) {
+		this.userService = userService;
+	}
+
 	@GetMapping()
 	public String profile() {
 		return "profile";
@@ -19,7 +37,11 @@ public class ProfileController {
 	}
 
 	@PostMapping("/registration")
-	public String register() {
-		return null; //redirect
+	public String sendCompanyRequest(UserAccount userForm, Model model) {
+		model.addAttribute("userForm", userForm);
+		if (userService.checkFormData(userForm)) {
+			userRepository.save(userForm);
+		}
+		return "profile";
 	}
 }

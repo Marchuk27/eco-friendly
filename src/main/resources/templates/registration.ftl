@@ -21,31 +21,31 @@
             </div>
         </div>
         <div class="form-container">
-            <form action="html/profile-map.html" class="form signin">
+            <form action="/profile/registration" method="post" class="form signin">
                 <h2 class="form__heading">Регистрация</h2>
-                <input type="text" class="form__input" placeholder="Фамилия">
-                <input type="text" class="form__input" placeholder="Имя">
-                <input type="text" class="form__input" placeholder="Отчество">
+                <input type="text" class="form__input" placeholder="Фамилия" name="surname">
+                <input type="text" class="form__input" placeholder="Имя" name="firstName">
+                <input type="text" class="form__input" placeholder="Отчество" name="fatherName">
                 <div class="form__label">Дата рождения</div>
                 <div class="birthday-container">
-                    <input type="date" class="form__input" id="birthday">
+                    <input type="date" class="form__input" id="birthday" name="dateOfBirth">
                 </div>
                 <div class="form__label">Пол</div>
                 <div class="sex-container">
                     <div class="sex-container__item">
                         <label for="man">Мужчина</label>
-                        <input type="radio" name="sex" id="sex" value="man">
+                        <input type="radio" id="sex" name="isMan" value="true">
                     </div>
                     <div class="sex-container__item">
                         <label for="man">Женщина</label>
-                        <input type="radio" name="sex" id="sex" value="woman">
+                        <input type="radio" id="sex" name="isMan" value="false">
                     </div>
                 </div>
-                <input type="text" class="form__input" placeholder="E-mail">
-                <input type="password" class="form__input password" placeholder="Пароль">
+                <input type="text" class="form__input" placeholder="E-mail" name="email">
+                <input type="password" class="form__input password" placeholder="Пароль" name="password">
                 <input type="password" class="form__input password" placeholder="Повторите пароль">
                 <div class="form__container-button">
-                    <button type="submit" class="form__button register">Зарегистрироваться</button>
+                    <button href="/profile/registration" type="submit" class="form__button register">Зарегистрироваться</button>
                 </div>
                 <div class="form__warning">Нажимая “Зарегистрироваться”, Вы подтверждаете свое согласие на обработку ваших <u>персональных данных</u></div>
             </form>

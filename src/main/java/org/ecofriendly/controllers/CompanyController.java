@@ -1,7 +1,7 @@
 package org.ecofriendly.controllers;
 
 import org.ecofriendly.db.entity.Company;
-import org.ecofriendly.service.CompanyService;
+import org.ecofriendly.service.interfaces.ICompanyService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,9 +13,9 @@ import java.util.Optional;
 @RestController
 public class CompanyController {
 
-	private final CompanyService companyService;
+	private final ICompanyService companyService;
 
-	public CompanyController(CompanyService companyService) {
+	public CompanyController(ICompanyService companyService) {
 		this.companyService = companyService;
 	}
 

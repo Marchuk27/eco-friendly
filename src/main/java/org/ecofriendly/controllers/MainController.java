@@ -12,8 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class MainController {
+    private CompanyFormRepository companyFormRepository;
+
     @Autowired
-    CompanyFormRepository repository;
+    private void setUserRepository(CompanyFormRepository companyFormRepository) {
+        this.companyFormRepository = companyFormRepository;
+    }
+
     /**
      * Главная страница
      */
@@ -33,7 +38,7 @@ public class MainController {
     @PostMapping("/for-companies")
     public String sendCompanyRequest(CompanyForm companyform, Model model) {
         model.addAttribute("companyForm", companyform);
-        repository.save(companyform);
+        companyFormRepository.save(companyform);
         return "for-companies";
     }
 

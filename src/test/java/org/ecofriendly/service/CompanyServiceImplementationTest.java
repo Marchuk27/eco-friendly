@@ -25,7 +25,7 @@ class CompanyServiceImplementationTest {
 	@Mock
 	private CategoryRepository           categoryRepository;
 	@InjectMocks
-	private CompanyServiceImplementation companyService;
+	private CompanyService companyService;
 
 	@BeforeEach
 	public void setup() {
