@@ -43,7 +43,7 @@
                 </div>
                 <input type="text" class="form__input" placeholder="E-mail" name="email">
                 <input type="password" class="form__input password" placeholder="Пароль" name="password">
-                <input type="password" class="form__input password" placeholder="Повторите пароль">
+                <input type="password" class="form__input password" placeholder="Повторите пароль" name="repeatPassword">
                 <div class="form__container-button">
                     <button href="/profile/registration" type="submit" class="form__button register">Зарегистрироваться</button>
                 </div>
