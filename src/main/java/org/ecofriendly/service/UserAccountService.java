@@ -27,7 +27,7 @@ public class UserAccountService implements IUserAccountService {
     }
 
     @Override
-    public Boolean isUerAlreadyExists(String email) {
+    public Boolean isUserAlreadyExists(String email) {
         return Objects.nonNull(userRepository.findUserAccountByEmail(email));
     }
 
@@ -40,7 +40,7 @@ public class UserAccountService implements IUserAccountService {
 
     @Override
     public Boolean checkFormData(UserRegisterForm userForm) {
-        if (isUerAlreadyExists(userForm.getEmail())) {
+        if (isUserAlreadyExists(userForm.getEmail())) {
             log.error("Такой email уже существует " + userForm.getEmail());
             return false;
         }

@@ -12,7 +12,7 @@ public interface IUserAccountService {
     /**
      * @return true - есть такой пользователь; false - нет
      */
-    Boolean isUerAlreadyExists(String email);
+    Boolean isUserAlreadyExists(String email);
 
     /**
      * @return true - если введенные в поля значения паролей совпадают и значение пароля:
