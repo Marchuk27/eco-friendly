@@ -1,5 +1,6 @@
 <#ftl />
 <#import "shared/navbar.ftl" as navbar/>
+<#import "shared/banners.ftl" as profile/>
 <!DOCTYPE html>
 <html lang="eng">
 <head>
@@ -15,16 +16,7 @@
 <@navbar.navbar/>
 <script>document.getElementById('profile_page').className = "current"</script>
 <main>
-    <div class="banner-container">
-        <div class="banner">
-            <img src="https://ne-kurim.ru/forum/attachments/cute-panda-bear-sleep-rest-tree-zoo_2560x1440-jpg.481392/"
-                 alt="BANNER_1" class="banner__image">
-        </div>
-        <div class="banner">
-            <img src="https://images.wallpaperscraft.com/image/panda_bear_branch_tree_99785_2048x1152.jpg"
-                 alt="BANNER_2" class="banner__image">
-        </div>
-    </div>
+    <@profile.banners/>
     <div class="form-container">
         <form action="/profile/registration" method="post" class="form signin">
             <h2 class="form__heading">Регистрация</h2>
