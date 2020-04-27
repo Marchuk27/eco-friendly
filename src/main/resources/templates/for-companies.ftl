@@ -1,6 +1,6 @@
-<#import "shared/navbars/nabar-comp.ftl" as navbar/>
+<#import "shared/navbar.ftl" as navbar/>
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -10,35 +10,37 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/header.css'>
 </head>
 <body>
-<@navbar.navbarTemplate/>
-    <main>
-        <div class="information">
-            Если ваша компания занимается сбором отходов, заполните форму ниже, и после проверки данных мы добавим вас на карту.
+<@navbar.navbar/>
+<script>document.getElementById('for-companies_page').className = "current"</script>
+<main>
+    <div class="information">
+        Если ваша компания занимается сбором отходов, заполните форму ниже, и после проверки данных мы добавим вас на
+        карту.
+    </div>
+    <form class="register-form" action="/for-companies" method="post">
+        <div class="register-form__group">
+            <label for="name" class="register-form__group__label">1. Название компании</label>
+            <input type="text" class="company-name__value" name="name" required/>
         </div>
-        <form class="register-form" action="/for-companies" method="post">
-            <div class="register-form__group">
-                <div class="register-form__group__label">1. Название компании</div>
-                <input type="text" class="company-name__value" name="name" />
-            </div>
-            <div class="register-form__group">
-                <div class="register-form__group__label">2. Фактический адрес</div>
-                <div class="address__container">
-                    <div class="street">
-                        <div class="street__label">Улица</div>
-                        <input type="text"  class="street__value" name="street"/>
+        <div class="register-form__group">
+            <div class="register-form__group__label">2. Фактический адрес</div>
+            <div class="address__container">
+                <div class="street">
+                    <div class="street__label">Улица</div>
+                    <input type="text" class="street__value" name="street"/>
+                </div>
+                <div class="other">
+                    <div class="house">
+                        <div class="house__label">Дом</div>
+                        <input type="text" class="house__value" name="house"/>
                     </div>
-                    <div class="other">
-                        <div class="house">
-                            <div class="house__label">Дом</div>
-                            <input type="text" class="house__value" name="house"/>
-                        </div>
-                        <div class="building">
-                            <div class="building__label">Корпус</div>
-                            <input type="text" class="building__value" name="building"/>
-                        </div>
-                        <div class="floor">
-                            <div class="floor__label">Этаж</div>
-                            <input type="text" class="floor__value" name="floor"/>
+                    <div class="building">
+                        <div class="building__label">Корпус</div>
+                        <input type="text" class="building__value" name="building"/>
+                    </div>
+                    <div class="floor">
+                        <div class="floor__label">Этаж</div>
+                        <input type="text" class="floor__value" name="floor"/>
                         </div>
                         <div class="flat">
                             <div class="flat__label">Кв./офис</div>
@@ -101,23 +103,25 @@
                     </div>
                 </div>
             </div>
-            <div class="register-form__group">
-                <div class="register-form__group__label">5. Занимаетесь вывозом отходов или работаете только как пункт приема</div>
-                <div class="is-export__value">
-                    <label>
-                        <input type="radio" name="isTaxi" value="true" >
-                        Да, занимаемся
-                    </label>
-                    <label>
-                        <input type="radio" name="isTaxi" value="false">
-                        Нет, мы только пункт приёма
-                    </label>
-                </div>
+        <div class="register-form__group">
+            <div class="register-form__group__label">5. Занимаетесь вывозом отходов или работаете только как пункт
+                приема
             </div>
-            <div class="register-form__group">
-                <button href="/for-companies" type="submit" class="register-form__submit">Отправить</button>
+            <div class="is-export__value">
+                <label>
+                    <input type="radio" name="isTaxi" value="true">
+                    Да, занимаемся
+                </label>
+                <label>
+                    <input type="radio" name="isTaxi" value="false">
+                    Нет, мы только пункт приёма
+                </label>
             </div>
-        </form>
-    </main>
+        </div>
+        <div class="register-form__group">
+            <button type="submit" class="register-form__submit">Отправить</button>
+        </div>
+    </form>
+</main>
 </body>
 </html>

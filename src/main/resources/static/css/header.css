@@ -58,8 +58,9 @@ header {
       text-decoration: none;
       text-align: center; }
 
-#header-current {
+.current {
   border-bottom: 10px solid #36614F;
-  padding-top: 10px; }
+  padding-top: 10px;
+}
 
 /*# sourceMappingURL=header.css.map */

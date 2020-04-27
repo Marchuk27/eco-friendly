@@ -1,5 +1,5 @@
 <#ftl />
-<#import "shared/navbars/nabar-lk.ftl" as navbar/>
+<#import "shared/navbar.ftl" as navbar/>
 <!DOCTYPE html>
 <html lang="eng">
 <head>
@@ -12,7 +12,8 @@
     <script rel="script" type="text/javascript" src="/js/password_validation.js"></script>
 </head>
 <body>
-<@navbar.navbarTemplate/>
+<@navbar.navbar/>
+<script>document.getElementById('profile_page').className = "current"</script>
 <main>
     <div class="banner-container">
         <div class="banner">
