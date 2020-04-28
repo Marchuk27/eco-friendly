@@ -86,7 +86,7 @@ class CompanyServiceImplementationTest {
 		expected.put(cat3.getName(), cat3List);
 
 
-		Dictionary<String, List<Company>> found = companyService.getCategoryCompanies(categories);
+		Dictionary<String, Iterable<Company>> found = companyService.getCategoryCompanies(categories);
 
 		//Assertions.assertEquals(expected.size(), found.size());
 		//Assertions.assertEquals(expected.keys(), found.keys());

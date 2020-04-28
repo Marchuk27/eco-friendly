@@ -38,8 +38,8 @@ public class CompanyService implements ICompanyService {
 	}
 
 	@Override
-	public Dictionary<String, List<Company>> getCategoryCompanies(Iterable<Category> categories) {
-		Dictionary<String, List<Company>> dictionary = new Hashtable<>();
+	public Dictionary<String, Iterable<Company>> getCategoryCompanies(Iterable<Category> categories) {
+		Dictionary<String, Iterable<Company>> dictionary = new Hashtable<>();
 		for (Category category : categories) {
 			dictionary.put(category.getName(), companyRepository.findAllByCategoryIs(category));
 		}

@@ -17,5 +17,5 @@ public interface ICompanyService {
 
 	Iterable<Company> findAllCompaniesByCategories(Iterable<Category> categories);
 
-	Dictionary<String, List<Company>> getCategoryCompanies(Iterable<Category> categories);
+	Dictionary<String, Iterable<Company>> getCategoryCompanies(Iterable<Category> categories);
 }

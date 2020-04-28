@@ -154,7 +154,7 @@ class CompanyRepositoryTest {
 		company2.setCategory(set);
 		repository.save(company1);
 		repository.save(company2);
-		List<Company> found = repository.findAllByCategoryIs(category);
+		Iterable<Company> found = repository.findAllByCategoryIs(category);
 		Assert.assertThat(found, hasItems(company1, company2));
 		categoryRepository.deleteAll();
 		repository.deleteAll();

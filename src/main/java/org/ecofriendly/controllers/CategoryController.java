@@ -23,12 +23,12 @@ public class CategoryController {
 	}
 
 	@GetMapping("/category/")
-	public Dictionary<String, List<Company>> getCategoryCompaniesDictionary(@RequestParam List<Category> category) {
-		Dictionary<String, List<Company>> companyDictionary =  companyService.getCategoryCompanies(category);
+	public Dictionary<String, Iterable<Company>> getCategoryCompaniesDictionary(@RequestParam List<Category> category) {
+		Dictionary<String, Iterable<Company>> companyDictionary =  companyService.getCategoryCompanies(category);
 		if (Objects.isNull(companyDictionary) || ObjectUtils.isEmpty(companyDictionary)) {
 			log.error("В БД отсутствуют компании");
 			return null;
 		}
-		return companyService.getCategoryCompanies(category);
+		return companyDictionary;
 	}
 }
