@@ -27,6 +27,7 @@ public class CategoryController {
 		Dictionary<String, List<Company>> companyDictionary =  companyService.getCategoryCompanies(category);
 		if (Objects.isNull(companyDictionary) || ObjectUtils.isEmpty(companyDictionary)) {
 			log.error("В БД отсутствуют компании");
+			return null;
 		}
 		return companyService.getCategoryCompanies(category);
 	}
