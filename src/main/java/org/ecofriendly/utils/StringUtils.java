@@ -1,7 +1,7 @@
 package org.ecofriendly.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import org.ecofriendly.forms.UserRegisterForm;
+import org.ecofriendly.db.entity.UserAccount;
 
 /**
  * Class-helper for strings in this project
@@ -32,7 +32,7 @@ public class StringUtils {
         return fieldValue.length() >= 6;
     }
 
-    public static boolean checkIdentityForPasswordFields(UserRegisterForm registerForm) {
+    public static boolean checkIdentityForPasswordFields(UserAccount registerForm) {
         return registerForm.getPassword().equals(registerForm.getRepeatPassword());
     }
 }

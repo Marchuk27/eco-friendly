@@ -2,7 +2,6 @@ package org.ecofriendly.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.ecofriendly.db.entity.UserAccount;
-import org.ecofriendly.forms.UserRegisterForm;
 import org.ecofriendly.repository.UserAccountRepository;
 import org.ecofriendly.service.interfaces.IUserAccountService;
 import org.ecofriendly.utils.StringUtils;
@@ -32,14 +31,14 @@ public class UserAccountService implements IUserAccountService {
     }
 
     @Override
-    public Boolean checkCorrectInputForPasswords(UserRegisterForm userForm) {
-        return StringUtils.hasFieldOneMoreNumOrLetter(userForm.getPassword()) &&
-                StringUtils.checkFieldForCorrectLength(userForm.getPassword()) &&
-                StringUtils.checkIdentityForPasswordFields(userForm);
+    public Boolean checkCorrectInputForPasswords(UserAccount account) {
+        return StringUtils.hasFieldOneMoreNumOrLetter(account.getPassword()) &&
+                StringUtils.checkFieldForCorrectLength(account.getPassword()) &&
+                StringUtils.checkIdentityForPasswordFields(account);
     }
 
     @Override
-    public Boolean checkFormData(UserRegisterForm userForm) {
+    public Boolean checkFormData(UserAccount userForm) {
         if (isUserAlreadyExists(userForm.getEmail())) {
             log.error("Такой email уже существует " + userForm.getEmail());
             return false;
@@ -50,17 +49,5 @@ public class UserAccountService implements IUserAccountService {
         }
         //TODO: Еще проверки по введенным данным в форму регистрации
         return true;
-    }
-
-    @Override
-    public void setAccountFields(UserRegisterForm userForm, UserAccount account) {
-        account.setFirstName(userForm.getFirstName());
-        account.setSurname(userForm.getSurname());
-        account.setFatherName(userForm.getFatherName());
-        account.setDateOfBirth(userForm.getDateOfBirth());
-
-        account.setMan(userForm.isMan());
-        account.setEmail(userForm.getEmail());
-        account.setPassword(userForm.getPassword());
     }
 }

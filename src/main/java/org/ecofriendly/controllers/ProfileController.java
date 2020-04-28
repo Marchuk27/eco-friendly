@@ -1,7 +1,6 @@
 package org.ecofriendly.controllers;
 
 import org.ecofriendly.db.entity.UserAccount;
-import org.ecofriendly.forms.UserRegisterForm;
 import org.ecofriendly.repository.UserAccountRepository;
 import org.ecofriendly.service.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +37,9 @@ public class ProfileController {
 	}
 
 	@PostMapping("/registration")
-	public String sendCompanyRequest(UserRegisterForm registerForm, UserAccount account, Model model) {
-		model.addAttribute("registerForm", registerForm);
-		if (userService.checkFormData(registerForm)) {
-			userService.setAccountFields(registerForm, account);
+	public String registerUser(UserAccount account, Model model) {
+		model.addAttribute("account", account);
+		if (userService.checkFormData(account)) {
 			userRepository.save(account);
 			return "profile";
 		}
