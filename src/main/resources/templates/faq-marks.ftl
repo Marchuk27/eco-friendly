@@ -1,6 +1,6 @@
-<#import "shared/navbars/nabar-faq.ftl" as navbar/>
+<#import "shared/navbar.ftl" as navbar/>
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="ru">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -11,12 +11,13 @@
     <script src="/js/faq-marks.js" type="text/javascript"></script>
 </head>
 <body>
-<@navbar.navbarTemplate/>
+<@navbar.navbar/>
+<script>document.getElementById('faq_page').className = "current"</script>
 <main>
     <nav>
         <ul>
             <li><a href="/faq">О проекте</a></li>
-            <li><a href="#">Виды отходов</a></li>
+            <li hidden="hidden"><a href="#">Виды отходов</a></li>
             <li><a href="/faq/periods">Сроки разложения</a></li>
             <li><a href="/faq/marks" id="current">Маркировки на упаковках</a></li>
         </ul>
@@ -26,7 +27,7 @@
             <div class="search-container__search">
                 <div class="search-container__search__label">Быстрый поиск:</div>
                 <select class="search-container__search__input" onchange="location.hash=this.value">
-                    <option value="PET">1 - PET / ПЭТ </option>
+                    <option value="PET">1 - PET / ПЭТ</option>
                     <option value="#HDPE">2 - HDPE / PEHD / ПЭВП</option>
                     <option value="#PVC">3 - PVC / ПВХ</option>
                     <option value="#LDPE">4 - LDPE / PEBD</option>

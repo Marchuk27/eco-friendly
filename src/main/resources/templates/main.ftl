@@ -1,6 +1,6 @@
-<#import "shared/navbars/navbar-main.ftl" as navbar/>
+<#import "shared/navbar.ftl" as navbar/>
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="ru">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -8,32 +8,34 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/css/header.css'>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=cce8c8c9-a3d9-45a9-a1ec-ce763a37a4b8" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=cce8c8c9-a3d9-45a9-a1ec-ce763a37a4b8"
+            type="text/javascript"></script>
     <script src="/js/groups.js" type="text/javascript"></script>
     <script src="/js/main.js" type="text/javascript"></script>
 </head>
 <body>
-<@navbar.navbarTemplate/>
-    <main>
-        <nav>
-            <h2>Виды отходов</h2>
-            <div id="types-of-waste">
-                <div class="type-of-waste" id="plastic">
-                    <img class="type-of-waste__logo" src="/images/plasticLogo.png" alt="logo">
-                    <div class="type-of-waste__label">Пластик</div>
-                </div>
-                <div class="type-of-waste" id="glass">
-                    <img class="type-of-waste__logo" src="/images/glass.png" alt="logo">
-                    <div class="type-of-waste__label">Стекло</div>
-                </div>
-                <div class="type-of-waste" id="paper">
-                    <img class="type-of-waste__logo" src="/images/paper.png" alt="logo">
-                    <div class="type-of-waste__label">Бумага</div>
-                </div>
-                <div class="type-of-waste" id="clothes">
-                    <img class="type-of-waste__logo" src="/images/clothes.png" alt="logo">
-                    <div class="type-of-waste__label">Одежда</div>
-                </div>
+<@navbar.navbar/>
+<script>document.getElementById('main_page').className = "current"</script>
+<main>
+    <nav>
+        <h2>Виды отходов</h2>
+        <div id="types-of-waste">
+            <div class="type-of-waste" id="plastic">
+                <img class="type-of-waste__logo" src="/images/plasticLogo.png" alt="logo">
+                <div class="type-of-waste__label">Пластик</div>
+            </div>
+            <div class="type-of-waste" id="glass">
+                <img class="type-of-waste__logo" src="/images/glass.png" alt="logo">
+                <div class="type-of-waste__label">Стекло</div>
+            </div>
+            <div class="type-of-waste" id="paper">
+                <img class="type-of-waste__logo" src="/images/paper.png" alt="logo">
+                <div class="type-of-waste__label">Бумага</div>
+            </div>
+            <div class="type-of-waste" id="clothes">
+                <img class="type-of-waste__logo" src="/images/clothes.png" alt="logo">
+                <div class="type-of-waste__label">Одежда</div>
+            </div>
                 <div class="type-of-waste" id="accums">
                     <img class="type-of-waste__logo" src="/images/accums.png" alt="logo">
                     <div class="type-of-waste__label">Батарейки</div>

@@ -1,6 +1,6 @@
-<#import "shared/navbars/nabar-faq.ftl" as navbar/>
+<#import "shared/navbar.ftl" as navbar/>
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="ru">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -10,32 +10,34 @@
     <link rel='stylesheet' type='text/css' media='screen' href='/css/header.css'>
 </head>
 <body>
-<@navbar.navbarTemplate/>
-    <main>
-        <nav>
-            <ul>
-                <li><a href="/faq">О проекте</a></li>
-                <li><a href="#">Виды отходов</a></li>
-                <li><a href="/faq/periods" id="current">Сроки разложения</a></li>
-                <li><a href="/faq/marks">Маркировки на упаковках</a></li>
-            </ul>
-        </nav>
-        <div class="container">
-            <div class="card">
-                <h2 class="card__label">Пластик</h2>
-                <div class="card__container">
-                    <img class="card__container__image" src="/images/plasticLogo.png" alt="">
-                    <div class="card__container__description">
-                        <p>Различные виды пластика разлагаются от 100 до 1000 лет.</p>
-                        <p>Например, обычный полиэтиленовый <b><i>пакет</i></b> будет разлагаться в почве чуть больше <u>ста лет</u>.</p>
-                    </div>
+<@navbar.navbar/>
+<script>document.getElementById('faq_page').className = "current"</script>
+<main>
+    <nav>
+        <ul>
+            <li><a href="/faq">О проекте</a></li>
+            <li hidden="hidden"><a href="#">Виды отходов</a></li>
+            <li><a href="/faq/periods" id="current">Сроки разложения</a></li>
+            <li><a href="/faq/marks">Маркировки на упаковках</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <h2 class="card__label">Пластик</h2>
+            <div class="card__container">
+                <img class="card__container__image" src="/images/plasticLogo.png" alt="">
+                <div class="card__container__description">
+                    <p>Различные виды пластика разлагаются от 100 до 1000 лет.</p>
+                    <p>Например, обычный полиэтиленовый <b><i>пакет</i></b> будет разлагаться в почве чуть больше <u>ста
+                            лет</u>.</p>
                 </div>
             </div>
-            <div class="card">
-                <h2 class="card__label">Стекло</h2>
-                <div class="card__container">
-                    <img class="card__container__image" src="/images/glass.png" alt="">
-                    <div class="card__container__description">
+        </div>
+        <div class="card">
+            <h2 class="card__label">Стекло</h2>
+            <div class="card__container">
+                <img class="card__container__image" src="/images/glass.png" alt="">
+                <div class="card__container__description">
                         Стекло можно легко перерабатывать, потому что оно сделано из песка. Однако, если выбрасывать стеклянные изделия на свалку, разложение может занять <u>миллионы лет</u>.
                     </div>
                 </div>
