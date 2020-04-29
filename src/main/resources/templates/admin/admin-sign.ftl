@@ -7,10 +7,8 @@
 </head>
 <body>
 <header>
-    <div class="logo">
-        <img src="/images/logo.png" alt="Лого" class="logo__image">
-        <div class="logo__name">Eco-Friendly Project</div>
-    </div>
+    <img src="/images/logo.png" style="width:100px; height:100px;" alt="picture">
+    <div>Eco-Friendly Admin</div>
 </header>
 <div>
     <form action="/admin" method="post">

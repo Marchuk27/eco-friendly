@@ -2,13 +2,9 @@ package org.ecofriendly.db.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.sql.Date;
-import java.util.Collection;
 
 @Entity
 @Getter
