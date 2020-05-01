@@ -53,4 +53,8 @@ public class StringUtils {
         log.warn("!!!!  Попытка доступа к панели администрирования  !!!!");
         return false;
     }
+
+    public static boolean equalsForOperationUuid(String receivedCode, String operationUuid) {
+        return operationUuid.equals(receivedCode);
+    }
 }

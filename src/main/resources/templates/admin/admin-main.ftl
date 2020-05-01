@@ -1,3 +1,6 @@
+<#assign op_uuid2 = "4aQd2=249oiwq0uz_6x">
+<#assign op_uuid3 = "70sC5617!1&=zpKzP91">
+<#assign op_uuid4 = "19s+aIO1&170s2_Gy2E">
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -14,9 +17,9 @@
     <nav>
         <ul>
             <li><a href=#>---> *** Главная</a></li>
-            <li><a href="/admin/requests">Заявки</a></li>
-            <li><a href="/admin/news">Редактор новостей</a></li>
-            <li><a href="/admin/db">Управление БД</a></li>
+            <li><a href="/admin/requests=${op_uuid2}">Заявки</a></li>
+            <li><a href="/admin/news=${op_uuid3}">Редактор новостей</a></li>
+            <li><a href="/admin/db=${op_uuid4}">Управление БД</a></li>
         </ul>
     </nav>
 
