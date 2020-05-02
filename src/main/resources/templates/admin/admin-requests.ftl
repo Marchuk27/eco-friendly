@@ -1,6 +1,3 @@
-<#assign op_uuid1 = "3eqW78_13=a413fg310">
-<#assign op_uuid3 = "70sC5617!1&=zpKzP91">
-<#assign op_uuid4 = "19s+aIO1&170s2_Gy2E">
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,10 +13,9 @@
 <div>
     <nav>
         <ul>
-            <li><a href="/admin/main=${op_uuid1}" id="current">_Главная</a></li>
             <li><a href=#>---> *** Заявки</a></li>
-            <li><a href="/admin/news=${op_uuid3}">Редактор новостей</a></li>
-            <li><a href="/admin/db=${op_uuid4}">Управление БД</a></li>
+            <li><a href="/admin/news">Редактор новостей</a></li>
+            <li><a href="/admin/db">Управление БД</a></li>
         </ul>
     </nav>
 

@@ -1,8 +1,8 @@
-package org.ecofriendly.repository;
+package org.ecofriendly.db.repository;
 
 import org.ecofriendly.db.entity.Company;
 import org.ecofriendly.db.entity.company.Category;
-import org.ecofriendly.repository.company.CategoryRepository;
+import org.ecofriendly.db.repository.company.CategoryRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

@@ -3,10 +3,7 @@ package org.ecofriendly.db.dictionaries;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -18,7 +15,7 @@ public class News {
     private Integer id;
 
     private String textContent;
-    private String referenceToImage;
+    private String urlToImage;
     private Date dateOfPublish;
     private Integer likeAmount;
 }
