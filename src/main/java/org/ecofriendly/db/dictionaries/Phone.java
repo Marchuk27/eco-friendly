@@ -1,4 +1,4 @@
-package org.ecofriendly.db.handbooks;
+package org.ecofriendly.db.dictionaries;
 
 import lombok.Data;
 import org.ecofriendly.enumeration.LegalAttachment;
@@ -7,10 +7,10 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Email {
+public class Phone {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	private String email;
+	private String phone;
 	private LegalAttachment attachment;
 }

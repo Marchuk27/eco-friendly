@@ -1,6 +1,6 @@
 package org.ecofriendly.repository.company;
 
-import org.ecofriendly.db.handbooks.Email;
+import org.ecofriendly.db.dictionaries.Email;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -2,9 +2,8 @@ package org.ecofriendly.db.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.ecofriendly.db.handbooks.News;
+import org.ecofriendly.db.dictionaries.News;
 
-import javax.persistence.Entity;
 import java.util.List;
 
 //@Entity

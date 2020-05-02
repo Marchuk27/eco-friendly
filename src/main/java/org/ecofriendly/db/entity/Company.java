@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.ecofriendly.db.entity.company.Address;
 import org.ecofriendly.db.entity.company.Category;
-import org.ecofriendly.db.handbooks.Email;
-import org.ecofriendly.db.handbooks.Phone;
+import org.ecofriendly.db.dictionaries.Email;
+import org.ecofriendly.db.dictionaries.Phone;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
