@@ -16,7 +16,6 @@ public class TrackerService {
 
         String newTotalValue = calculateGeneralSum(trackerForm.getTotal(), totalValuesArr);
         trackerForm.setTotal(newTotalValue);
-
         setUpdatedValuesToTrackerJO(trackerForm, totalValuesArr);
     }
 

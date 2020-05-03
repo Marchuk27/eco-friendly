@@ -1,8 +1,8 @@
 package org.ecofriendly.service;
 
+import org.apache.commons.lang3.StringUtils;
 import org.ecofriendly.db.entity.CheckList;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,7 @@ public class CheckListService {
         }
         List<String> checkList = checkCurrentListForNullOrEmpty(checkListPage.getSavedIdeas());
         checkList.add(checkListPage.getIdeaInput());
+        checkListPage.setIdeaInput(StringUtils.EMPTY);
     }
 
     private boolean checkIdeaToFill(String idea) { ;
