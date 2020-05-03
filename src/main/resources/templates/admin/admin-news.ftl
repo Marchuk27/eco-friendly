@@ -1,6 +1,3 @@
-<#assign op_uuid1 = "3eqW78_13=a413fg310">
-<#assign op_uuid2 = "4aQd2=249oiwq0uz_6x">
-<#assign op_uuid4 = "19s+aIO1&170s2_Gy2E">
 <!DOCTYPE html>
 <html lang="ru">
 <head>
