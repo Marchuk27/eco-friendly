@@ -17,7 +17,7 @@ public class TrackerService {
         String newTotalValue = calculateGeneralSum(trackerForm.getTotal(), totalValuesArr);
         trackerForm.setTotal(newTotalValue);
 
-        setUpdatedValuesToJOTracker(trackerForm, totalValuesArr);
+        setUpdatedValuesToTrackerJO(trackerForm, totalValuesArr);
     }
 
     /**
@@ -88,7 +88,7 @@ public class TrackerService {
     /**
      * Присвоение новых суммарных значений объекту-сущности Tracker
      */
-    private void setUpdatedValuesToJOTracker(Tracker tracker, int[] totalsArr) {
+    private void setUpdatedValuesToTrackerJO(Tracker tracker, int[] totalsArr) {
         tracker.setPlasticTotal(String.valueOf(totalsArr[0]));
         tracker.setGlassTotal(String.valueOf(totalsArr[1]));
         tracker.setPaperTotal(String.valueOf(totalsArr[2]));
