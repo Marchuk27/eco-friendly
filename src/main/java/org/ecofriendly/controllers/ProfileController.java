@@ -7,14 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Optional;
 
 @Controller
-@RequestMapping("/profile")
+//@RequestMapping("/profile")
 public class ProfileController {
 	private UserAccountRepository userRepository;
 	private UserAccountService    userService;
@@ -29,15 +25,15 @@ public class ProfileController {
 		this.userService = userService;
 	}
 
-	@GetMapping()
-	public String profile() {
-		return "profile";
+	@GetMapping("/login")
+	public String login() {
+		return "login";
 	}
 
-	@GetMapping("/{id}")
+	/*@GetMapping("/{id}")
 	public Optional<UserAccount> getUserAccount(@PathVariable Integer id) {
 		return userRepository.findById(id);
-	}
+	}*/
 
 	@GetMapping("/registration")
 	public String registrationPage() {
@@ -49,7 +45,7 @@ public class ProfileController {
 		model.addAttribute("account", account);
 		if (userService.checkFormData(account)) {
 			userRepository.save(account);
-			return "profile";
+			return "login";
 		}
 		else
 			return "register-incorrect";
