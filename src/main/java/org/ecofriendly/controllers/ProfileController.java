@@ -8,13 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/profile")
+//@RequestMapping("/profile")
 public class ProfileController {
 	private UserAccountRepository userRepository;
-	private UserAccountService userService;
+	private UserAccountService    userService;
 
 	@Autowired
 	private void setUserRepository(UserAccountRepository userRepository) {
@@ -26,10 +25,15 @@ public class ProfileController {
 		this.userService = userService;
 	}
 
-	@GetMapping()
-	public String profile() {
-		return "profile";
+	@GetMapping("/login")
+	public String login() {
+		return "login";
 	}
+
+	/*@GetMapping("/{id}")
+	public Optional<UserAccount> getUserAccount(@PathVariable Integer id) {
+		return userRepository.findById(id);
+	}*/
 
 	@GetMapping("/registration")
 	public String registrationPage() {
@@ -41,7 +45,7 @@ public class ProfileController {
 		model.addAttribute("account", account);
 		if (userService.checkFormData(account)) {
 			userRepository.save(account);
-			return "profile";
+			return "login";
 		}
 		else
 			return "register-incorrect";
