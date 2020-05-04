@@ -1,10 +1,13 @@
 package org.ecofriendly.controllers.lk;
 
+import org.ecofriendly.db.dictionaries.News;
 import org.ecofriendly.db.entity.CheckList;
 import org.ecofriendly.db.entity.Tracker;
 import org.ecofriendly.db.repository.CheckListRepository;
+import org.ecofriendly.db.repository.NewsRepository;
 import org.ecofriendly.db.repository.TrackerRepository;
 import org.ecofriendly.service.CheckListService;
+import org.ecofriendly.service.NewsService;
 import org.ecofriendly.service.TrackerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +16,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+import java.util.Map;
+
 @Controller
 @RequestMapping("/")
 public class LkController {
@@ -20,6 +26,8 @@ public class LkController {
     private TrackerService trackerService;
     private CheckListRepository checkListRepository;
     private CheckListService checkListService;
+    private NewsRepository newsRepository;
+    private NewsService newsService;
 
     @Autowired
     private void setTrackerService(TrackerService trackerService) {
@@ -41,6 +49,15 @@ public class LkController {
         this.checkListService = checkListService;
     }
 
+    @Autowired
+    private void setNewsRepository(NewsRepository newsRepository) {
+        this.newsRepository = newsRepository;
+    }
+
+    @Autowired
+    private void setNewsService(NewsService newsService) {
+        this.newsService = newsService;
+    }
 
     /**
      * Личный кабинет - Трэкер
@@ -58,6 +75,11 @@ public class LkController {
         return "/lk/lk-tracker";
     }
 
+    @GetMapping(value = "/tracker/")
+    public Map<String, String> trackerData(Long userAccountId) {
+        return trackerService.getTrackerValuesByAccountId(userAccountId);
+    }
+
     /**
      * Личный кабинет - Чеклист
      */
@@ -73,5 +95,24 @@ public class LkController {
         //checkListRepository.save(checkListPage);
         return "/lk/lk-checklist";
     }
+
+    @GetMapping(value = "/checklist/")
+    public List<String> checklistData(Long userAccountId) {
+        return checkListService.getCheckListByAccountId(userAccountId);
+    }
+
+    /**
+     * Личный кабинет - Новости
+     */
+    @GetMapping(value = "/lk/news")
+    public String newsPage() {
+        return "/lk/lk-news";
+    }
+
+    @GetMapping(value = "/news/")
+    public List<News> newsData() {
+        return newsRepository.findAll();
+    }
+
 }
 

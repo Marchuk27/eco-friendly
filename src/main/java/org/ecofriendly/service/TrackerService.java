@@ -2,12 +2,21 @@ package org.ecofriendly.service;
 
 import org.apache.commons.lang3.StringUtils;
 import org.ecofriendly.db.entity.Tracker;
+import org.ecofriendly.db.entity.UserAccount;
+import org.ecofriendly.db.repository.TrackerRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @Service
 public class TrackerService {
+    private final TrackerRepository trackerRepository;
+
+    public TrackerService(TrackerRepository trackerRepository) {
+        this.trackerRepository = trackerRepository;
+    }
 
     public void calculateValuesFromTracker(Tracker trackerForm) {
         int[] inputValuesArr = addInputsFromTrackerToList(trackerForm);
@@ -17,6 +26,21 @@ public class TrackerService {
         String newTotalValue = calculateGeneralSum(trackerForm.getTotal(), totalValuesArr);
         trackerForm.setTotal(newTotalValue);
         setUpdatedValuesToTrackerJO(trackerForm, totalValuesArr);
+    }
+
+    public Map<String, String> getTrackerValuesByAccountId(Long userAccountId) {
+        Tracker trackerPage = trackerRepository.getTrackerByUserAccount_Id(userAccountId);
+        Map<String, String> trackerValues = new HashMap<>();
+        trackerValues.put("Пластик", trackerPage.getPlasticTotal());
+        trackerValues.put("Стекло", trackerPage.getGlassTotal());
+        trackerValues.put("Бумага", trackerPage.getPaperTotal());
+        trackerValues.put("Одежда", trackerPage.getClothesTotal());
+        trackerValues.put("Батарейки", trackerPage.getAccumsTotal());
+        trackerValues.put("Техника", trackerPage.getTechnTotal());
+        trackerValues.put("Металл", trackerPage.getMetalTotal());
+        trackerValues.put("Опасное", trackerPage.getDangerTotal());
+        trackerValues.put("Другое", trackerPage.getOtherTotal());
+        return trackerValues;
     }
 
     /**

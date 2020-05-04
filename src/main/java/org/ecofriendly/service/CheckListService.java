@@ -2,6 +2,7 @@ package org.ecofriendly.service;
 
 import org.apache.commons.lang3.StringUtils;
 import org.ecofriendly.db.entity.CheckList;
+import org.ecofriendly.db.repository.CheckListRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +12,12 @@ import java.util.Objects;
 @Service
 public class CheckListService {
 
+    private final CheckListRepository checkListRepository;
+
+    private CheckListService(CheckListRepository checkListRepository) {
+        this.checkListRepository = checkListRepository;
+    }
+
     public void saveIdeaToProductList(CheckList checkListPage) {
         if (checkIdeaToFill(checkListPage.getIdeaInput())) {
             return ;
@@ -18,6 +25,10 @@ public class CheckListService {
         List<String> checkList = checkCurrentListForNullOrEmpty(checkListPage.getSavedIdeas());
         checkList.add(checkListPage.getIdeaInput());
         checkListPage.setIdeaInput(StringUtils.EMPTY);
+    }
+
+    public List<String> getCheckListByAccountId(Long userAccountId) {
+        return new ArrayList<>(checkListRepository.getCheckListByUserAccount_Id(userAccountId).getSavedIdeas());
     }
 
     private boolean checkIdeaToFill(String idea) { ;

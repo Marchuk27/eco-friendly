@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CheckListRepository extends JpaRepository<CheckList, Long> {
+    CheckList getCheckListByUserAccount_Id(Long userAccount_id);
 }

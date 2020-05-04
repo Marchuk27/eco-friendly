@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TrackerRepository extends JpaRepository<Tracker, Long> {
+    Tracker getTrackerByUserAccount_Id(Long accountId);
 }
