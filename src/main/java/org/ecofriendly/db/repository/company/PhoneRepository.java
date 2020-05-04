@@ -1,6 +1,6 @@
-package org.ecofriendly.repository.company;
+package org.ecofriendly.db.repository.company;
 
-import org.ecofriendly.db.handbooks.Phone;
+import org.ecofriendly.db.dictionaries.Phone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

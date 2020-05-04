@@ -1,7 +1,7 @@
 package org.ecofriendly.controllers;
 
 import org.ecofriendly.db.entity.CompanyForm;
-import org.ecofriendly.repository.CompanyFormRepository;
+import org.ecofriendly.db.repository.CompanyFormRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

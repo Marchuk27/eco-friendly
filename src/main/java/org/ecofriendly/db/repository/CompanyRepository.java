@@ -1,4 +1,4 @@
-package org.ecofriendly.repository;
+package org.ecofriendly.db.repository;
 
 import org.ecofriendly.db.entity.Company;
 import org.ecofriendly.db.entity.company.Category;

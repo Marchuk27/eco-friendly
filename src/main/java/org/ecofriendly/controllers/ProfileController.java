@@ -1,7 +1,7 @@
 package org.ecofriendly.controllers;
 
 import org.ecofriendly.db.entity.UserAccount;
-import org.ecofriendly.repository.UserAccountRepository;
+import org.ecofriendly.db.repository.UserAccountRepository;
 import org.ecofriendly.service.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

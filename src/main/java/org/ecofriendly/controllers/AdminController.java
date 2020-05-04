@@ -1,7 +1,10 @@
 package org.ecofriendly.controllers;
 
+import org.ecofriendly.db.entity.company.News;
 import org.ecofriendly.forms.AdminSignForm;
+import org.ecofriendly.db.repository.NewsRepository;
 import org.ecofriendly.service.AdminService;
+import org.ecofriendly.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,12 +15,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class AdminController {
-    private boolean authFlag = false;
     private AdminService adminService;
+    private NewsRepository newsRepository;
+    private NewsService newsService;
 
     @Autowired
     private void setAdminService(AdminService adminService) {
         this.adminService = adminService;
+    }
+
+    @Autowired
+    private void setNewsRepository(NewsRepository newsRepository) {
+        this.newsRepository = newsRepository;
+    }
+
+    @Autowired
+    private void setNewsService(NewsService newsService) {
+        this.newsService = newsService;
     }
 
     /**
@@ -32,33 +46,17 @@ public class AdminController {
     public String adminSignIn(AdminSignForm adminSignForm, Model model) {
         model.addAttribute("adminSignForm", adminSignForm);
         if (adminService.authToAdminPanel(adminSignForm.getLogin(), adminSignForm.getPassword())) {
-            authFlag = true;
-            return "/admin/admin-main";
+            return "/admin/admin-requests";
         }
         return "/admin/admin-sign";
     }
-
-    /**
-     * Admin Главная
-     */
-    @GetMapping(value = "/admin/main")
-    public String adminMainPage() {
-        if (authFlag) {
-            return "/admin/admin-main";
-        }
-        return "/admin/admin-sign";
-    }
-
 
     /**
      * Admin Заявки
      */
     @GetMapping(value = "/admin/requests")
     public String adminRequests() {
-        if (authFlag) {
-            return "/admin/admin-requests";
-        }
-        return "/admin/admin-sign";
+        return "/admin/admin-requests";
     }
 
     /**
@@ -66,10 +64,18 @@ public class AdminController {
      */
     @GetMapping(value = "/admin/news")
     public String adminNews() {
-        if (authFlag) {
+        return "/admin/admin-news";
+    }
+
+    @PostMapping(value = "/admin/news")
+    public String addNewsToSite(News newsObject, Model model) {
+        newsService.prepareNewsObjectForPublishing(newsObject);
+        if (newsService.checkForNullFields(newsObject)) {
             return "/admin/admin-news";
         }
-        return "/admin/admin-sign";
+        model.addAttribute("newsObject", newsObject);
+        newsRepository.save(newsObject);
+        return "/admin/admin-news-success";
     }
 
     /**
@@ -77,10 +83,7 @@ public class AdminController {
      */
     @GetMapping(value = "/admin/db")
     public String adminDatabase() {
-        if (authFlag) {
-            return "/admin/admin-db";
-        }
-        return "/admin/admin-sign";
+        return "/admin/admin-db";
     }
 
     /**
@@ -88,7 +91,6 @@ public class AdminController {
      */
     @GetMapping(value = "/admin/log-out")
     public String adminLogOut() {
-        authFlag = false;
         return "/admin/admin-sign";
     }
 }

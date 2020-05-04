@@ -2,7 +2,7 @@ package org.ecofriendly.service;
 
 import org.ecofriendly.db.entity.Company;
 import org.ecofriendly.db.entity.company.Category;
-import org.ecofriendly.repository.CompanyRepository;
+import org.ecofriendly.db.repository.CompanyRepository;
 import org.ecofriendly.service.interfaces.ICompanyService;
 import org.springframework.stereotype.Service;
 

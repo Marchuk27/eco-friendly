@@ -13,7 +13,6 @@
 <div>
     <nav>
         <ul>
-            <li><a href="/admin/main" id="current">_Главная</a></li>
             <li><a href=#>---> *** Заявки</a></li>
             <li><a href="/admin/news">Редактор новостей</a></li>
             <li><a href="/admin/db">Управление БД</a></li>

@@ -1,15 +1,12 @@
-package org.ecofriendly.db.handbooks;
+package org.ecofriendly.db.entity.company;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
-//@Entity
+@Entity
 @Getter
 @Setter
 public class News {
@@ -18,6 +15,7 @@ public class News {
     private Integer id;
 
     private String textContent;
+    private String urlToImage;
     private Date dateOfPublish;
     private Integer likeAmount;
 }

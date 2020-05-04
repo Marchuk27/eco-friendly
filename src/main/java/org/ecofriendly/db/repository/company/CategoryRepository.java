@@ -1,4 +1,4 @@
-package org.ecofriendly.repository.company;
+package org.ecofriendly.db.repository.company;
 
 import org.ecofriendly.db.entity.company.Category;
 import org.springframework.data.jpa.repository.JpaRepository;

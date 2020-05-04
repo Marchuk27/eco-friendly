@@ -2,7 +2,7 @@ package org.ecofriendly.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.ecofriendly.db.entity.UserAccount;
-import org.ecofriendly.repository.UserAccountRepository;
+import org.ecofriendly.db.repository.UserAccountRepository;
 import org.ecofriendly.service.interfaces.IUserAccountService;
 import org.ecofriendly.utils.StringUtils;
 import org.springframework.stereotype.Service;

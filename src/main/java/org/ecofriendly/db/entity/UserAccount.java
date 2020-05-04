@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -24,4 +25,8 @@ public class UserAccount  {
     private String password;
     @Transient
     private String repeatPassword;
+
+    //поля для достижений
+//    @OneToMany
+//    private Set<Achievement> achievementList;
 }

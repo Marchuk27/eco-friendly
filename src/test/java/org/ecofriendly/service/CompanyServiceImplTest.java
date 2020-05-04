@@ -2,8 +2,8 @@ package org.ecofriendly.service;
 
 import org.ecofriendly.db.entity.Company;
 import org.ecofriendly.db.entity.company.Category;
-import org.ecofriendly.repository.CompanyRepository;
-import org.ecofriendly.repository.company.CategoryRepository;
+import org.ecofriendly.db.repository.CompanyRepository;
+import org.ecofriendly.db.repository.company.CategoryRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-class CompanyServiceImplementationTest {
+class CompanyServiceImplTest {
 	@Mock
 	private CompanyRepository            companyRepository;
 	@Mock
