@@ -2,7 +2,6 @@ package org.ecofriendly.controllers.lk;
 
 import org.ecofriendly.db.entity.CheckList;
 import org.ecofriendly.db.entity.Tracker;
-import org.ecofriendly.db.repository.NewsRepository;
 import org.ecofriendly.service.CheckListService;
 import org.ecofriendly.service.TrackerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,24 +9,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/")
 public class LkController {
-    private TrackerService trackerService;
+    private TrackerService   trackerService;
     private CheckListService checkListService;
 
     @Autowired
     private void setTrackerService(TrackerService trackerService) {
         this.trackerService = trackerService;
     }
+
     @Autowired
     private void setCheckListService(CheckListService checkListService) {
         this.checkListService = checkListService;
+    }
+
+    @GetMapping("/lk/")/*тут нужен будет параметр - id пользователя лк*/
+    public String lk() {
+        return "/lk/lk-profile";
     }
 
     /**
