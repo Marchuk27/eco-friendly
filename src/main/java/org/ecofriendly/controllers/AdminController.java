@@ -1,6 +1,6 @@
 package org.ecofriendly.controllers;
 
-import org.ecofriendly.db.dictionaries.News;
+import org.ecofriendly.db.entity.company.News;
 import org.ecofriendly.forms.AdminSignForm;
 import org.ecofriendly.db.repository.NewsRepository;
 import org.ecofriendly.service.AdminService;

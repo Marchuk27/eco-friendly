@@ -1,6 +1,6 @@
 package org.ecofriendly.utils;
 
-import org.ecofriendly.db.dictionaries.News;
+import org.ecofriendly.db.entity.company.News;
 
 import java.sql.Date;
 import java.util.GregorianCalendar;

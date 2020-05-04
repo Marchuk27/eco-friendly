@@ -1,6 +1,5 @@
 package org.ecofriendly.controllers.lk;
 
-import org.ecofriendly.db.dictionaries.News;
 import org.ecofriendly.db.entity.CheckList;
 import org.ecofriendly.db.entity.Tracker;
 import org.ecofriendly.db.repository.NewsRepository;
@@ -21,7 +20,6 @@ import java.util.Map;
 public class LkController {
     private TrackerService trackerService;
     private CheckListService checkListService;
-    private NewsRepository newsRepository;
 
     @Autowired
     private void setTrackerService(TrackerService trackerService) {
@@ -30,10 +28,6 @@ public class LkController {
     @Autowired
     private void setCheckListService(CheckListService checkListService) {
         this.checkListService = checkListService;
-    }
-    @Autowired
-    private void setNewsRepository(NewsRepository newsRepository) {
-        this.newsRepository = newsRepository;
     }
 
     /**
@@ -85,11 +79,5 @@ public class LkController {
     public String newsPage() {
         return "/lk/lk-news";
     }
-
-    @GetMapping(value = "/news/")
-    public Iterable<News> newsData() {
-        return newsRepository.findAll();
-    }
-
 }
 

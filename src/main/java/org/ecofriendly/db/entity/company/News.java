@@ -1,4 +1,4 @@
-package org.ecofriendly.db.dictionaries;
+package org.ecofriendly.db.entity.company;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,7 +1,7 @@
 package org.ecofriendly.service;
 
 import org.apache.commons.lang3.StringUtils;
-import org.ecofriendly.db.dictionaries.News;
+import org.ecofriendly.db.entity.company.News;
 import org.ecofriendly.utils.DateUtils;
 import org.springframework.stereotype.Service;
 
