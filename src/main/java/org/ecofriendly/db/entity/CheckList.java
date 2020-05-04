@@ -5,8 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
-//@Entity
+@Entity
 @Getter
 @Setter
 public class CheckList {
@@ -19,5 +20,6 @@ public class CheckList {
     @Transient
     private String ideaInput;
     //закрепленные идеи в чеклисте
+    @ElementCollection
     private List<String> savedIdeas;
 }

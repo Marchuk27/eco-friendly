@@ -2,8 +2,8 @@ package org.ecofriendly.service;
 
 import org.apache.commons.lang3.StringUtils;
 import org.ecofriendly.db.entity.Tracker;
-import org.ecofriendly.db.entity.UserAccount;
 import org.ecofriendly.db.repository.TrackerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -12,11 +12,8 @@ import java.util.Objects;
 
 @Service
 public class TrackerService {
-    private final TrackerRepository trackerRepository;
-
-    public TrackerService(TrackerRepository trackerRepository) {
-        this.trackerRepository = trackerRepository;
-    }
+    @Autowired
+    private TrackerRepository trackerRepository;
 
     public void calculateValuesFromTracker(Tracker trackerForm) {
         int[] inputValuesArr = addInputsFromTrackerToList(trackerForm);

@@ -69,10 +69,10 @@ public class AdminController {
 
     @PostMapping(value = "/admin/news")
     public String addNewsToSite(News newsObject, Model model) {
+        newsService.prepareNewsObjectForPublishing(newsObject);
         if (newsService.checkForNullFields(newsObject)) {
             return "/admin/admin-news";
         }
-        newsService.prepareNewsObjectForPublishing(newsObject);
         model.addAttribute("newsObject", newsObject);
         newsRepository.save(newsObject);
         return "/admin/admin-news-success";

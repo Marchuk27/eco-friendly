@@ -3,11 +3,8 @@ package org.ecofriendly.controllers.lk;
 import org.ecofriendly.db.dictionaries.News;
 import org.ecofriendly.db.entity.CheckList;
 import org.ecofriendly.db.entity.Tracker;
-import org.ecofriendly.db.repository.CheckListRepository;
 import org.ecofriendly.db.repository.NewsRepository;
-import org.ecofriendly.db.repository.TrackerRepository;
 import org.ecofriendly.service.CheckListService;
-import org.ecofriendly.service.NewsService;
 import org.ecofriendly.service.TrackerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,41 +19,21 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class LkController {
-    private TrackerRepository trackerRepository;
     private TrackerService trackerService;
-    private CheckListRepository checkListRepository;
     private CheckListService checkListService;
     private NewsRepository newsRepository;
-    private NewsService newsService;
 
     @Autowired
     private void setTrackerService(TrackerService trackerService) {
         this.trackerService = trackerService;
     }
-
-    @Autowired
-    private void setTrackerRepository(TrackerRepository trackerRepository) {
-        this.trackerRepository = trackerRepository;
-    }
-
-    @Autowired
-    private void setCheckListRepository(CheckListRepository checkListRepository) {
-        this.checkListRepository = checkListRepository;
-    }
-
     @Autowired
     private void setCheckListService(CheckListService checkListService) {
         this.checkListService = checkListService;
     }
-
     @Autowired
     private void setNewsRepository(NewsRepository newsRepository) {
         this.newsRepository = newsRepository;
-    }
-
-    @Autowired
-    private void setNewsService(NewsService newsService) {
-        this.newsService = newsService;
     }
 
     /**
@@ -110,7 +87,7 @@ public class LkController {
     }
 
     @GetMapping(value = "/news/")
-    public List<News> newsData() {
+    public Iterable<News> newsData() {
         return newsRepository.findAll();
     }
 
