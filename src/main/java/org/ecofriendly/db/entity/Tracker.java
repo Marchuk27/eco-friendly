@@ -2,6 +2,7 @@ package org.ecofriendly.db.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.ecofriendly.db.entity.user.Account;
 
 import javax.persistence.*;
 
@@ -11,9 +12,9 @@ import javax.persistence.*;
 public class Tracker {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long    id;
     @OneToOne
-    private UserAccount userAccount;
+    private Account account;
 
     //левая часть страницы - формы для ввода
     @Transient private String plasticInput;

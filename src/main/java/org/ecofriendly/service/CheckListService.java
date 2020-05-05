@@ -17,18 +17,18 @@ public class CheckListService {
 
     public void saveIdeaToProductList(CheckList checkListPage) {
         if (checkIdeaToFill(checkListPage.getIdeaInput())) {
-            return ;
+            return;
         }
         List<String> checkList = checkCurrentListForNullOrEmpty(checkListPage.getSavedIdeas());
         checkList.add(checkListPage.getIdeaInput());
         checkListPage.setIdeaInput(StringUtils.EMPTY);
     }
 
-    public List<String> getCheckListByAccountId(Long userAccountId) {
-        return new ArrayList<>(checkListRepository.getCheckListByUserAccount_Id(userAccountId).getSavedIdeas());
+    public List<String> getCheckListByAccount_Username(String username) {
+        return new ArrayList<>(checkListRepository.getCheckListByAccount_Username(username).getSavedIdeas());
     }
 
-    private boolean checkIdeaToFill(String idea) { ;
+    private boolean checkIdeaToFill(String idea) {
         return Objects.isNull(idea) || StringUtils.isEmpty(idea);
     }
 

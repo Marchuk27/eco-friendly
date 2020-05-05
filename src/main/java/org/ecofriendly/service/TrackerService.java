@@ -25,8 +25,8 @@ public class TrackerService {
         setUpdatedValuesToTrackerJO(trackerForm, totalValuesArr);
     }
 
-    public Map<String, String> getTrackerValuesByAccountId(Long userAccountId) {
-        Tracker trackerPage = trackerRepository.getTrackerByUserAccount_Id(userAccountId);
+    public Map<String, String> getTrackerValuesByAccount_Username(String username) {
+        Tracker             trackerPage   = trackerRepository.getTrackerByAccount_Username(username);
         Map<String, String> trackerValues = new HashMap<>();
         trackerValues.put("Пластик", trackerPage.getPlasticTotal());
         trackerValues.put("Стекло", trackerPage.getGlassTotal());

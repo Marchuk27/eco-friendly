@@ -1,8 +1,8 @@
 package org.ecofriendly.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.ecofriendly.db.entity.UserAccount;
-import org.ecofriendly.db.repository.UserAccountRepository;
+import org.ecofriendly.db.entity.user.Account;
+import org.ecofriendly.db.repository.AccountRepository;
 import org.ecofriendly.service.interfaces.IUserAccountService;
 import org.ecofriendly.utils.StringUtils;
 import org.springframework.stereotype.Service;
@@ -14,31 +14,31 @@ import java.util.Objects;
 @Slf4j
 public class UserAccountService implements IUserAccountService {
 
-    private final UserAccountRepository userRepository;
+    private final AccountRepository accountRepository;
 
-    public UserAccountService(UserAccountRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserAccountService(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
     }
 
     @Override
-    public List<UserAccount> getAllUsers() {
-        return userRepository.findAll();
+    public List<Account> getAllUsers() {
+        return accountRepository.findAll();
     }
 
     @Override
     public Boolean isUserAlreadyExists(String email) {
-        return Objects.nonNull(userRepository.findUserAccountByEmail(email));
+        return Objects.nonNull(accountRepository.findAccountByEmail(email));
     }
 
     @Override
-    public Boolean checkCorrectInputForPasswords(UserAccount account) {
+    public Boolean checkCorrectInputForPasswords(Account account) {
         return StringUtils.hasFieldOneMoreNumOrLetter(account.getPassword()) &&
                 StringUtils.checkFieldForCorrectLength(account.getPassword()) &&
                 StringUtils.checkIdentityForPasswordFields(account);
     }
 
     @Override
-    public Boolean checkFormData(UserAccount userForm) {
+    public Boolean checkFormData(Account userForm) {
         if (isUserAlreadyExists(userForm.getEmail())) {
             log.error("Такой email уже существует " + userForm.getEmail());
             return false;

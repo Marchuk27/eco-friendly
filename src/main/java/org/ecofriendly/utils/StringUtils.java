@@ -1,8 +1,7 @@
 package org.ecofriendly.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import org.ecofriendly.constants.AdminConstants;
-import org.ecofriendly.db.entity.UserAccount;
+import org.ecofriendly.db.entity.user.Account;
 
 import static org.ecofriendly.constants.AdminConstants.ADMIN_LOGIN;
 import static org.ecofriendly.constants.AdminConstants.ADMIN_PASSW;
@@ -36,7 +35,7 @@ public class StringUtils {
         return fieldValue.length() >= 6;
     }
 
-    public static boolean checkIdentityForPasswordFields(UserAccount registerForm) {
+    public static boolean checkIdentityForPasswordFields(Account registerForm) {
         return registerForm.getPassword().equals(registerForm.getRepeatPassword());
     }
 

@@ -1,7 +1,9 @@
 package org.ecofriendly.controllers;
 
-import org.ecofriendly.db.entity.UserAccount;
-import org.ecofriendly.db.repository.UserAccountRepository;
+import org.ecofriendly.db.entity.user.Account;
+import org.ecofriendly.db.entity.user.Authority;
+import org.ecofriendly.db.repository.AccountRepository;
+import org.ecofriendly.db.repository.AuthorityRepository;
 import org.ecofriendly.service.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,14 +12,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-//@RequestMapping("/profile")
-public class LoginController {
-	private UserAccountRepository userRepository;
-	private UserAccountService    userService;
+public class UserAccountController {
+	private AccountRepository   accountRepository;
+	private UserAccountService  userService;
+	@Autowired
+	private AuthorityRepository authorityRepository;
 
 	@Autowired
-	private void setUserRepository(UserAccountRepository userRepository) {
-		this.userRepository = userRepository;
+	private void setAccountRepository(AccountRepository accountRepository) {
+		this.accountRepository = accountRepository;
 	}
 
 	@Autowired
@@ -30,21 +33,21 @@ public class LoginController {
 		return "login";
 	}
 
-	/*@GetMapping("/{id}")
-	public Optional<UserAccount> getUserAccount(@PathVariable Integer id) {
-		return userRepository.findById(id);
-	}*/
-
 	@GetMapping("/registration")
 	public String registrationPage() {
 		return "registration";
 	}
 
 	@PostMapping("/registration")
-	public String registerUser(UserAccount account, Model model) {
+	public String registerUser(Account account, Model model) {
 		model.addAttribute("account", account);
 		if (userService.checkFormData(account)) {
-			userRepository.save(account);
+			account.setEnabled(true);
+			Authority authority = new Authority();
+			authority.setUsername(account);
+			authority.setAuthority("ROLE_USER");
+			accountRepository.save(account);
+			authorityRepository.save(authority);
 			return "login";
 		}
 		else

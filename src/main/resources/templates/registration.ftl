@@ -18,27 +18,28 @@
 <main>
     <@profile.banners/>
     <div class="form-container">
-        <form action="/profile/registration" method="post" class="form signin">
+        <form action="/registration" method="post" class="form signin">
             <h2 class="form__heading">Регистрация</h2>
-            <input type="text" class="form__input" placeholder="Фамилия" name="surname">
+            <input type="text" class="form__input" placeholder="Фамилия" name="lastName">
             <input type="text" class="form__input" placeholder="Имя" name="firstName">
-            <input type="text" class="form__input" placeholder="Отчество" name="fatherName">
+            <input type="text" class="form__input" placeholder="Отчество" name="middleName">
             <div class="form__label">Дата рождения</div>
             <div class="birthday-container">
-                <input type="date" class="form__input" id="birthday" name="dateOfBirth" required>
+                <input type="date" class="form__input" name="dateOfBirth" required>
             </div>
             <div class="form__label">Пол</div>
             <div class="sex-container">
                 <div class="sex-container__item">
-                    <label for="man">Мужчина</label>
-                    <input type="radio" id="sex" name="isMan" value="true">
+                    <label for="male">Мужчина</label>
+                    <input type="radio" id="sex" name="male" value="M">
                 </div>
                 <div class="sex-container__item">
-                    <label for="man">Женщина</label>
-                    <input type="radio" id="sex" name="isMan" value="false">
+                    <label for="female">Женщина</label>
+                    <input type="radio" id="sex" name="female" value="F">
                 </div>
             </div>
             <input type="email" class="form__input" placeholder="E-mail" name="email" required>
+            <input type="text" class="form__input" placeholder="Логин" name="username" required pattern="[\w\d]{6,}">
             <input id="password" type="password" class="form__input password" placeholder="Пароль" name="password"
                    required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$">
             <input id="confirm_password" type="password" class="form__input password" placeholder="Повторите пароль"
