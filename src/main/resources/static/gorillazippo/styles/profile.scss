@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+@media (max-width: 400px) {
+    body{
+        padding-top: 40px;
+    }
+    main{
+        flex-direction: column-reverse;
+        align-items: center;
+        margin: 6vh 5vw;
+        //flex: 1; если 1 баннер
+    }
+    .banner-container{
+        //margin-bottom: 5vh;
+        >*{
+            margin-bottom: 5vh;
+        }
+
+        >*:last-child{
+            //display: none;
+            margin-bottom: 0;
+        }
+    }
+    
+    .form-container{
+        margin-bottom: 5vh;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .form{
+        padding: 4.5vh 6vw;
+        max-width: 320px;
+        max-height: 270px;
+        width: 100%;
+        &__container-button{
+            justify-content: center;
+        }
+        &__input{
+            height: 31px;
+            font-size: 14px;
+        }
+        &__button{
+            font-size: 14px;
+            width: 80%;
+            text-align: center;
+        }
+    }
+
+    .banner{
+        &__image{
+            max-width: 600px;
+            max-height: 300px;
+        }
+        &__text{
+            font-size: 1.6vh;
+            padding: 10px 20px;
+        }
+    }
+}
+
+@media (min-width: 400px) and (max-width: 768px) {
+    body{
+        padding-top: 40px;
+    }
+    main{
+        flex-direction: column-reverse;
+        align-items: center;
+        margin: 6vh 5vw;
+        //flex: 1; если 1 баннер
+    }
+    .banner-container{
+        //margin-bottom: 5vh;
+        >*{
+            margin-bottom: 5vh;
+        }
+
+        >*:last-child{
+            //display: none;
+            margin-bottom: 0;
+        }
+    }
+    
+    .form-container{
+        margin-bottom: 5vh;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form{
+        padding: 4.5vh 3.5vw;
+        max-width: 400px;
+        max-height: 270px;
+        &__container-button{
+            justify-content: center;
+        }
+        &__input{
+            height: 35px;
+            width: 100%;
+            font-size: 18px;
+        }
+        &__button{
+            font-size: 18px;
+        }
+    }
+
+    .banner{
+        &__image{
+            max-width: 600px;
+            max-height: 300px;
+        }
+        &__text{
+            font-size: 1.6vh;
+            padding: 10px 20px;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1125px) {
+    body{
+        padding-top: 100px;
+    }
+    main{
+        padding-top: 55px; 
+        margin: 0 10vw 10vh;
+        flex: 1;
+    }
+
+    header{
+        max-height: 100px;
+    }
+    
+    .form-container{
+        flex: 1;
+    }
+
+    .form{
+        padding: 4.5vh 3.5vw;
+        width: 100%;
+        //max-height: 40vh;
+        &__container-button{
+            justify-content: flex-start;
+        }
+        &__input{
+            height: 35px;
+            font-size: 16px;
+        }
+        &__button{
+            font-size: 16px;
+        }
+    }
+
+    .banner-container{
+        flex: 3;
+        margin-right: 5vw;
+        >*{
+            margin-bottom: 50px;
+        }
+        >*:last-child{
+            margin-bottom: 0px;
+        }
+    }
+
+    .banner{
+        &__text{
+            font-size: 1.5vw;
+            padding: 3vh 2vw;
+        }
+        &__image{
+        }
+    }
+}
+
+@media (min-width: 1125px) {
+    body{
+        padding-top: 100px;
+    }
+    main{
+        margin: 0 15vw 10vh;
+        padding-top: 55px;
+        flex: 1;
+    }
+    header{
+        max-height: 100px;
+    }
+    
+    .form-container{
+        justify-content: flex-end;
+        flex: 1;
+    }
+
+    .form{
+        padding: 4.5vh 3.5vw;
+        width: 100%;
+        //max-height: 40vh;
+        &__container-button{
+            justify-content: flex-start;
+        }
+        &__input{
+            height: 35px;
+            font-size: 18px;
+        }
+        &__button{
+            font-size: 18px;
+        }
+    }
+
+    .banner-container{
+        flex: 3;
+        margin-right: 5vw;
+        >*{
+            margin-bottom: 50px;
+        }
+        >*:last-child{
+            margin-bottom: 0px;
+        }
+    }
+
+    .banner{
+        &__text{
+            font-size: 1.15vw;
+            padding: 20px 40px;
+        }
+        &__image{
+        }
+    }
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body, html{
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    display: flex;
+}
+
+.banner-container{
+    display: flex;
+    flex-direction: column;
+    //width: 100%;
+}
+
+/*.form-container{
+    flex: 1;
+}*/
+
+.form{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #36614F;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    //max-height: 40vh;
+    >*{
+        margin-bottom: 25px;
+    }
+    >*:last-child{
+        margin-bottom: 0px;
+    }
+    &__input{
+        border: 1px solid #36614F;
+        border-radius: 3px;
+        padding: 5px 5px 5px 10px;
+        font-family: "Montserrat", sans-serif;
+    }
+    &__container-button{
+        display: flex;
+    }
+    &__button{
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        color: white;
+        outline: none;
+        text-decoration: none;
+        border: 1px solid rgba(0, 0, 0, 0);
+        border-radius: 7px;
+        background-color: black;
+        padding: 4px 20px;
+        &.signin{
+            background-color: #317434;
+            transition: color 0.1s ease-in-out, background-color 0.3s ease-in-out;
+            &:hover{
+                background-color: white;
+                border: 1px solid #317434;
+                color: #317434;
+            }
+        }
+        &.register{
+            background-color: #7F9348;
+            transition: color 0.1s ease-in-out, background-color 0.3s ease-in-out;
+            &:hover{
+                background-color: white;
+                border: 1px solid #7F9348;
+                color: #7F9348;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.banner{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    &__text{
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: bold;
+        word-break: normal;
+    }
+    &__image{
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        //border: 1px solid #36614F;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+    }
+}
+

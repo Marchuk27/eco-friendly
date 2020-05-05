@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/*
+@media (max-width: 768px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 1125px) {
+    
+}
+
+@media (min-width: 1125px) {
+
+}
+
+*/
+
+@media (max-width: 340px) {
+
+}
+
+@media (min-width: 340px) and (max-width: 768px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 1125px) {
+    header{
+        max-height: 100px;
+    }
+}
+
+@media (min-width: 1125px) {
+    header{
+        max-height: 100px;
+    }
+}
+
+
+body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+}
+
+body{
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    margin: 0 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.alert-container{
+
+    border: 1px solid #A69999;
+    border-radius: 7px;
+    padding: 2.5vh 5vw;
+
+    &__message{
+        font-weight: 600;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    &__button{
+        font-family: "Montserrat", sans-serif;
+        font-size: 25px;
+        padding: 5px 15px;
+        border: 1px solid rgba(0, 0, 0, 0);
+        border-radius: 5px;
+        outline: none;
+        background: #605454;
+        max-width: 200px;
+        width: 20vw;
+        min-width: 100px;
+        color: white;
+            &:hover{
+                background-color: white;
+                border: 1px solid #605454;
+                color: #605454;
+                transition: color 0.1s, background-color 0.5s;
+            }
+    }
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

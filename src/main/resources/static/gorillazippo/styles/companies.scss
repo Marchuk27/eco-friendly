@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+$header__height: 105px;
+$header__height__mobile: 40px;
+$font__head: 22px;
+$font__head__m: 20px;
+$font__label: 20px;
+$font__label__m: 18px;
+$font__input: 18px;
+$font__input__m: 16px;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+}
+
+@media (max-width: 400px){
+    main{
+        padding: $header__height__mobile 5vw;
+    }
+    .information{
+        font-size: 16px;
+        line-height: 18px;
+        width: 90vw;
+    }
+    .register-form{
+        max-width: 460px;
+        width: 100%;
+        padding: 30px 20px;
+        &__group{
+            input[type="text"]{
+                font-size: $font__input__m;
+            }
+            &__label{
+                font-size: $font__head__m;
+            }
+        }
+        &__submit{
+            width: 100%;
+        }
+    }
+    .street{
+        width: 100%;
+    }
+    .phone{
+        &__value{
+            width: 100%;
+        }
+    } 
+    .mail{
+        &__value{
+            width: 100%;
+        }
+    }
+    .street, .house, .building, .floor, .flat, .phone, .mail{
+        &__label{
+            font-size: $font__label__m;
+        }
+    }
+    .grid-checkboxes{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+}
+
+@media (min-width: 400px) and (max-width: 767px){
+    main{
+        padding: $header__height__mobile 5vw;
+    }
+    .information{
+        font-size: 16px;
+        line-height: 18px;
+        width: 90vw;
+    }
+    .register-form{
+        max-width: 460px;
+        width: 100%;
+        padding: 30px 20px;
+        &__group{
+            input[type="text"]{
+                font-size: $font__input__m;
+            }
+            &__label{
+                font-size: $font__head__m;
+            }
+        }
+        &__submit{
+            width: 100%;
+        }
+    }
+    .street{
+        width: 100%;
+    }
+    .phone{
+        &__value{
+            width: 100%;
+        }
+    } 
+    .mail{
+        &__value{
+            width: 100%;
+        }
+    }
+    .street, .house, .building, .floor, .flat, .phone, .mail{
+        &__label{
+            font-size: $font__label__m;
+        }
+    }
+    .grid-checkboxes{
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1125px){
+    main{
+        padding: $header__height 40px $header__height 40px;
+    }
+    .information{
+        font-size: 22px;
+        line-height: 27px;
+        width: 60vw;
+    }
+    .register-form{
+        width: 60vw;
+        padding: 30px 40px;
+        &__group{
+            input[type="text"]{
+                font-size: $font__input;
+            }
+            &__label{
+                font-size: $font__head;
+            }
+        }
+        &__submit{
+            max-width: 200px;
+            width: 200px;
+        }
+    }
+    .street{
+        width: 70%;
+    }
+    .phone{
+        &__value{
+            max-width: 200px;
+            width: 200px;
+        }
+    }
+    .mail{
+        &__value{
+            max-width: 200px;
+            width: 200px;
+        }
+    }
+    .street, .house, .building, .floor, .flat, .phone, .mail{
+        &__label{
+            font-size: $font__label;
+        }
+    }
+    .grid-checkboxes{
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (min-width: 1125px){
+    main{
+        padding: $header__height 40px $header__height 40px;
+    }
+    .information{
+        font-size: 22px;
+        line-height: 27px;
+        width: 60vw;
+    }
+    .register-form{
+        width: 40vw;
+        padding: 30px 40px;
+        &__group{
+            input[type="text"]{
+                font-size: $font__input;
+            }
+            &__label{
+                font-size: $font__head;
+            }
+        }
+        &__submit{
+            max-width: 200px;
+            width: 200px;
+        }
+    }
+    .street{
+        width: 70%;
+    }
+    .phone{
+        &__value{
+            max-width: 200px;
+            width: 200px;
+        }
+    }
+    .mail{
+        &__value{
+            max-width: 200px;
+            width: 200px;
+        }
+    }
+    .street, .house, .building, .floor, .flat, .phone, .mail{
+        &__label{
+            font-size: $font__label;
+        }
+    }
+    .grid-checkboxes{
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.information{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-align: center;
+    color: #395348;
+}
+
+.register-form{
+    border: 1px solid #736565;
+    border-radius: 7px;
+    //box-shadow: 0 0 6px 0 rgba(0,0,0,.04), 0 4px 10px 0 rgba(13,35,67,.25);
+    &__group{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+
+        input[type="text"]{
+            height: 36px;
+            border: 1px solid #423E3E;
+            border-radius: 3px;
+            font-weight: 500;
+            font-family: Montserrat, sans-serif;
+            padding: 0px 7px;
+        }
+
+        &:last-child{
+            margin-bottom: 0px;
+            align-items: center;
+        }
+
+        &__label{
+            margin-bottom: 10px;
+        }
+    }
+    &__submit{
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: white;
+        outline: none;
+        text-decoration: none;
+        border: 1px solid rgba($color: #000000, $alpha: 0);
+        border-radius: 7px;
+        background: #90C7E7;
+        padding: 4px 20px;
+        transition: 0.3s;
+        &:hover{
+            background-color: white;
+            border: 1px solid #90C7E7;
+            color: #90C7E7;
+            transition: color 0.1s, background-color 0.5s;
+        }
+    }
+}
+
+.address__container, .contacts__container{
+    display: flex;
+    flex-direction: column;
+    >*{
+        margin-bottom: 10px;
+    }
+    >*:last-child{
+        margin-bottom: 0px;
+    }
+}
+
+.street, .house, .building, .floor, .flat, .phone, .mail{
+    display: flex;
+    align-items: center;
+    &__label{
+        margin-right: 0px;
+    }
+}
+
+.street{
+    display: flex;
+    &__value{
+        width: 100%;
+    }
+    &__label{
+        min-width: 80px;
+    }
+}
+
+.house{
+    &__label{
+        min-width: 80px;
+        margin-right: 0px;
+    }
+}
+
+.phone{
+    &__label{
+        width: 110px;
+        min-width: 110px;
+        margin-right: 0px;
+    }
+}
+
+.mail{
+    &__label{
+        width: 110px;
+        min-width: 110px;
+    }
+}
+
+.house, .building, .floor, .flat{
+    &__value{
+        text-align: center;
+    }
+}
+
+.other{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    align-content: center;
+    grid-gap: 10px;
+    >div{
+        justify-content: space-between;
+    }
+    input{
+        width: 60px;
+    }
+}
+
+.grid-checkboxes{
+    display: grid;
+}
+
+.is-export{
+    &__value{
+        label{
+            margin-right: 25px;
+            &:last-of-type{
+                margin-right: 0px;
+            }
+        }
+    }
+}
