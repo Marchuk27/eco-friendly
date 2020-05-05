@@ -17,7 +17,7 @@
             <img src="/images/logo.png" alt="Лого" class="navbar-logo-profile__image">
             <div class="navbar-logo-profile__name">Eco-Friendly Project</div>
         </div>
-        <div class="navbar-logo-profile__title">Личный кабинет</div>
+        <div class="navbar-logo-profile__title">Карта</div>
     </div>
     <ul class="navbar-links-profile">
         <li><a href="/lk/map" id="header-current">Карта</a></li>
@@ -28,7 +28,7 @@
         <li><a href="/lk/faq">FAQ</a></li>
         <li>
             <a href="/logout">
-                <img src="../../static/images/signout.png" alt="">
+                <img src="/images/signout.png" alt="">
             </a>
         </li>
     </ul>
@@ -157,8 +157,6 @@
     </div>
     <div class="main-container">
         <div id="map"></div>
-    </div>
-    <div class="right-container">
     </div>
 </main>
 <script src="/js/nav.js" type="text/javascript"></script>

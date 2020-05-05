@@ -13,7 +13,7 @@
 <header class="navbar fixed-top">
     <div class="navbar-logo-profile-container">
         <div class="navbar-logo-profile">
-            <img src="images/logo.png" alt="Лого" class="navbar-logo-profile__image">
+            <img src="/images/logo.png" alt="Лого" class="navbar-logo-profile__image">
             <div class="navbar-logo-profile__name">Eco-Friendly Project</div>
         </div>
         <div class="navbar-logo-profile__title">Личный кабинет</div>
