@@ -9,11 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LkController {
-    private TrackerService   trackerService;
+    private TrackerService trackerService;
     private CheckListService checkListService;
 
     @Autowired
@@ -26,10 +25,25 @@ public class LkController {
         this.checkListService = checkListService;
     }
 
+    /**
+     * ЛК-Профиль
+     */
     @GetMapping("/lk/")
-    @ResponseBody
     public String lk() {
         return "/lk/lk-profile";
+    }
+
+    @GetMapping("/lk/account")
+    public String lkAccount() {
+        return "/lk/lk-profile-account";
+    }
+
+    /**
+     * ЛК-Карта
+     */
+    @GetMapping("/lk/map")
+    public String mapPage() {
+        return "/lk/lk-map";
     }
 
     /**
@@ -70,6 +84,30 @@ public class LkController {
     @GetMapping(value = "/lk/news")
     public String newsPage() {
         return "/lk/lk-news";
+    }
+
+
+    /**
+     * Личный кабинет - FAQ
+     */
+    @GetMapping(value = "/lk/faq")
+    public String faqPage() {
+        return "/lk/lk-faq";
+    }
+
+//    @GetMapping(value = "/lk/faq-types")
+//    public String faqTypesPage() {
+//        return "/lk/lk-faq-types";
+//    }
+
+    @GetMapping(value = "/lk/faq-periods")
+    public String faqPeriodsPage() {
+        return "/lk/lk-faq-periods";
+    }
+
+    @GetMapping(value = "/lk/faq-marks")
+    public String faqMarksPage() {
+        return "/lk/lk-faq-marks";
     }
 }
 

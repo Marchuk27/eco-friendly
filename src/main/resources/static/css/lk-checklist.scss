@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+}
+
+main{
+    padding-top: 105px;
+    margin: 0 10vw 70px;
+}
+
+.checklist{
+    &-hint{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 27px;
+        margin: 0;
+        margin-bottom: 10px;
+        &:last-of-type{
+            margin-bottom: 40px;
+        }
+        &:first-of-type{
+            margin-top: 35px;
+        }
+    }
+    &-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    &-image-container{
+        background-image: url(../images/checklist.png);
+        width: 477px;
+        height: 533px;
+        transform: translateY(-23px);
+    }
+}
+
+.ideas-container{
+    >*{
+        margin-bottom: 25px;
+    }
+    >*:last-child{
+        margin-bottom: 0px;
+    }
+    &__item{
+        display: flex;
+        flex-direction: column;
+        >*{
+            margin-bottom: 10px;
+        }
+        >*:last-child{
+            margin-bottom: 0px;
+        }
+        &__input{
+            width: 618px;
+            height: 90px;
+            border: 1px solid #000000;
+            border-radius: 2px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            font-size: 23px;
+            line-height: 25px;
+            color: #292626;
+            padding: 5px 10px;
+        }
+        &__template{
+            width: 618px;
+            height: 90px;
+            background: rgba(193, 199, 176, 0.7);
+            border-radius: 3px;
+            padding: 10px 20px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            font-size: 23px;
+            line-height: 25px;
+            color: #292626;
+        }
+        &__submit-container{
+            display: flex;
+            justify-content: flex-end;
+            button{
+                font-family: "Montserrat", sans-serif;
+                font-weight: 600;
+                font-size: 25px;
+                max-width: 205px;
+                color: white;
+                outline: none;
+                text-decoration: none;
+                border: 1px solid rgba(0, 0, 0, 0);
+                border-radius: 7px;
+                background: #5A6963;
+                padding: 8px 30px;
+                transition: 0.3s;
+                &:hover{
+                    background-color: white;
+                    border: 1px solid #5A6963;
+                    color: #5A6963;
+                    transition: color 0.1s, background-color 0.5s;
+                }
+            }
+        }
+    }
+}

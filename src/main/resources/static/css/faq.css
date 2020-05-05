@@ -19,7 +19,6 @@ main {
   grid-gap: 120px; }
 
 nav {
-  grid-area: nav;
   background-color: #F6F8F4;
   border-radius: 5px;
   margin-top: 32.5px;
@@ -43,12 +42,8 @@ nav {
         nav > ul > li > a:focus {
           font-weight: 600;
           color: #395348; }
-        nav > ul > li > a:visited {
-          font-weight: 600;
-          color: #395348; }
 
 .container {
-  grid-area: container;
   margin-top: 65px; }
   .container > p {
     font-size: 28px;
@@ -57,8 +52,4 @@ nav {
     .container > p:last-child {
       margin-bottom: 0px; }
 
-#current {
-  font-weight: 600;
-  color: #395348; }
-
-/*# sourceMappingURL=faq-about.css.map */
+/*# sourceMappingURL=faq.css.map */

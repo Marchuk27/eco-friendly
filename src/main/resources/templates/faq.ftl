@@ -17,8 +17,8 @@
         <ul>
             <li><a href="/faq" id="current">О проекте</a></li>
             <li hidden="hidden"><a href="#">Виды отходов</a></li>
-            <li><a href="/faq/periods/">Сроки разложения</a></li>
-            <li><a href="/faq/marks/">Маркировки на упаковках</a></li>
+            <li><a href="/faq/periods">Сроки разложения</a></li>
+            <li><a href="/faq/marks">Маркировки на упаковках</a></li>
         </ul>
     </nav>
     <div class="container">
