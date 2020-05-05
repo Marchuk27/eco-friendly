@@ -5,16 +5,16 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel=stylesheet href="bootstrap.min.css">
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <link rel=stylesheet type="text/css" href="bootstrap-header.css">
+    <link rel=stylesheet href="/css/bootstrap.min.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
+    <link rel=stylesheet type="text/css" href="/css/bootstrap-header.css">
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=cce8c8c9-a3d9-45a9-a1ec-ce763a37a4b8" type="text/javascript"></script>
 </head>
 <body>
 <header class="navbar fixed-top">
     <div class="navbar-logo-profile-container">
         <div class="navbar-logo-profile">
-            <img src="../../static/images/logo.png" alt="Лого" class="navbar-logo-profile__image">
+            <img src="/images/logo.png" alt="Лого" class="navbar-logo-profile__image">
             <div class="navbar-logo-profile__name">Eco-Friendly Project</div>
         </div>
         <div class="navbar-logo-profile__title">Личный кабинет</div>
@@ -69,39 +69,39 @@
             <h2>Выберите виды отходов</h2>
             <div id="types-of-waste">
                 <div class="type-of-waste" id="plastic">
-                    <img class="type-of-waste__logo" src="../../static/images/plasticLogo.png" alt="logo">
+                    <img class="type-of-waste__logo" src="/images/plasticLogo.png" alt="logo">
                     <div class="type-of-waste__label">Пластик</div>
                 </div>
                 <div class="type-of-waste" id="glass">
-                    <img class="type-of-waste__logo" src="../../static/images/glass.png" alt="logo">
+                    <img class="type-of-waste__logo" src="/images/glass.png" alt="logo">
                     <div class="type-of-waste__label">Стекло</div>
                 </div>
                 <div class="type-of-waste" id="paper">
-                    <img class="type-of-waste__logo" src="../../static/images/paper.png" alt="logo">
+                    <img class="type-of-waste__logo" src="/images/paper.png" alt="logo">
                     <div class="type-of-waste__label">Бумага</div>
                 </div>
                 <div class="type-of-waste" id="clothes">
-                    <img class="type-of-waste__logo" src="../../static/images/clothes.png" alt="logo">
+                    <img class="type-of-waste__logo" src="/images/clothes.png" alt="logo">
                     <div class="type-of-waste__label">Одежда</div>
                 </div>
                 <div class="type-of-waste" id="accums">
-                    <img class="type-of-waste__logo" src="../../static/images/accums.png" alt="logo">
+                    <img class="type-of-waste__logo" src="/images/accums.png" alt="logo">
                     <div class="type-of-waste__label">Батарейки</div>
                 </div>
                 <div class="type-of-waste" id="techn">
-                    <img class="type-of-waste__logo" src="../../static/images/techn.png" alt="logo">
+                    <img class="type-of-waste__logo" src="/images/techn.png" alt="logo">
                     <div class="type-of-waste__label">Быт.техника</div>
                 </div>
                 <div class="type-of-waste" id="metal">
-                    <img class="type-of-waste__logo" src="../../static/images/metal.png" alt="logo">
+                    <img class="type-of-waste__logo" src="/images/metal.png" alt="logo">
                     <div class="type-of-waste__label">Металл</div>
                 </div>
                 <div class="type-of-waste" id="dangerous">
-                    <img class="type-of-waste__logo" src="../../static/images/dangerous.png" alt="logo">
+                    <img class="type-of-waste__logo" src="/images/dangerous.png" alt="logo">
                     <div class="type-of-waste__label">Опасное</div>
                 </div>
                 <div class="type-of-waste" id="other">
-                    <img class="type-of-waste__logo" src="../../static/images/other.png" alt="logo">
+                    <img class="type-of-waste__logo" src="/images/other.png" alt="logo">
                     <div class="type-of-waste__label">Другое</div>
                 </div>
             </div>
@@ -159,24 +159,12 @@
         <div id="map"></div>
     </div>
     <div class="right-container">
-        <div class="offering">
-            <div class="offering__heading">Хотите начать вести экологичный образ жизни, но не знаете с чего начать?</div>
-            <div class="button-container">
-                <a href="/lk/" class="offering__ref btn btn-to-profile">Войти в личный кабинет</a>
-            </div>
-        </div>
-        <div class="offering">
-            <div class="offering__heading">Вы - компания, и хотите добавить свою метку на нашу карту?</div>
-            <div class="button-container">
-                <a href="companies.htm" class="offering__ref btn btn-to-companies">Заполните форму</a>
-            </div>
-        </div>
     </div>
 </main>
-<script src="nav.js" type="text/javascript"></script>
-<script src="groups.js" type="text/javascript"></script>
-<script src="main.js" type="text/javascript"></script>
+<script src="/js/nav.js" type="text/javascript"></script>
+<script src="/js/groups.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>
