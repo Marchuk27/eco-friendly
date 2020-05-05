@@ -14,6 +14,7 @@ INSERT INTO tracker(id, accums_total, clothes_total, danger_total, glass_total, 
 paper_total, plastic_total, techn_total, total, user_account_id)
 VALUES (5, '12', '2', '42', '12', '12', '56', '0', '3', '4', '143', 12);
 
-INSERT INTO checklist(id, accums_total, clothes_total, danger_total, glass_total, metall_total, other_total,
-paper_total, plastic_total, techn_total, total, user_account_id)
-VALUES (5, '12', '2', '42', '12', '12', '56', '0', '3', '4', '143', 12);
+insert into check_list(id, user_account_id) values (123, 12);
+
+insert into check_list_saved_ideas(check_list_id, saved_ideas) values (123, 'pgAdmin говно ебаное');
+
