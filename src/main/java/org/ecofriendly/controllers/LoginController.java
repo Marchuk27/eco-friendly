@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 //@RequestMapping("/profile")
-public class ProfileController {
+public class LoginController {
 	private UserAccountRepository userRepository;
 	private UserAccountService    userService;
 

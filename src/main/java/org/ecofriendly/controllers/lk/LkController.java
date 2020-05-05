@@ -9,9 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
-import java.util.Map;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LkController {
@@ -28,8 +27,9 @@ public class LkController {
         this.checkListService = checkListService;
     }
 
-    @GetMapping("/lk/")/*тут нужен будет параметр - id пользователя лк*/
-    public String lk() {
+    @GetMapping("/lk/")
+    @ResponseBody
+    public String lk(@RequestParam String id) {
         return "/lk/lk-profile";
     }
 
@@ -49,11 +49,6 @@ public class LkController {
         return "/lk/lk-tracker";
     }
 
-    @GetMapping(value = "/tracker/")
-    public Map<String, String> trackerData(Long userAccountId) {
-        return trackerService.getTrackerValuesByAccountId(userAccountId);
-    }
-
     /**
      * Личный кабинет - Чеклист
      */
@@ -68,11 +63,6 @@ public class LkController {
         checkListService.saveIdeaToProductList(checkListPage);
         //checkListRepository.save(checkListPage);
         return "/lk/lk-checklist";
-    }
-
-    @GetMapping(value = "/checklist/")
-    public List<String> checklistData(Long userAccountId) {
-        return checkListService.getCheckListByAccountId(userAccountId);
     }
 
     /**
