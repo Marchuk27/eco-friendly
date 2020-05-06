@@ -52,7 +52,7 @@ public class MainController {
 
     @GetMapping(value = "/faq/categories")
     public String faqCategoriesController() {
-        return "faq-categories";
+        return "faq-types";
     }
 
     @GetMapping(value = "/faq/periods")
