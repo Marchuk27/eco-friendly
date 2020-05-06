@@ -198,7 +198,7 @@
         </div>
     </div>
 </main>
-<script src="/js/nav.js" type="text/javascript"></script>
+<script src=/js/nav.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
