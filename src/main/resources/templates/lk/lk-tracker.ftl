@@ -66,74 +66,74 @@
     <div class="tracker-info">Фиксируйте* сколько отходов и в какой категории вы сдали</div>
     <div class="tracker-hint">* - в условных единицах (пакетах, килограммах, бутылках и т.д.)</div>
     <div class="tracker-container">
-        <form action="" class="tracker-container__categories">
+        <form action="/lk/tracker" class="tracker-container__categories" method="post">
             <div class="tracker-container__categories__inputs">
                 <div class="form-group">
                     <img src="/images/plasticLogo.png" alt="" class="tracker-container__categories__image">
                     <div class="form-group__part">
                         <div class="tracker-container__categories__name">Пластик</div>
-                        <input type="text" class="tracker-container__categories__input">
+                        <input type="text" class="tracker-container__categories__input" name="plasticInput">
                     </div>
                 </div>
                 <div class="form-group">
                     <img src="/images/glass.png" alt="" class="tracker-container__categories__image">
                     <div class="form-group__part">
                         <div class="tracker-container__categories__name">Стекло</div>
-                        <input type="text" class="tracker-container__categories__input">
+                        <input type="text" class="tracker-container__categories__input" name="glassInput">
                     </div>
                 </div>
                 <div class="form-group">
                     <img src="/images/paper.png" alt="" class="tracker-container__categories__image">
                     <div class="form-group__part">
                         <div class="tracker-container__categories__name">Бумага</div>
-                        <input type="text" class="tracker-container__categories__input">
+                        <input type="text" class="tracker-container__categories__input" name="paperInput">
                     </div>
                 </div>
                 <div class="form-group">
                     <img src="/images/clothes.png" alt="" class="tracker-container__categories__image">
                     <div class="form-group__part">
                         <div class="tracker-container__categories__name">Одежда</div>
-                        <input type="text" class="tracker-container__categories__input">
+                        <input type="text" class="tracker-container__categories__input" name="clothesInput">
                     </div>
                 </div>
                 <div class="form-group">
                     <img src="/images/accums.png" alt="" class="tracker-container__categories__image">
                     <div class="form-group__part">
                         <div class="tracker-container__categories__name">Батарейки</div>
-                        <input type="text" class="tracker-container__categories__input">
+                        <input type="text" class="tracker-container__categories__input" name="accumsInput">
                     </div>
                 </div>
                 <div class="form-group">
                     <img src="/images/techn.png" alt="" class="tracker-container__categories__image">
                     <div class="form-group__part">
                         <div class="tracker-container__categories__name">Быт. техника</div>
-                        <input type="text" class="tracker-container__categories__input">
+                        <input type="text" class="tracker-container__categories__input" name="technInput">
                     </div>
                 </div>
                 <div class="form-group">
                     <img src="/images/metal.png" alt="" class="tracker-container__categories__image">
                     <div class="form-group__part">
                         <div class="tracker-container__categories__name">Металл</div>
-                        <input type="text" class="tracker-container__categories__input">
+                        <input type="text" class="tracker-container__categories__input" name="metalInput">
                     </div>
                 </div>
                 <div class="form-group">
                     <img src="/images/dangerous.png" alt="" class="tracker-container__categories__image">
                     <div class="form-group__part">
                         <div class="tracker-container__categories__name">Опасное</div>
-                        <input type="text" class="tracker-container__categories__input">
+                        <input type="text" class="tracker-container__categories__input" name="dangerInput">
                     </div>
                 </div>
                 <div class="form-group">
                     <img src="/images/other.png" alt="" class="tracker-container__categories__image">
                     <div class="form-group__part">
                         <div class="tracker-container__categories__name">Другое</div>
-                        <input type="text" class="tracker-container__categories__input">
+                        <input type="text" class="tracker-container__categories__input" name="otherInput">
                     </div>
                 </div>
             </div>
             <div class="tracker-container__categories__submit">
-                <input type="image" src="/images/calculateButton.png" alt="Submit"/>
+                <input type="image" src="/images/calculateButton.png" alt="submit"/>
             </div>
         </form>
         <div class="tracker-container__results">
@@ -142,7 +142,7 @@
                 <div class="results__summary__container">
                     <div id="summary">
                         <div class="results__summary__label">Общее число</div>
-                        <div class="results__summary__value">500</div>
+                        <div class="results__summary__value" name="total"></div>
                     </div>
                     <div class="results__summary__progressbar">
                         <div id="plastic"></div>
@@ -159,47 +159,47 @@
                 <div class="results__items">
                     <div class="results__item">
                         <div class="results__item__label">Пластик:</div>
-                        <div class="results__item__value">4</div>
+                        <div class="results__item__value" name="plasticTotal"></div>
                     </div>
                     <div class="results__item">
                         <div class="results__item__label">Стекло:</div>
-                        <div class="results__item__value">16</div>
+                        <div class="results__item__value" name="glassTotal"></div>
                     </div>
                     <div class="results__item">
                         <div class="results__item__label">Бумага:</div>
-                        <div class="results__item__value">3</div>
+                        <div class="results__item__value" name="paperTotal"></div>
                     </div>
                     <div class="results__item">
                         <div class="results__item__label">Одежда:</div>
-                        <div class="results__item__value">2</div>
+                        <div class="results__item__value" name="clothesTotal"></div>
                     </div>
                     <div class="results__item">
                         <div class="results__item__label">Батарейки:</div>
-                        <div class="results__item__value">14</div>
+                        <div class="results__item__value" name="accumsTotal"></div>
                     </div>
                     <div class="results__item">
                         <div class="results__item__label">Быт. техника:</div>
-                        <div class="results__item__value">0</div>
+                        <div class="results__item__value" name="technTotal"></div>
                     </div>
                     <div class="results__item">
                         <div class="results__item__label">Металл:</div>
-                        <div class="results__item__value">7</div>
+                        <div class="results__item__value" name="metalTotal"></div>
                     </div>
                     <div class="results__item">
                         <div class="results__item__label">Опасное:</div>
-                        <div class="results__item__value">1</div>
+                        <div class="results__item__value" name="dangerTotal"></div>
                     </div>
                     <div class="results__item">
                         <div class="results__item__label">Другое:</div>
-                        <div class="results__item__value">8</div>
+                        <div class="results__item__value" name="otherTotal"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
-<script src="nav.js" type="text/javascript"></script>
+<script src="/js/nav.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

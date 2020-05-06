@@ -23,10 +23,11 @@ public class TrackerService {
         String newTotalValue = calculateGeneralSum(trackerForm.getTotal(), totalValuesArr);
         trackerForm.setTotal(newTotalValue);
         setUpdatedValuesToTrackerJO(trackerForm, totalValuesArr);
+        //trackerRepository.save(trackerForm);
     }
 
     public Map<String, String> getTrackerValuesByAccount_Username(String username) {
-        Tracker             trackerPage   = trackerRepository.getTrackerByAccount_Username(username);
+        Tracker trackerPage = trackerRepository.getTrackerByAccount_Username(username);
         Map<String, String> trackerValues = new HashMap<>();
         trackerValues.put("Пластик", trackerPage.getPlasticTotal());
         trackerValues.put("Стекло", trackerPage.getGlassTotal());
@@ -84,8 +85,8 @@ public class TrackerService {
     }
 
     /**
-    * Прибавление к суммарным значениям по категориям новых введенных значений
-    */
+     * Прибавление к суммарным значениям по категориям новых введенных значений
+     */
     private void plusValuesFromInputsToTotal(int[] inputsArr, int[] totalsArr) {
         for (int i = 0; i < totalsArr.length; i++) {
             totalsArr[i] += inputsArr[i];

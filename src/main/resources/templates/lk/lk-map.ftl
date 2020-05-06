@@ -113,7 +113,7 @@
         <div class="offering">
             <div class="offering__heading">Не знаете что выбрать?</div>
             <div class="button-container">
-                <a href="/lk/faq" class="offering__ref btn btn-to-faq">Узнай больше о видах отходов</a>
+                <a href="/lk/faq" class="offering__ref btn btn-to-faq">Узнайте больше о видах отходов</a>
             </div>
         </div>
         <aside class="company">

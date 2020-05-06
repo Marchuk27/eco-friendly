@@ -2,6 +2,7 @@ package org.ecofriendly.controllers.lk;
 
 import org.ecofriendly.db.entity.CheckList;
 import org.ecofriendly.db.entity.Tracker;
+import org.ecofriendly.db.repository.TrackerRepository;
 import org.ecofriendly.service.CheckListService;
 import org.ecofriendly.service.TrackerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LkController {
     private TrackerService trackerService;
     private CheckListService checkListService;
+    @Autowired
+    private TrackerRepository trackerRepository;
 
     @Autowired
     private void setTrackerService(TrackerService trackerService) {
@@ -58,7 +61,8 @@ public class LkController {
     public String calculateTracker(Tracker trackerPage, Model model) {
         model.addAttribute("trackerPage", trackerPage);
         trackerService.calculateValuesFromTracker(trackerPage);
-        //trackerRepository.save(trackerPage);
+
+        trackerRepository.save(trackerPage);
         return "/lk/lk-tracker";
     }
 

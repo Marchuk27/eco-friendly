@@ -17,7 +17,7 @@
         <div class="navbar-logo__name">Eco-Friendly Project</div>
     </div>
     <ul class="navbar-links">
-        <li><a href="/main" id="header-current">Главная</a></li>
+        <li><a href="/" id="header-current">Главная</a></li>
         <li><a href="/login">Личный кабинет</a></li>
         <li><a href="/for-companies">Компаниям</a></li>
         <li><a href="/faq">FAQ</a></li>
