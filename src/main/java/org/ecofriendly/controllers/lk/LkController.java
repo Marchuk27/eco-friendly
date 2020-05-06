@@ -2,6 +2,7 @@ package org.ecofriendly.controllers.lk;
 
 import org.ecofriendly.db.entity.CheckList;
 import org.ecofriendly.db.entity.Tracker;
+import org.ecofriendly.db.repository.CheckListRepository;
 import org.ecofriendly.db.repository.TrackerRepository;
 import org.ecofriendly.service.CheckListService;
 import org.ecofriendly.service.TrackerService;
@@ -11,12 +12,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
+import java.util.List;
+
 @Controller
 public class LkController {
     private TrackerService trackerService;
     private CheckListService checkListService;
     @Autowired
     private TrackerRepository trackerRepository;
+    @Autowired
+    private CheckListRepository checkListRepository;
 
     @Autowired
     private void setTrackerService(TrackerService trackerService) {
@@ -58,11 +64,12 @@ public class LkController {
     }
 
     @PostMapping(value = "/lk/tracker")
-    public String calculateTracker(Tracker trackerPage, Model model) {
-        model.addAttribute("trackerPage", trackerPage);
-        trackerService.calculateValuesFromTracker(trackerPage);
-
-        trackerRepository.save(trackerPage);
+    public String calculateTracker(Tracker trackerForm, Model model, Principal principal) {
+        model.addAttribute("trackerForm", trackerForm);
+        Tracker existTracker = trackerRepository.getTrackerByAccount_Username(principal.getName());
+        trackerService.setFieldsFromFormToExistTracker(trackerForm, existTracker);
+        trackerService.calculateValuesFromTracker(existTracker);
+        trackerRepository.save(existTracker);
         return "/lk/lk-tracker";
     }
 
@@ -75,10 +82,13 @@ public class LkController {
     }
 
     @PostMapping(value = "/lk/checklist")
-    public String fillCheckList(CheckList checkListPage, Model model) {
-        model.addAttribute("checkListPage", checkListPage);
-        checkListService.saveIdeaToProductList(checkListPage);
-        //checkListRepository.save(checkListPage);
+    public String fillCheckList(CheckList checkListForm, Model model, Principal principal) {
+        model.addAttribute("checkListForm", checkListForm);
+        CheckList existCheckList = checkListRepository.getCheckListByAccount_Username(principal.getName());
+        List<String> ideaList = checkListService.getIdeaListByAccount_Username(principal.getName());
+        ideaList.add(checkListForm.getIdeaInput());
+        existCheckList.setSavedIdeas(ideaList);
+        checkListRepository.save(existCheckList);
         return "/lk/lk-checklist";
     }
 

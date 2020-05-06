@@ -67,8 +67,8 @@
     <h2 class="checklist-hint">Придумайте сами или воспользуйтесь готовыми шаблонами.</h2>
     <div class="checklist-container">
         <div class="ideas-container">
-            <form action="" class="ideas-container__item">
-                <textarea name="" id="" class="ideas-container__item__input"></textarea>
+            <form action="/lk/checklist" method="post" class="ideas-container__item">
+                <textarea name="ideaInput" id="" class="ideas-container__item__input"></textarea>
                 <div class="ideas-container__item__submit-container">
                     <button type="submit">Закрепить</button>
                 </div>

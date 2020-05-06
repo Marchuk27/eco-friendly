@@ -21,12 +21,13 @@ public class CheckListService {
         }
         List<String> checkList = checkCurrentListForNullOrEmpty(checkListPage.getSavedIdeas());
         checkList.add(checkListPage.getIdeaInput());
-        checkListPage.setIdeaInput(StringUtils.EMPTY);
     }
 
-    public List<String> getCheckListByAccount_Username(String username) {
+    public List<String> getIdeaListByAccount_Username(String username) {
         return new ArrayList<>(checkListRepository.getCheckListByAccount_Username(username).getSavedIdeas());
     }
+
+
 
     private boolean checkIdeaToFill(String idea) {
         return Objects.isNull(idea) || StringUtils.isEmpty(idea);

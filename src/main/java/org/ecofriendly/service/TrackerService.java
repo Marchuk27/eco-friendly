@@ -12,8 +12,6 @@ import java.util.Objects;
 
 @Service
 public class TrackerService {
-    @Autowired
-    private TrackerRepository trackerRepository;
 
     public void calculateValuesFromTracker(Tracker trackerForm) {
         int[] inputValuesArr = addInputsFromTrackerToList(trackerForm);
@@ -23,22 +21,19 @@ public class TrackerService {
         String newTotalValue = calculateGeneralSum(trackerForm.getTotal(), totalValuesArr);
         trackerForm.setTotal(newTotalValue);
         setUpdatedValuesToTrackerJO(trackerForm, totalValuesArr);
-        //trackerRepository.save(trackerForm);
     }
 
-    public Map<String, String> getTrackerValuesByAccount_Username(String username) {
-        Tracker trackerPage = trackerRepository.getTrackerByAccount_Username(username);
-        Map<String, String> trackerValues = new HashMap<>();
-        trackerValues.put("Пластик", trackerPage.getPlasticTotal());
-        trackerValues.put("Стекло", trackerPage.getGlassTotal());
-        trackerValues.put("Бумага", trackerPage.getPaperTotal());
-        trackerValues.put("Одежда", trackerPage.getClothesTotal());
-        trackerValues.put("Батарейки", trackerPage.getAccumsTotal());
-        trackerValues.put("Техника", trackerPage.getTechnTotal());
-        trackerValues.put("Металл", trackerPage.getMetalTotal());
-        trackerValues.put("Опасное", trackerPage.getDangerTotal());
-        trackerValues.put("Другое", trackerPage.getOtherTotal());
-        return trackerValues;
+
+    public void setFieldsFromFormToExistTracker(Tracker trackerForm, Tracker existTracker) {
+        existTracker.setPlasticInput(trackerForm.getPlasticInput());
+        existTracker.setGlassInput(trackerForm.getGlassInput());
+        existTracker.setPaperInput(trackerForm.getPaperInput());
+        existTracker.setClothesInput(trackerForm.getClothesInput());
+        existTracker.setAccumsInput(trackerForm.getAccumsInput());
+        existTracker.setTechnInput(trackerForm.getTechnInput());
+        existTracker.setMetalInput(trackerForm.getMetalInput());
+        existTracker.setDangerInput(trackerForm.getDangerInput());
+        existTracker.setOtherInput(trackerForm.getOtherInput());
     }
 
     /**
