@@ -1,75 +1,244 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 $header__height: 105px;
+$header__height__m: 40px;
 $nav__color:#F6F8F4;
 $nav__text-color: rgba(41, 47, 44, 0.7);
 $nav__text-color__active: #395348;
 $container__text-color: #25312C;
 
+@media (max-width: 359px){
+    body{
+        padding-top: 40px;
+    }
+    main{
+        padding: 5vh 5vw;
+        flex-direction: column;
+    }
+    nav{
+        background: white;
+        padding: 0;
+        margin-bottom: 5vh;
+        ul{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-gap: 10px;
+            >li{
+                display: flex;
+                align-items: stretch;
+                justify-content: center;
+                background: $nav__color;
+                border-radius: 50px;
+                &:hover, &:focus{
+                    a{
+                        font-weight: 600;
+                        color: $nav__text-color__active;
+                        text-decoration: none;
+                    }
+                }
+                /*&:last-child{
+                    margin-right: 0px;
+                }
+                &:nth-child(1){
+                    flex: 1.3;
+                }
+                &:nth-child(2){
+                    flex: 1.5;
+                }
+                &:nth-child(3){
+                    flex: 2;
+                }
+                &:nth-child(4){
+                    flex: 2.5;
+                }*/
+                >a{
+                    display: block;
+                    text-align: center;
+                    padding: 5px 1.5vw;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .faq-container{
+        flex: 2.5;
+        >p{
+            font-size: 18px;
+        }
+    }
+}
+
+@media (min-width: 360px) and (max-width: 767px){
+    body{
+        padding-top: 40px;
+    }
+    main{
+        padding: 5vh 5vw;
+        flex-direction: column;
+    }
+    nav{
+        background: white;
+        padding: 0;
+        margin-bottom: 5vh;
+        ul{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-gap: 10px;
+            >li{
+                display: flex;
+                align-items: stretch;
+                justify-content: center;
+                background: $nav__color;
+                border-radius: 50px;
+                &:hover, &:focus{
+                    a{
+                        font-weight: 600;
+                        color: $nav__text-color__active;
+                        text-decoration: none;
+                    }
+                }
+                /*&:last-child{
+                    margin-right: 0px;
+                }
+                &:nth-child(1){
+                    flex: 1.3;
+                }
+                &:nth-child(2){
+                    flex: 1.5;
+                }
+                &:nth-child(3){
+                    flex: 2;
+                }
+                &:nth-child(4){
+                    flex: 2.5;
+                }*/
+                >a{
+                    display: block;
+                    text-align: center;
+                    padding: 5px 1.5vw;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .faq-container{
+        flex: 2.5;
+        >p{
+            font-size: 18px;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1124px){
+    body{
+        padding-top: 100px;
+    }
+    main{
+        padding: 5vh 5vw;
+    }
+    nav{
+        flex: 1;
+        max-height: 38vh;
+        //max-height: 325px;
+        margin-right: 5vw;
+        background-color: $nav__color;
+        padding: 15px 0px;
+        ul{
+            padding: 0 3vw 0px 2vw;
+            >li{
+                margin-bottom: 12px;
+                >a{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .faq-container{
+        flex: 2.5;
+        >p{
+            font-size: 2vw;
+        }
+    }
+}
+
+@media (min-width: 1125px){
+    body{
+        padding-top: 100px;
+    }
+    main{
+        padding: 5vh 10vw 5vh 5vw;
+    }
+    nav{
+        //width: 340px;
+        //max-height: 215px;
+        background-color: $nav__color;
+        flex: 1;
+        max-height: 40vh;
+        margin-right: 5vw;
+        padding: 15px 0px;
+        ul{
+            padding: 0 3vw 0px 2vw;
+            >li{
+                margin-bottom: 12px;
+                >a{
+                    font-size: 23px;
+                }
+            }
+        }
+    }
+    .faq-container{
+        flex: 3;
+        >p{
+            font-size: 24px;
+        }
+    }
+}
+
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 body, html{
+    margin: 0;
     width: 100%;
-    height: 100%;
     min-height: 100vh;
     font-family: Montserrat, sans-serif;
 }
 
+body{
+    display: flex;
+}
+
 main{
-    padding: $header__height 120px $header__height 40px;
-    display: grid;
-    grid-template-areas: "nav container";
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto;
-    grid-gap: 120px;
+    display: flex;
 }
 
 nav{
-    grid-area: nav;
-    background-color: $nav__color;
     border-radius: 5px;
-    margin-top: 32.5px;
-    padding: 15px 0px;
-    width: 340px;
-    max-height: 215px;
     >ul{
         list-style: none;
+        margin-bottom: 0;
         >li{
-            padding: 0 60px 0px 40px;
-            margin-bottom: 12px;
             &:last-child{
                 margin-bottom: 0px;
             }
             >a{
-                font-size: 23px;
                 color: $nav__text-color;
                 text-decoration: none;
-                &:hover{
+                &:hover, &:visited, &:focus{
                     font-weight: 600;
                     color: $nav__text-color__active;
-                }
-                &:focus{
-                    font-weight: 600;
-                    color: $nav__text-color__active;
-                }
-                &:visited{
-                    font-weight: 600;
-                    color: $nav__text-color__active;
+                    text-decoration: none;
                 }
             }
         }
     }
 }
 
-.container{
-    grid-area: container;
-    margin-top: 65px;
+.faq-container{
     >p{
-        font-size: 28px;
         color: $container__text-color;
         margin-bottom: 40px;
         &:last-child{

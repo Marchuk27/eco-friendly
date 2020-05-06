@@ -1,36 +1,35 @@
-let newGroups = [];
+let categoryCompaniesDict = [];
+
 map = null;
-groups = null;
+jsonResponse = null;
 geoObjects = [];
 geoObjectsCollections = [];
-typeOfWastePresetList = [
-    {typeOfWaste: "Пластик", preset: "islands#orangeIcon"},
-    {typeOfWaste: "Стекло", preset: "islands#greenIcon"},
-    {typeOfWaste: "Бумага", preset: "islands#blueIcon"},
-    {typeOfWaste: "Одежда", preset: "islands#yellowIcon"},
-    {typeOfWaste: "Батарейки", preset: "islands#pinkIcon"},
-    {typeOfWaste: "Бытовая", preset: "islands#nightIcon"},
-    {typeOfWaste: "Металл", preset: "islands#brownIcon"},
-    {typeOfWaste: "Опасные", preset: "islands#redIcon"},
-    {typeOfWaste: "Иное", preset: "islands#violetIcon"}
-]
+
+clusterer = null;
+clustererObjectsStorage = [];
+
+typeOfWasteList = [
+    {typeOfWaste: "Пластик", preset: "islands#orangeIcon", id: "plastic", color: "#ECA842"},
+    {typeOfWaste: "Стекло", preset: "islands#greenIcon", id: "glass", color: "#4E9F5B"},
+    {typeOfWaste: "Бумага", preset: "islands#blueIcon", id: "paper", color: "#72B1D4"},
+    {typeOfWaste: "Одежда", preset: "islands#yellowIcon", id: "clothes", color: "#D3C652"},
+    {typeOfWaste: "Батарейки", preset: "islands#pinkIcon", id: "accums", color: "#B7739C"},
+    {typeOfWaste: "Бытовая", preset: "islands#nightIcon", id: "techn", color: "#598487"},
+    {typeOfWaste: "Металл", preset: "islands#brownIcon", id: "metal", color: "#C2997A"},
+    {typeOfWaste: "Опасные", preset: "islands#redIcon", id: "dangerous", color: "#BA576F"},
+    {typeOfWaste: "Иное", preset: "islands#violetIcon", id: "other", color: "#6255B6"}
+];
+
 ymaps.ready(init);
 
-let nav = null;
-
 let heightOfHeader = 35;
-let partOfScreen = 304;/*window.innerHeight - window.innerHeight / 3; heightOfNav*/
-
-/*menu.addEventListener("touchstart", (e) => {
-    let touch = e.touches[0];
-    let y  = touch.clientY;
-    console.log("touchStart", y);
-});*/
+let partOfScreen = 304; /*window.innerHeight - window.innerHeight / 3; heightOfNav*/
 
 document.addEventListener('DOMContentLoaded', function(e){
     let typesOfWaste = document.getElementsByClassName("type-of-waste");
-    nav = document.getElementsByTagName("nav")[0];
-    nav.addEventListener("touchmove", (e)=>{
+
+    let nav = document.getElementsByTagName("nav")[0];
+    nav.addEventListener("touchmove", e => {
         let touch = e.touches[0];
         let y = touch.clientY;
         if(y < window.innerHeight-partOfScreen){
@@ -41,131 +40,9 @@ document.addEventListener('DOMContentLoaded', function(e){
             y = window.innerHeight - heightOfHeader;
         }
         nav.style.top = y + "px";
-        //console.log("touchMove", x);
     });
-    Array.from(typesOfWaste).forEach(element => {
-        switch (element.id) {
-            case "plastic":
-            {
-                element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Пластик").collection;
-                    if(collection.options.get("visible")){
-                        collection.options.set("visible", false);
-                    }
-                    else{
-                        collection.options.set("visible", true);
-                    }
-                });
-                break;
-            }
-            case "glass":
-            {
-                element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Стекло").collection;
-                    if(collection.options.get("visible")){
-                        collection.options.set("visible", false);
-                    }
-                    else{
-                        collection.options.set("visible", true);
-                    }
-                });
-                break;
-            }
-            case "paper":
-            {
-                element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Бумага").collection;
-                    if(collection.options.get("visible")){
-                        collection.options.set("visible", false);
-                    }
-                    else{
-                        collection.options.set("visible", true);
-                    }
-                });
-                break;
-            }
-            case "clothes":
-            {
-                element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Одежда").collection;
-                    if(collection.options.get("visible")){
-                        collection.options.set("visible", false);
-                    }
-                    else{
-                        collection.options.set("visible", true);
-                    }
-                });
-                break;
-            }
-            case "accums":
-            {
-                element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Батарейки").collection;
-                    if(collection.options.get("visible")){
-                        collection.options.set("visible", false);
-                    }
-                    else{
-                        collection.options.set("visible", true);
-                    }
-                });
-                break;
-            }
-            case "techn":
-            {
-                element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Бытовая").collection;
-                    if(collection.options.get("visible")){
-                        collection.options.set("visible", false);
-                    }
-                    else{
-                        collection.options.set("visible", true);
-                    }
-                });
-                break;
-            }
-            case "metal":
-            {
-                element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Металл").collection;
-                    if(collection.options.get("visible")){
-                        collection.options.set("visible", false);
-                    }
-                    else{
-                        collection.options.set("visible", true);
-                    }
-                });
-                break;
-            }
-            case "dangerous":
-            {
-                element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Опасные").collection;
-                    if(collection.options.get("visible")){
-                        collection.options.set("visible", false);
-                    }
-                    else{
-                        collection.options.set("visible", true);
-                    }
-                });
-                break;
-            }
-            case "other":
-            {
-                element.addEventListener("click", function(e){
-                    let collection = geoObjectsCollections.find(o=>o.typeOfWaste=="Иное").collection;
-                    if(collection.options.get("visible")){
-                        collection.options.set("visible", false);
-                    }
-                    else{
-                        collection.options.set("visible", true);
-                    }
-                });
-                break;
-            }
-            default:
-                break;
-        }
-    });
+
+    setTypeOfWasteOnClickEvents(Array.from(typesOfWaste));
 });
 
 function init() {
@@ -176,33 +53,60 @@ function init() {
         restrictMapArea: [[56.999959, 60.125085],[56.609430, 61.063112]],
         searchControlProvider: 'yandex#search'
     });
-    // clusterer = new ymaps.Clusterer({
-    //     clusterIconLayout: 'default#pieChart',
-    //     // Радиус диаграммы в пикселях.
-    //     clusterIconPieChartRadius: 25,
-    //     // Радиус центральной части макета.
-    //     clusterIconPieChartCoreRadius: 10,
-    //     // Ширина линий-разделителей секторов и внешней обводки диаграммы.
-    //     clusterIconPieChartStrokeWidth: 3,
-    //     groupByCoordinates: false,
-    //     clusterDisableClickZoom: true,
-    //     clusterHideIconOnBalloonOpen: false,
-    //     geoObjectHideIconOnBalloonOpen: false
-    // });
+    clusterer = new ymaps.Clusterer({
+        clusterIconLayout: 'default#pieChart',
+        // Радиус диаграммы в пикселях.
+        clusterIconPieChartRadius: 25,
+        // Радиус центральной части макета.
+        clusterIconPieChartCoreRadius: 10,
+        // Ширина линий-разделителей секторов и внешней обводки диаграммы.
+        clusterIconPieChartStrokeWidth: 3
+    });
 
     fetch("/category/?category=1&category=2&category=3&category=4&category=5&category=6&" +
         "category=7&category=8&category=9")
         .then(response => response.json())
         .then((json)=>{
-            groups = json;
-            let keys = Object.keys(groups);
-            keys.forEach(el => newGroups.push({typeOfWaste: el, companyInfo: groups[el]}))
-            setMapGeoObjects(newGroups);
+            jsonResponse = json;
+            let keys = Object.keys(jsonResponse);
+            keys.forEach(el => categoryCompaniesDict.push({typeOfWaste: el, companyInfo: jsonResponse[el]}));
+            setMapGeoObjects(categoryCompaniesDict);
+            let array = [];
+            geoObjects.forEach(el => array.push(el.geoObject));
+            clusterer.add(array);
+            map.geoObjects.add(clusterer);
+            clusterer.getGeoObjects().forEach(geoObject => clustererObjectsStorage.push(geoObject));
         });
+}
 
-    let array = [];
-    geoObjects.forEach(el => array.push(el.geoObject));
-    // clusterer.add(array);
+function setTypeOfWasteOnClickEvents(typesOfWaste){
+    typesOfWaste.forEach(el=>{
+        el.addEventListener("click", (e)=>{
+            el.firstElementChild.classList.toggle("selected");
+            let category = typeOfWasteList.find(o=>o.id == el.id);
+            let typeOfWaste = category.typeOfWaste;
+            let color = category.color;
+            clustererObjectsStorage.forEach(geoObject => {
+                if(geoObject.options.get("iconColor")==color){
+                    if(geoObject.options.get("visible")){
+                        geoObject.options.set("visible", false);
+                        clusterer.remove(geoObject);
+                    }
+                    else{
+                        geoObject.options.set("visible", true);
+                        clusterer.add(geoObject);
+                    }
+                }
+            });
+            /*let collection = geoObjectsCollections.find(o=>o.typeOfWaste==typeOfWaste).collection;
+            if(collection.options.get("visible")){
+                collection.options.set("visible", false);
+            }
+            else{
+                collection.options.set("visible", true);
+            }*/
+        });
+    });
 }
 
 function setMapGeoObjects(groups){
@@ -210,8 +114,10 @@ function setMapGeoObjects(groups){
     {
         for (let i = 0; i < groups.length; i++)
         {
+            let color = typeOfWasteList.find(o=>o.typeOfWaste == groups[i].typeOfWaste).color;
             let collection = new ymaps.GeoObjectCollection(groups[i].companyInfo, {
-                preset: typeOfWastePresetList.find(o=>o.typeOfWaste == groups[i].typeOfWaste).preset,
+                preset: 'islands#icon',
+                iconColor: color,
                 visible: true
             });
 
@@ -239,22 +145,25 @@ function setMapGeoObjects(groups){
                     emailInfo = groups[i].companyInfo[j].email[0].email;
                 }
 
-                console.log(i, j,
-                    groups[i].companyInfo[j].address[0].latitude, groups[i].companyInfo[j].address[0].longitude);
-                let item = new ymaps.Placemark([groups[i].companyInfo[j].address[0].latitude, groups[i].companyInfo[j].address[0].longitude],
-                    {
-                        balloonContentHeader: groups[i].companyInfo[j].name,
-                        balloonContentBody: "<b>Адрес: </b>" + groups[i].companyInfo[j].address[0].address + "<br>" +
-                            "<b>Номер телефона: </b>" + phoneInfo + "<br>" +
-                            "<b>Электронная почта: </b>" + emailInfo,
-                        hintContent: groups[i].companyInfo[j].name
+                // console.log(i, j,
+                //     groups[i].companyInfo[j].address[0].latitude, groups[i].companyInfo[j].address[0].longitude);
+                for(let k = 0; k < groups[i].companyInfo[j].address.length; k++){
+                    let item = new ymaps.Placemark([groups[i].companyInfo[j].address[k].latitude, groups[i].companyInfo[j].address[k].longitude],
+                        {
+                            balloonContentHeader: groups[i].companyInfo[j].name,
+                            balloonContentBody: "<b>Адрес: </b>" + groups[i].companyInfo[j].address[k].address + "<br>" +
+                                "<b>Номер телефона: </b>" + phoneInfo + "<br>" +
+                                "<b>Электронная почта: </b>" + emailInfo,
+                            hintContent: groups[i].companyInfo[j].name
+                        },
+                        { iconColor: color, visible: true});
+                    collection.add(item);
+                    geoObjects.push({
+                        name: groups[i].companyInfo[j].name,
+                        itemInfo: groups[i].companyInfo[j],
+                        geoObject: item,
                     });
-                collection.add(item);
-                geoObjects.push({
-                    name: groups[i].companyInfo[j].name,
-                    itemInfo: groups[i].companyInfo[j],
-                    geoObject: item,
-                });
+                }
             }
             map.geoObjects.add(collection);
             geoObjectsCollections.push({
@@ -282,17 +191,6 @@ function setGeoObjectsEvents(){
         });
     }
 }
-
-/*function getCompany(){
-    let cmp = {
-        name: document.getElementsByClassName("company__name")[0].innerHTML,
-        address: document.getElementsByClassName("company__address__value")[0].innerHTML,
-        contacts: document.getElementsByClassName("company__contacts__list__item__value"),
-        categories: document.getElementsByClassName("company__categories__list__item__label"),
-        additionalInfo: document.getElementsByClassName("company__additional-info__value")[0].innerHTML
-    }
-    return cmp;
-}*/
 
 function setCompanyContainerInfo(company){
     let cmp = {

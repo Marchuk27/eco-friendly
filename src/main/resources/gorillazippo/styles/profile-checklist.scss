@@ -27,7 +27,7 @@
         padding-top: 100px;
     }
     main{
-        padding-top: 10px;
+        padding-top: 10px; 
         margin: 0 10vw 10vh 350px;
         flex: 1;
     }
@@ -97,7 +97,7 @@ main{
     }
     &-image-container{
         display: flex;
-        background-image: url(static/images/checklist.png);
+        background-image: url(images/checklist.png);
         background-repeat: no-repeat;
         background-size: contain;
         flex: 1;

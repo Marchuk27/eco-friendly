@@ -73,21 +73,17 @@
                     <button type="submit">Закрепить</button>
                 </div>
             </form>
-            <form action="" class="ideas-container__item">
-                <div class="ideas-container__item__template">Откладывать бутылки с водой после спортзала и утилизровать их в контейнер для пластика</div>
-                <div class="ideas-container__item__submit-container">
-                    <button type="submit">Закрепить</button>
-                </div>
-            </form>
-            <form action="" class="ideas-container__item">
-                <div class="ideas-container__item__template">Разобрать бабушкину кладовку и отдать вещи и отдать одежду в детский дом</div>
-                <div class="ideas-container__item__submit-container">
-                    <button type="submit">Закрепить</button>
-                </div>
-            </form>
+            <div class="ideas-container__advice">Можете воспользоваться шаблонами:</div>
+            <div class="ideas-container__item">
+                <div class="ideas-container__item__template">Откладывать бутылки с водой после спортзала и
+                    утилизровать их в контейнер для пластика</div>
+            </div>
+            <div class="ideas-container__item">
+                <div class="ideas-container__item__template">Разобрать бабушкину кладовку и отдать вещи и отдать
+                    одежду в детский дом</div>
+            </div>
         </div>
         <div class="checklist-image-container">
-            <!--<img src="images/checklist.png" alt="">-->
         </div>
     </div>
 </main>

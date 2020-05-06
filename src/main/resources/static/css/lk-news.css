@@ -16,36 +16,64 @@ main {
 
 .news-container {
   margin-top: 30px; }
-  .news-container > * {
-    margin-bottom: 20px; }
-  .news-container > *:last-child {
-    margin-bottom: 0px; }
-  .news-container__item {
-    background: #F6F8F4;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    padding: 15px 20px 10px;
-    max-width: 720px; }
-    .news-container__item__image {
-      width: 680px;
-      height: 425px;
-      max-width: 680px;
-      max-height: 425px;
-      margin-bottom: 15px;
-      border-radius: 5px; }
-    .news-container__item__text {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 10px; }
-      .news-container__item__text :last-of-type {
-        margin-bottom: 0px; }
-    .news-container__item__title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 10px; }
+.news-container > * {
+  margin-bottom: 20px; }
+.news-container > *:last-child {
+  margin-bottom: 0px; }
+.news-container__item {
+  background: #F6F8F4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 15px 20px 10px;
+  max-width: 720px; }
+.news-container__item__image {
+  max-width: 680px;
+  max-height: 425px;
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 5px; }
+.news-container__item__text {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 21px;
+  color: #000000;
+  margin-bottom: 10px; }
+.news-container__item__text :last-of-type {
+  margin-bottom: 0px; }
+.news-container__item__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px; }
+.news-container__item__footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
 
 .image-container {
   display: flex;
   justify-content: center; }
 
-/*# sourceMappingURL=lk-news.css.map */
+.like-container {
+  display: flex;
+  align-items: center; }
+.like-container__image {
+  max-width: 35px;
+  max-height: 35px; }
+.like-container__count {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 20px;
+  /* or 87% */
+  color: #77A653; }
+
+.date {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 21px;
+  color: #393535; }
+
+/*# sourceMappingURL=profile-news.css.map */

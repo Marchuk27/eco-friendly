@@ -7,7 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel=stylesheet href="/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='/css/bootstrap-header.css'>
-    <link rel='stylesheet' type="text/css" media="screen" href="/css/lk-tracker.css">
+    <link rel='stylesheet' type="text/css" media="screen" href="/css/lk-news.css">
 </head>
 <body>
 <header class="navbar fixed-top">

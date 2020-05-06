@@ -17,7 +17,7 @@
             <img src="/images/logo.png" alt="Лого" class="navbar-logo-profile__image">
             <div class="navbar-logo-profile__name">Eco-Friendly Project</div>
         </div>
-        <div class="navbar-logo-profile__title">Карта</div>
+        <div class="navbar-logo-profile__title">Личный кабинет</div>
     </div>
     <ul class="navbar-links-profile">
         <li><a href="/lk/map" id="header-current">Карта</a></li>
@@ -32,9 +32,13 @@
             </a>
         </li>
     </ul>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+             xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z"
+                  clip-rule="evenodd"></path>
         </svg>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
