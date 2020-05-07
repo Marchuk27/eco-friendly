@@ -20,7 +20,17 @@ values (123, 12);
 insert into check_list_saved_ideas(check_list_id, saved_ideas)
 values (123, 'pgAdmin говно ебаное');
 
--- ЗАПРОС ДЛЯ ЗАПОЛНЕНИЯ ТАБЛИЦЫ ДОСТИЖЕНИЙ
+-- ЗАПРОСЫ ДЛЯ ЗАПОЛНЕНИЯ ТАБЛИЦЫ ДОСТИЖЕНИЙ
 INSERT INTO achievement(id, description, name, url_to_icon)
 VALUES(1, 'Зарегистрируйтесь в личном кабинете', 'Эко-энтузиаст', '');
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(2, 'Сдать что-либо из категории Опасное', 'Безумец', '');
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(3, 'Сдать более 500 единиц отходов', 'Начинающий сортировщик', '');
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(4, 'Сдать более 1000 единиц отходов', 'Продвинутый сортировщик', '');
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(5, 'Сдать более 5000 единиц отходов', 'Ярый сортировщик', '');
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(6, 'Сдать более 10000 единиц отходов', 'Я из Швеции', '');
 

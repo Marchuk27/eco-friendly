@@ -2,24 +2,32 @@ package org.ecofriendly.service;
 
 import org.apache.commons.lang3.StringUtils;
 import org.ecofriendly.db.entity.Tracker;
+import org.ecofriendly.db.entity.user.Account;
+import org.ecofriendly.db.repository.AccountRepository;
 import org.ecofriendly.db.repository.TrackerRepository;
+import org.ecofriendly.utils.AchievementUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.Objects;
 
 @Service
 public class TrackerService {
+    @Autowired
+    private AccountRepository accountRepository;
+    @Autowired
+    private TrackerRepository trackerRepository;
 
-    public void calculateValuesFromTracker(Tracker trackerForm) {
+    public void calculateValuesFromTracker(Tracker trackerForm, String username) {
+        checkInputsForAchievements(username, trackerForm);
         int[] inputValuesArr = addInputsFromTrackerToList(trackerForm);
         int[] totalValuesArr = addTotalValuesToList(trackerForm);
         plusValuesFromInputsToTotal(inputValuesArr, totalValuesArr);
 
         String newTotalValue = calculateGeneralSum(trackerForm.getTotal(), totalValuesArr);
         trackerForm.setTotal(newTotalValue);
+        checkTotalValueForAchievements(username, Integer.parseInt(newTotalValue));
         setUpdatedValuesToTrackerJO(trackerForm, totalValuesArr);
     }
 
@@ -98,6 +106,7 @@ public class TrackerService {
             sum += value;
         }
         int newGeneralValue = totalSum + sum;
+
         return String.valueOf(newGeneralValue);
     }
 
@@ -115,4 +124,38 @@ public class TrackerService {
         tracker.setDangerTotal(String.valueOf(totalsArr[7]));
         tracker.setOtherTotal(String.valueOf(totalsArr[8]));
     }
+
+
+    /**
+     * Проверка пользователя для добавления достижений
+     */
+    public void checkInputsForAchievements(String username, Tracker trackerForm) {
+        Tracker existTracker = trackerRepository.getTrackerByAccount_Username(username);
+        Account account = accountRepository.findAccountByUsername(username);
+        List<Integer> achievementList = account.getAchievementList();
+        if (!trackerForm.getDangerInput().isEmpty()) {
+            if (Objects.isNull(existTracker.getDangerTotal()) || existTracker.getDangerTotal().equals("0")) {
+                if (!achievementList.contains(2)) {
+                    //Достижение "Безумец"
+                    achievementList.add(2);
+                }
+            }
+        }
+
+        account.setAchievementList(achievementList);
+        accountRepository.save(account);
+    }
+
+    private void checkTotalValueForAchievements(String username, int totalValue) {
+        Account account = accountRepository.findAccountByUsername(username);
+        List<Integer> achievementList = account.getAchievementList();
+        AchievementUtils.checkForBeginnerRecycler(achievementList, totalValue);
+        AchievementUtils.checkForMiddleRecycler(achievementList, totalValue);
+        AchievementUtils.checkForSeniorRecycler(achievementList, totalValue);
+        AchievementUtils.checkForIamFromSweden(achievementList, totalValue);
+
+        account.setAchievementList(achievementList);
+        accountRepository.save(account);
+    }
+
 }

@@ -26,20 +26,28 @@ public class Achievement {
     private String description;
     private String urlToIcon;
 
-
     /**
      *  Формат: Нэйминг достижения / Текстовка /  Место в коде
      *
-     * "Эко-энтузиаст" / Зарегистрируйтесь в личном кабинете
+     * 1 "Эко-энтузиаст" / Зарегистрируйтесь в личном кабинете
      * / UserAccountController.class; method = registerUser();
      *
-     * //TODO: Доделать оставшующся аналитику
-     * "Безумец" / Сдайте что-либо из категории "Опасное" /
+     * 2 "Безумец" / Сдайте что-либо из категории "Опасное" /
+     * TrackerService.class; method = checkUserForAchievements();
      *
-     * "Начинающий сортировщик" >= 500 в общем единиц в трекере
-     * "Продвинутый сортировщик" >= 1000
-     * "Ярый сортировщик" >= 5000
-     * "Я из Швеции" >= 10000
+     * 3 "Начинающий сортировщик" / Сдать более 500 единиц отходов /
+     * TrackerService.class; method = checkTotalValueForAchievements();
+     *
+     * 4 "Продвинутый сортировщик" / Сдать более 500 единиц отходов /
+     * TrackerService.class; method = checkTotalValueForAchievements();
+     *
+     * 5 "Ярый сортировщик" / Сдать более 500 единиц отходов /
+     * TrackerService.class; method = checkTotalValueForAchievements();
+     *
+     * 6 "Я из Швеции" / Сдать более 500 единиц отходов /
+     * TrackerService.class; method = checkTotalValueForAchievements();
+     *
+     *  //TODO: Доделать оставшующся аналитику
      *
      * "Начинающий стекольщик" >= 30
      * "Продвинутый стекольщик" >= 500
