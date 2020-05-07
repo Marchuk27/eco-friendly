@@ -17,7 +17,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity
-public class AchieveActions {
+public class Achievement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

@@ -14,6 +14,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -39,6 +40,8 @@ public class Account implements UserDetails {
     @OneToOne
     @JsonBackReference
     private CheckList checkList;
+    @ElementCollection
+    private List<Short> achievementList;
 
     @NotNull
     @Length(min = 6)
