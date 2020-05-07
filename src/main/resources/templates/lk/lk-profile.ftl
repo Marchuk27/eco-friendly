@@ -114,11 +114,11 @@
         <div class="achievements-container">
             <div class="achievements__heading">Достижения</div>
             <div class="achievements__progress">
-                <div class="achievements__progress__current">5</div>
+                <div class="achievements__progress__current">0</div>
                 <div class="achievements__progress__total">/52</div>
             </div>
             <div id="achievements">
-                <div class="achievement">
+                <!--<div class="achievement">
                     <div class="achievement__title">Идейный</div>
                     <div class="achievement__text">Закрепить 2 идеи в чек-листе</div>
                 </div>
@@ -137,15 +137,15 @@
                 <div class="achievement">
                     <div class="achievement__title">Матёрый географ</div>
                     <div class="achievement__text">Просмотреть на карте 50 компаний</div>
-                </div>
+                </div>-->
             </div>
             <div class="achievements__navigation">
-                <button class="achievements__navigation__button">
+                <button class="achievements__navigation__button" id="back">
                     <svg class="bi bi-caret-left-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 00-1.659-.753l-5.48 4.796a1 1 0 000 1.506z"/>
                     </svg>
                 </button>
-                <button class="achievements__navigation__button">
+                <button class="achievements__navigation__button" id="forward">
                     <svg class="bi bi-caret-right-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 011.659-.753l5.48 4.796a1 1 0 010 1.506z"></path>
                     </svg>
