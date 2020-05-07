@@ -1,6 +1,5 @@
 package org.ecofriendly.db.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.ecofriendly.db.entity.user.Account;
@@ -15,7 +14,6 @@ public class Tracker {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long    id;
     @OneToOne
-    @JsonIgnore
     private Account account;
 
     //левая часть страницы - формы для ввода
