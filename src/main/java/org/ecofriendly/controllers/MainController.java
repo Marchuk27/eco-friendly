@@ -39,6 +39,7 @@ public class MainController {
     public String sendCompanyRequest(CompanyForm companyform, Model model) {
         model.addAttribute("companyForm", companyform);
         companyFormRepository.save(companyform);
+        model.asMap().clear();
         return "redirect:/for-companies";
     }
 

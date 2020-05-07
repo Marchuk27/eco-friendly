@@ -69,6 +69,7 @@ public class LkController {
         Tracker existTracker = trackerRepository.getTrackerByAccount_Username(principal.getName());
         trackerService.setFieldsFromFormToExistTracker(trackerForm, existTracker);
         trackerService.calculateValuesFromTracker(existTracker, principal.getName());
+        model.asMap().clear();
         trackerRepository.save(existTracker);
         return "redirect:/lk/tracker";
     }
