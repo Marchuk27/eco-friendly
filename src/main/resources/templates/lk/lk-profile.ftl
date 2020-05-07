@@ -115,7 +115,7 @@
             <div class="achievements__heading">Достижения</div>
             <div class="achievements__progress">
                 <div class="achievements__progress__current">0</div>
-                <div class="achievements__progress__total">/52</div>
+                <div class="achievements__progress__total">/0</div>
             </div>
             <div id="achievements">
                 <!--<div class="achievement">

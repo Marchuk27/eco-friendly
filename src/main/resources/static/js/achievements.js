@@ -13,7 +13,7 @@ let achievementsContainer = null;
 let currentAchievementsCountElement = null;
 let totalAchievementsCountElement = null;
 
-document.addEventListener("DOMContentLoaded", e => {
+window.addEventListener("load", e => {
     fetch("/session+user+name/")
         .then(response => response.text())
         .then(response => {

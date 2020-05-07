@@ -3,7 +3,7 @@ let checklistInfo = null;
 
 typesOfWaste = ["plastic", "glass", "paper", "clothes", "accums", "techn", "metal", "dangerous", "other"];
 
-document.addEventListener("DOMContentLoaded", e => {
+window.addEventListener("load", e => {
     fetch("/session+user+name/")
         .then(response => response.text())
         .then(response => {

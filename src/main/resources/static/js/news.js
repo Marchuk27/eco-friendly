@@ -1,7 +1,7 @@
 let news = null;
 let newsContainer = null;
 
-document.addEventListener("DOMContentLoaded", e => {
+window.addEventListener("load", e => {
         newsContainer = document.querySelector(".news-container");
         fetch("/news/")
             .then(response => response.json())
