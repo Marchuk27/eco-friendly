@@ -50,4 +50,12 @@ public class UserAccountService implements IUserAccountService {
         //TODO: Еще проверки по введенным данным в форму регистрации
         return true;
     }
+
+    @Override
+    public List<Integer> getUserAchievements(String username) {
+        Account account = accountRepository.findAccountByUsername(username);
+        return account.getAchievementList();
+    }
+
+
 }

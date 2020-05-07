@@ -20,3 +20,7 @@ values (123, 12);
 insert into check_list_saved_ideas(check_list_id, saved_ideas)
 values (123, 'pgAdmin говно ебаное');
 
+-- ЗАПРОС ДЛЯ ЗАПОЛНЕНИЯ ТАБЛИЦЫ ДОСТИЖЕНИЙ
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(1, 'Зарегистрируйтесь в личном кабинете', 'Эко-энтузиаст', '');
+

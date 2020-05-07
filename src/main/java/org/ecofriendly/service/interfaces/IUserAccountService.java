@@ -24,4 +24,7 @@ public interface IUserAccountService {
      * @return true - если пользователь прошел все прроверки
      */
     Boolean checkFormData(Account userForm);
+
+
+    List<Integer> getUserAchievements(String username);
 }

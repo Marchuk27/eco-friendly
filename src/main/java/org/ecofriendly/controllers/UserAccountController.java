@@ -15,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class UserAccountController {
 	private AccountRepository   accountRepository;
@@ -65,6 +67,10 @@ public class UserAccountController {
 			account.setCheckList(checkList);
 			trackerRepository.save(tracker);
 			checkListRepository.save(checkList);
+			//Получение достижения "Эко-энтузиаст" за регистрацию
+			List<Integer> achievements = account.getAchievementList();
+			achievements.add(1);
+			account.setAchievementList(achievements);
 			accountRepository.save(account);
 			return "login";
 		}

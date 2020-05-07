@@ -9,13 +9,12 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.util.CollectionUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Getter
@@ -41,7 +40,7 @@ public class Account implements UserDetails {
     @JsonBackReference
     private CheckList checkList;
     @ElementCollection
-    private List<Short> achievementList; //в списке будут храниться id достижений пользователя
+    private List<Integer> achievementList; //в списке будут храниться id достижений пользователя
 
     @NotNull
     @Length(min = 6)
@@ -52,9 +51,14 @@ public class Account implements UserDetails {
     @ManyToMany
     private Set<Authority> authority;
 
-    //поля для достижений
-    //@ManyToMany - одна ачивка может быть у нескольких пользователей
-    //private Set<Achievement> achievementList;
+    public List<Integer> getAchievementList() {
+        if (CollectionUtils.isEmpty(achievementList)) {
+            return new ArrayList<>();
+        }
+        return achievementList;
+    }
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getAuthority();
@@ -79,5 +83,4 @@ public class Account implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
-
 }
