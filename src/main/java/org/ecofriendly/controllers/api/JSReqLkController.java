@@ -1,9 +1,7 @@
-package org.ecofriendly.controllers.lk;
+package org.ecofriendly.controllers.api;
 
-import org.ecofriendly.db.entity.CheckList;
 import org.ecofriendly.db.entity.Tracker;
 import org.ecofriendly.db.entity.company.News;
-import org.ecofriendly.db.repository.CheckListRepository;
 import org.ecofriendly.db.repository.NewsRepository;
 import org.ecofriendly.db.repository.TrackerRepository;
 import org.ecofriendly.service.CheckListService;
@@ -13,10 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
 
+/**
+ * Контроллер для формирования ответов в виде JSON на фронт
+ * для функционала Личного Кабинета
+ */
 @RestController
-public class ControllerForRest {
+public class JSReqLkController {
     @Autowired
     private TrackerRepository trackerRepository;
     @Autowired
@@ -39,5 +42,11 @@ public class ControllerForRest {
     @GetMapping(value = "/news/")
     public Iterable<News> newsData() {
         return newsRepository.findAll();
+    }
+
+    @GetMapping(value = "/session+user+name/")
+    @ResponseBody
+    public String getUserNameFromSession(Principal principal) {
+        return principal.getName();
     }
 }
