@@ -23,7 +23,10 @@ document.addEventListener("DOMContentLoaded", e => {
                 .then(response => response.json())
                 .then(json => {
                     achievements=json;
-                    setInitialAchievements();
+                    if(achievements.length>0 && achievements !== null)
+                    {
+                        setInitialAchievements();
+                    }
                 });
         });
     let backButton = document.getElementById("back");
