@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class LkController {
@@ -86,8 +87,12 @@ public class LkController {
         model.addAttribute("checkListForm", checkListForm);
         CheckList existCheckList = checkListRepository.getCheckListByAccount_Username(principal.getName());
         List<String> ideaList = checkListService.getIdeaListByAccount_Username(principal.getName());
-        ideaList.add(checkListForm.getIdeaInput());
+        if (!ideaList.contains(checkListForm.getIdeaInput())) {
+            ideaList.add(checkListForm.getIdeaInput());
+        }
         existCheckList.setSavedIdeas(ideaList);
+        checkListForm.setIdeaInput(null);
+        existCheckList.setIdeaInput(null);
         checkListRepository.save(existCheckList);
         return "/lk/lk-checklist";
     }
