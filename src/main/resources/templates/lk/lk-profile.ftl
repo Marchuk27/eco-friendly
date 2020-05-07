@@ -9,6 +9,7 @@
     <link rel=stylesheet type='text/css' href="/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='/css/bootstrap-header.css'>
     <link rel='stylesheet' type="text/css" media="screen" href="/css/lk-profile.css">
+    <script src="/js/achievements.js" type="text/javascript"></script>
 </head>
 
 <body>

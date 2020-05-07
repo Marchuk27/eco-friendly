@@ -8,6 +8,7 @@
     <link rel=stylesheet href="/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='/css/bootstrap-header.css'>
     <link rel='stylesheet' type="text/css" media="screen" href="/css/lk-news.css">
+    <script src="/js/news.js" type="text/javascript"></script>
 </head>
 <body>
 <header class="navbar fixed-top">
@@ -68,7 +69,7 @@
 </header>
 <main>
     <div class="news-container">
-        <div class="news-container__item">
+        <!--<div class="news-container__item">
             <div class="news-container__item__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
                 deleniti, iure nemo nam facilis delectus eveniet numquam aperiam eius hic vero neque tempore
                 mollitia! Quis vero fugit hic provident eligendi?
@@ -112,7 +113,7 @@
                 <img src="https://wallbox.ru/resize/2560x1440/wallpapers/main/201138/pandy-mishki-zhivotnye-455e8d9.jpg"
                      alt="" class="news-container__item__image">
             </div>
-        </div>
+        </div>-->
     </div>
 </main>
 <script src="/js/nav.js" type="text/javascript"></script>

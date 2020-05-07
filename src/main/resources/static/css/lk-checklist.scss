@@ -97,10 +97,14 @@ main{
     }
     &-image-container{
         display: flex;
+        flex-direction: column;
         background-image: url(static/images/checklist.png);
         background-repeat: no-repeat;
         background-size: contain;
         flex: 1;
+        &__item{
+
+        }
     }
 }
 

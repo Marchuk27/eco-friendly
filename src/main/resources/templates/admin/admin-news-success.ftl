@@ -28,7 +28,7 @@
                 <label>
                     <textarea name="textContent" style="font-size:17px;" MAXLENGTH="4500" cols="200" rows="10"></textarea><Br>
                     <Br>Ссылка на изображение<Br>
-                    <textarea name="referenceToImage" style="font-size:17px;" MAXLENGTH="1000" cols="100" rows="4"></textarea><Br>
+                    <textarea name="urlToImage" style="font-size:17px;" MAXLENGTH="1000" cols="100" rows="4"></textarea><Br>
                 </label>
             <p><input type="submit" value="Добавить на сайт">
             </p>

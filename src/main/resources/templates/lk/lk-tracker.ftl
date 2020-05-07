@@ -8,6 +8,7 @@
     <link rel=stylesheet href="/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='/css/bootstrap-header.css'>
     <link rel='stylesheet' type="text/css" media="screen" href="/css/lk-tracker.css">
+    <script src="/js/tracker.js" type="text/javascript"></script>
 </head>
 <body>
 <header class="navbar fixed-top">

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", e => {
     let navbar = document.querySelector(".navbar-logo");
     if(navbar !== null){
         navbar.addEventListener("click", e => {
-            location.href="mainpage.html"; //надо другую ссылку
+            location.href="/"; //надо другую ссылку
         });
     }
 
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", e => {
     let navbarProfile = document.querySelector(".navbar-logo-profile-container");
     if(navbarProfile !== null){
         navbarProfile.addEventListener("click", e => {
-            location.href="profile-profile.html"; //надо другую ссылку
+            location.href="/lk/"; //надо другую ссылку
         });
     }
 });

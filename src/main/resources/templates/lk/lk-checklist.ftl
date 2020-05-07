@@ -8,6 +8,7 @@
     <link rel=stylesheet href="/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='/css/bootstrap-header.css'>
     <link rel='stylesheet' type="text/css" media="screen" href="/css/lk-checklist.css">
+    <script src="/js/checklist.js" type="text/javascript"></script>
 </head>
 <body>
 <header class="navbar fixed-top">
@@ -84,6 +85,7 @@
             </div>
         </div>
         <div class="checklist-image-container">
+
         </div>
     </div>
 </main>
