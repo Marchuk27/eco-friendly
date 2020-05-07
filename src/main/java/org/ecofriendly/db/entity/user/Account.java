@@ -41,7 +41,7 @@ public class Account implements UserDetails {
     @JsonBackReference
     private CheckList checkList;
     @ElementCollection
-    private List<Short> achievementList;
+    private List<Short> achievementList; //в списке будут храниться id достижений пользователя
 
     @NotNull
     @Length(min = 6)
