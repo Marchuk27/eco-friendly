@@ -1,7 +1,6 @@
 package org.ecofriendly.db.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.ecofriendly.db.entity.CheckList;
@@ -46,7 +45,6 @@ public class Account implements UserDetails {
 
     @NotNull
     @Length(min = 6)
-    @JsonIgnore
     private String         password;
     @Transient
     private String         repeatPassword;
