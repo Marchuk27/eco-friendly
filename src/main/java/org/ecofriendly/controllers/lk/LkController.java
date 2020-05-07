@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class LkController {
@@ -71,7 +70,7 @@ public class LkController {
         trackerService.setFieldsFromFormToExistTracker(trackerForm, existTracker);
         trackerService.calculateValuesFromTracker(existTracker, principal.getName());
         trackerRepository.save(existTracker);
-        return "/lk/lk-tracker";
+        return "redirect:/lk/tracker";
     }
 
     /**
@@ -93,8 +92,9 @@ public class LkController {
         existCheckList.setSavedIdeas(ideaList);
         checkListForm.setIdeaInput(null);
         existCheckList.setIdeaInput(null);
+        model.asMap().clear();
         checkListRepository.save(existCheckList);
-        return "/lk/lk-checklist";
+        return "redirect:/lk/checklist";
     }
 
     /**

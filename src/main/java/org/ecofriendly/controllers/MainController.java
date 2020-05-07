@@ -39,7 +39,7 @@ public class MainController {
     public String sendCompanyRequest(CompanyForm companyform, Model model) {
         model.addAttribute("companyForm", companyform);
         companyFormRepository.save(companyform);
-        return "for-companies";
+        return "redirect:/for-companies";
     }
 
     /**
