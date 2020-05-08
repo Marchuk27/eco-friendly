@@ -6,7 +6,7 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel=stylesheet href="/css/bootstrap.min.css">
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/lk-map.css'>
     <link rel=stylesheet type="text/css" href="/css/bootstrap-header.css">
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=cce8c8c9-a3d9-45a9-a1ec-ce763a37a4b8" type="text/javascript"></script>
 </head>
@@ -133,30 +133,9 @@
             <div class="company__categories">
                 <div class="company__categories__label">Категории:</div>
                 <div class="company__categories__list">
-                    <div class="company__categories__list__item">
-                        <!-- <img class="company__categories__list__item__logo" src="images/other.png" alt="logo"> -->
-                        <div class="company__categories__list__item__label">Другое</div>
-                    </div>
-                    <div class="company__categories__list__item">
-                        <!-- <img class="company__categories__list__item__logo" src="images/paper.png" alt="logo"> -->
-                        <div class="company__categories__list__item__label">Бумага</div>
-                    </div>
-                    <div class="company__categories__list__item">
-                        <!-- <img class="company__categories__list__item__logo" src="images/clothes.png" alt="logo"> -->
-                        <div class="company__categories__list__item__label">Одежда</div>
-                    </div>
-                    <div class="company__categories__list__item">
-                        <!-- <img class="company__categories__list__item__logo" src="images/accums.png" alt="logo"> -->
-                        <div class="company__categories__list__item__label">Батарейки</div>
-                    </div>
+
                 </div>
             </div>
-            <!-- <div class="company__additional-info">
-                <div class="company__additional-info__label">Дополнительная информация:</div>
-                <div class="company__additional-info__value">Всем привет! Меня зовут Олег, я из Барселоны. Не советую
-                    вам приезжать сюда, равно как и лезть в рэп.
-                </div>
-            </div> -->
         </aside>
     </div>
     <div class="main-container">
@@ -165,7 +144,7 @@
 </main>
 <script src="/js/nav.js" type="text/javascript"></script>
 <script src="/js/groups.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="/js/lk-map.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 </body>

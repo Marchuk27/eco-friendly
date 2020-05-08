@@ -6,7 +6,7 @@
     <title>Eco</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel=stylesheet href="/css/bootstrap.min.css">
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/prostigospodi.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/css/bootstrap-header.css'>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=cce8c8c9-a3d9-45a9-a1ec-ce763a37a4b8"
             type="text/javascript"></script>
@@ -140,13 +140,13 @@
         <div id="map"></div>
     </div>
     <div class="right-container">
-        <div class="offering">
+        <div class="offering-r">
             <div class="offering__heading">Хотите начать вести экологичный образ жизни, но не знаете с чего начать?</div>
             <div class="button-container">
                 <a href="/login" class="offering__ref btn btn-to-profile">Войти в личный кабинет</a>
             </div>
         </div>
-        <div class="offering">
+        <div class="offering-r">
             <div class="offering__heading">Вы - компания, и хотите добавить свою метку на нашу карту?</div>
             <div class="button-container">
                 <a href="/for-companies" class="offering__ref btn btn-to-companies">Заполните форму</a>
@@ -155,7 +155,7 @@
     </div>
 </main>
 <script src="/js/groups.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="/js/lk-map.js" type="text/javascript"></script>
 <script src="/js/nav.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
