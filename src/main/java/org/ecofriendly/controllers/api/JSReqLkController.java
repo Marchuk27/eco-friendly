@@ -3,6 +3,7 @@ package org.ecofriendly.controllers.api;
 import org.ecofriendly.db.dictionaries.Achievement;
 import org.ecofriendly.db.entity.Tracker;
 import org.ecofriendly.db.entity.company.News;
+import org.ecofriendly.db.entity.user.Account;
 import org.ecofriendly.db.repository.NewsRepository;
 import org.ecofriendly.db.repository.TrackerRepository;
 import org.ecofriendly.db.repository.AchievementRepository;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -35,11 +37,16 @@ public class JSReqLkController {
     @Autowired
     private AchievementRepository achievementRepository;
 
-
     @GetMapping(value = "/session+user+name/")
     @ResponseBody
     public String getUserNameFromSession(Principal principal) {
         return principal.getName();
+    }
+
+    @GetMapping(value = "/user+info/")
+    @ResponseBody
+    public Account getUserData(Principal principal) {
+        return accountService.getUserInfoByUsername(principal.getName());
     }
 
     @GetMapping(value = "/tracker/")
@@ -56,7 +63,14 @@ public class JSReqLkController {
 
     @GetMapping(value = "/news/")
     public Iterable<News> newsData() {
-        return newsRepository.findAll();
+        List<News> newsList = newsRepository.findAll();
+        newsList.sort(new Comparator<News>() {
+            @Override
+            public int compare(News n1, News n2) {
+                return n2.getId().compareTo(n1.getId());
+            }
+        });
+        return newsList;
     }
 
     @GetMapping(value = "/achievements/")

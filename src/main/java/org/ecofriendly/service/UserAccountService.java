@@ -57,5 +57,8 @@ public class UserAccountService implements IUserAccountService {
         return account.getAchievementList();
     }
 
+    public Account getUserInfoByUsername(String username) {
+        return accountRepository.findAccountByUsername(username);
+    }
 
 }
