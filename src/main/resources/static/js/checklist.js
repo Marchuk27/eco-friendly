@@ -15,10 +15,10 @@ window.addEventListener("load", e => {
                     checklistInfo=json;
                     console.log(checklistInfo);
                     let checklist = document.querySelector(".checklist-image-container");
-                    checklistInfo.forEach(el=>{
+                    checklistInfo.forEach((el, index) => {
                         let item = document.createElement("div");
                         item.className="checklist-image-container__item";
-                        item.innerHTML=el;
+                        item.innerHTML=(index+1)+". "+el;
                         checklist.append(item);
                     });
                 });

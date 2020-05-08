@@ -56,7 +56,7 @@ window.addEventListener("load", e => {
            for(let i = start; i<end; i++){
                achievementsContainer.append(achievementsStorage[i]);
            }
-           setPaginationValues();
+           //setPaginationValues();
        }
     });
 });
@@ -85,12 +85,12 @@ function setPaginationValues(){
 
 function setInitialAchievements(){
     currentAchievementsCountElement = document.querySelector(".achievements__progress__current");
-    currentAchievementsCount = Math.min(end, achievements.length);
+    currentAchievementsCount = achievements.length; //Math.min(end, achievements.length);
     currentAchievementsCountElement.innerHTML = currentAchievementsCount;
 
-    totalAchievementsCountElement = document.querySelector(".achievements__progress__total");
+    /*totalAchievementsCountElement = document.querySelector(".achievements__progress__total");
     totalAchievementsCount = achievements.length;
-    totalAchievementsCountElement.innerHTML = "/"+totalAchievementsCount;
+    totalAchievementsCountElement.innerHTML = "/"+totalAchievementsCount;*/
 
     achievementsContainer = document.getElementById("achievements");
     achievements.forEach(el => {

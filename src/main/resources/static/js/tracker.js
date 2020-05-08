@@ -32,6 +32,7 @@ window.addEventListener("load", e => {
                     document.getElementById("dangerous").style.flex = trackerInfo.dangerTotal;
                     document.getElementsByName("otherTotal")[0].innerHTML = trackerInfo.otherTotal;
                     document.getElementById("other").style.flex = trackerInfo.otherTotal;
+                    document.getElementsByName("total")[0].innerHTML = trackerInfo.total;
                 });
         });
 

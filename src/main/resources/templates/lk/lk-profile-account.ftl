@@ -9,6 +9,7 @@
     <link rel=stylesheet href="/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='/css/bootstrap-header.css'>
     <link rel='stylesheet' type="text/css" media="screen" href="/css/lk-accounts.css">
+    <script src="/js/account.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -79,21 +80,21 @@
         </a>
     </div>
     <div class="fio-container">
-        <div id="surname">Волков</div>
+        <div id="surname"></div>
         <div class="wrapper">
-            <div id="name">Алексей</div>
-            <div id="fathername">Юрьевич</div>
+            <div id="name"></div>
+            <div id="fathername"></div>
         </div>
     </div>
     <div class="account-container">
         <div class="account-container__left">
             <div class="date-of-birth-container">
                 <div class="date-of-birth__label">Дата рождения</div>
-                <div class="date-of-birth__value">06.04.1997</div>
+                <div class="date-of-birth__value"></div>
             </div>
             <div class="email-container">
                 <div class="email__label">E-mail</div>
-                <div class="email__value">shishu.ad@mail.ru</div>
+                <div class="email__value"></div>
                 <div class="email__change">
                     <a href="#">Изменить</a>
                 </div>

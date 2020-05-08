@@ -134,7 +134,8 @@ main {
   .results__summary__container > #summary {
     display: flex;
     justify-content: space-between;
-    width: 60%; }
+    padding: 0 15px;
+    width: 100%; }
 .results__summary__progressbar {
   display: flex;
   width: 90%; }
