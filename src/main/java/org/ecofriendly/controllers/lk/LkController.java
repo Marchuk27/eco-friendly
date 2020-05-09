@@ -95,6 +95,7 @@ public class LkController {
         existCheckList.setIdeaInput(null);
         model.asMap().clear();
         checkListRepository.save(existCheckList);
+        checkListService.checkIdeaListForAchieves(ideaList, principal.getName());
         return "redirect:/lk/checklist";
     }
 

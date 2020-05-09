@@ -33,4 +33,11 @@ INSERT INTO achievement(id, description, name, url_to_icon)
 VALUES(5, 'Сдать более 5000 единиц отходов', 'Ярый сортировщик', '');
 INSERT INTO achievement(id, description, name, url_to_icon)
 VALUES(6, 'Сдать более 10000 единиц отходов', 'Я из Швеции', '');
-
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(7, 'Сдать 30 единиц стекла', 'Начинающий стекольщик', '');
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(8, 'Сдать 500 единиц стекла', 'Продвинутый стекольщик', '');
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(9, ' Сдать 2000 единиц стекла', 'Ярый стекольщик', '');
+INSERT INTO achievement(id, description, name, url_to_icon)
+VALUES(10, 'Закрепите 2 идеи в Чеклисте', 'Идейный', '');

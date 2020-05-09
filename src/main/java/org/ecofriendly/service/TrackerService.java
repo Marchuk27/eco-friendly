@@ -18,6 +18,7 @@ public class TrackerService {
     private AccountRepository accountRepository;
     @Autowired
     private TrackerRepository trackerRepository;
+    private AchievementUtils achievementUtils;
 
     public void calculateValuesFromTracker(Tracker trackerForm, String username) {
         checkInputsForAchievements(username, trackerForm);
@@ -133,14 +134,9 @@ public class TrackerService {
         Tracker existTracker = trackerRepository.getTrackerByAccount_Username(username);
         Account account = accountRepository.findAccountByUsername(username);
         List<Integer> achievementList = account.getAchievementList();
-        if (!trackerForm.getDangerInput().isEmpty()) {
-            if (Objects.isNull(existTracker.getDangerTotal()) || existTracker.getDangerTotal().equals("0")) {
-                if (!achievementList.contains(2)) {
-                    //Достижение "Безумец"
-                    achievementList.add(2);
-                }
-            }
-        }
+
+        achievementUtils.checkDangerInputForAchieves(trackerForm.getDangerInput(), existTracker.getDangerTotal(), achievementList);
+        achievementUtils.checkGlassInputForAchieves(trackerForm.getGlassInput(),existTracker.getGlassTotal(), achievementList);
 
         account.setAchievementList(achievementList);
         accountRepository.save(account);
@@ -149,10 +145,14 @@ public class TrackerService {
     private void checkTotalValueForAchievements(String username, int totalValue) {
         Account account = accountRepository.findAccountByUsername(username);
         List<Integer> achievementList = account.getAchievementList();
-        AchievementUtils.checkForBeginnerRecycler(achievementList, totalValue);
-        AchievementUtils.checkForMiddleRecycler(achievementList, totalValue);
-        AchievementUtils.checkForSeniorRecycler(achievementList, totalValue);
-        AchievementUtils.checkForIamFromSweden(achievementList, totalValue);
+        //Начинающий сортировщик
+        achievementUtils.checkForTotalRecycledAchieves(3, 500, achievementList, totalValue);
+        //Продвинутый сортировщик
+        achievementUtils.checkForTotalRecycledAchieves(4, 1000, achievementList, totalValue);
+        //Ярый сортировщик
+        achievementUtils.checkForTotalRecycledAchieves(5, 5000, achievementList, totalValue);
+        //Я из Швеции
+        achievementUtils.checkForTotalRecycledAchieves(6, 10000, achievementList, totalValue);
 
         account.setAchievementList(achievementList);
         accountRepository.save(account);

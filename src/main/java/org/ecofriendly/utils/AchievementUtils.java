@@ -1,34 +1,63 @@
 package org.ecofriendly.utils;
 
-import java.util.List;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import org.ecofriendly.db.entity.Tracker;
 
+import java.util.List;
+import java.util.Objects;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AchievementUtils {
 
-    /** Начинающий сортировщик */
-    public static void checkForBeginnerRecycler(List<Integer> achievementList, int totalFromTracker) {
-        if (!achievementList.contains(3) && totalFromTracker >= 500) {
-            achievementList.add(3);
+    /**
+     * Начинающий сортировщик
+     * Продвинутый сортировщик
+     * Ярый сортировщик
+     * Я из Швеции
+     */
+    public void checkForTotalRecycledAchieves(int achievementId, int amountForAchieve,
+                                                     List<Integer> achievementList, int totalFromTracker) {
+        if (!achievementList.contains(achievementId) && totalFromTracker >= amountForAchieve) {
+            achievementList.add(achievementId);
         }
     }
 
-    /** Продвинутый сортировщик */
-    public static void checkForMiddleRecycler(List<Integer> achievementList, int totalFromTracker) {
-        if (!achievementList.contains(4) && totalFromTracker >= 1000) {
-            achievementList.add(4);
+    public void checkDangerInputForAchieves(String dangerInput, String dangerTotal, List<Integer> achievementList) {
+        if (!dangerInput.isEmpty()) {
+            if (Objects.isNull(dangerTotal) || dangerTotal.equals("0")) {
+                if (!achievementList.contains(2)) {
+                    //Достижение "Безумец"
+                    achievementList.add(2);
+                }
+            }
         }
     }
 
-    /** Ярый сортировщик */
-    public static void checkForSeniorRecycler(List<Integer> achievementList, int totalFromTracker) {
-        if (!achievementList.contains(5) && totalFromTracker >= 5000) {
-            achievementList.add(5);
+    public void checkGlassInputForAchieves(String glassInput, String glassTotal, List<Integer> achievementList) {
+        if (!glassInput.isEmpty()) {
+            //Достижение "Начинающий стекольщик"
+            checkInputForAchieves(achievementList, 7, 30, glassInput, glassTotal);
+            //Достижение "Продвинутый стекольщик"
+            checkInputForAchieves(achievementList, 8, 500, glassInput, glassTotal);
+            //Достижение "Ярый стекольщик"
+            checkInputForAchieves(achievementList, 9, 2000, glassInput, glassTotal);
         }
     }
 
-    /** Я из Швеции*/
-    public static void checkForIamFromSweden(List<Integer> achievementList, int totalFromTracker) {
-        if (!achievementList.contains(6) && totalFromTracker >= 10000) {
-            achievementList.add(6);
+    public void checkCheckListForAchieves(List<Integer> achievementList,List<String> ideaList) {
+        if (!achievementList.contains(10) && ideaList.size() >= 2) {
+            //Достижение "Идейный"
+            achievementList.add(10);
+        }
+    }
+
+    private void checkInputForAchieves(List<Integer> achievementList, int achievementId, int amountForAchieve,
+                                       String inputValue, String totalValue) {
+        if (!achievementList.contains(achievementId)) {
+            if ((Integer.parseInt(inputValue) + Integer.parseInt(totalValue) >= amountForAchieve)) {
+                achievementList.add(achievementId);
+            }
         }
     }
 }

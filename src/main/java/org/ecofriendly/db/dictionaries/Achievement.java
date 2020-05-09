@@ -33,7 +33,7 @@ public class Achievement {
      * / UserAccountController.class; method = registerUser();
      *
      * 2 "Безумец" / Сдайте что-либо из категории "Опасное" /
-     * TrackerService.class; method = checkUserForAchievements();
+     * AchievementUtils.class; method = checkDangerInputForAchieves();
      *
      * 3 "Начинающий сортировщик" / Сдать более 500 единиц отходов /
      * TrackerService.class; method = checkTotalValueForAchievements();
@@ -47,11 +47,19 @@ public class Achievement {
      * 6 "Я из Швеции" / Сдать более 500 единиц отходов /
      * TrackerService.class; method = checkTotalValueForAchievements();
      *
-     *  //TODO: Доделать оставшующся аналитику
+     * 7 "Начинающий стекольщик" / Сдать 30 единиц стекла /
+     * AchievementUtils.class; method = checkGlassInputsForAchieves();
      *
-     * "Начинающий стекольщик" >= 30
-     * "Продвинутый стекольщик" >= 500
-     * "Ярый стекольщик" >= 2000
+     * 8 "Продвинутый стекольщик" / Сдать 500 единиц стекла /
+     * AchievementUtils.class; method = checkGlassInputsForAchieves();
+     *
+     * 9 "Ярый стекольщик" / Сдать 2000 единиц стекла /
+     * AchievementUtils.class; method = checkGlassInputsForAchieves();
+     *
+     * 10 "Идейный" / Закрепите 2 идеи в Чеклисте /
+     * AchievementUtils.class; method = checkCheckListForAchieves();
+     *
+     *  //TODO: Доделать оставшующся аналитику
      *
      * «Рекрут-краснолюд» - сдать более 10 единиц металла
      * «Краснолюд» - сдать более 500 единиц металла
@@ -59,7 +67,7 @@ public class Achievement {
      *
      * «Все и сразу» - отметить в трекере все категории за один раз
      *
-     * "Идейный" - закрепить 2 идеи в чеклисте
+
      *
      *
      * "Турист" - просмотреть на карте 10 компаний*

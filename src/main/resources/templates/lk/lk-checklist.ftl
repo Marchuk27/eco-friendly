@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="checklist-image-container">
-            <div class="checklist-image-container__heading">Чек-лист</div>
+            <div class="checklist-image-container__heading">Checklist</div>
         </div>
     </div>
 </main>
