@@ -40,7 +40,7 @@ public class MainController {
         model.addAttribute("companyForm", companyform);
         companyFormRepository.save(companyform);
         model.asMap().clear();
-        return "redirect:/for-companies";
+        return "for-companies-sended";
     }
 
     /**
