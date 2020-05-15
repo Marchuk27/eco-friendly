@@ -25,6 +25,7 @@ public class CheckListService {
     }
 
     public void checkIdeaListForAchieves(List<String> ideaList, String username) {
+        achievementUtils = new AchievementUtils();
         Account account = accountRepository.findAccountByUsername(username);
         List<Integer> achievementList = account.getAchievementList();
         achievementUtils.checkCheckListForAchieves(achievementList, ideaList);

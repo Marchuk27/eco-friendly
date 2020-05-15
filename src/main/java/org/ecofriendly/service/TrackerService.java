@@ -131,6 +131,7 @@ public class TrackerService {
      * Проверка пользователя для добавления достижений
      */
     public void checkInputsForAchievements(String username, Tracker trackerForm) {
+        achievementUtils = new AchievementUtils();
         Tracker existTracker = trackerRepository.getTrackerByAccount_Username(username);
         Account account = accountRepository.findAccountByUsername(username);
         List<Integer> achievementList = account.getAchievementList();
@@ -143,6 +144,7 @@ public class TrackerService {
     }
 
     private void checkTotalValueForAchievements(String username, int totalValue) {
+        achievementUtils = new AchievementUtils();
         Account account = accountRepository.findAccountByUsername(username);
         List<Integer> achievementList = account.getAchievementList();
         //Начинающий сортировщик

@@ -1,13 +1,8 @@
 package org.ecofriendly.utils;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-import org.ecofriendly.db.entity.Tracker;
-
 import java.util.List;
 import java.util.Objects;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AchievementUtils {
 
     /**
@@ -24,6 +19,13 @@ public class AchievementUtils {
     }
 
     public void checkDangerInputForAchieves(String dangerInput, String dangerTotal, List<Integer> achievementList) {
+        if (achievementList == null) {
+            return ;
+        }
+        if ((dangerInput == null || dangerInput.isEmpty()) && dangerTotal == null) {
+            return;
+        }
+
         if (!dangerInput.isEmpty()) {
             if (Objects.isNull(dangerTotal) || dangerTotal.equals("0")) {
                 if (!achievementList.contains(2)) {
