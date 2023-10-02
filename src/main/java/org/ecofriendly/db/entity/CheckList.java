@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 public class CheckList {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

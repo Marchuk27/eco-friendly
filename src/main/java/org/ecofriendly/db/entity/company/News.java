@@ -10,6 +10,7 @@ import java.sql.Date;
 @Getter
 @Setter
 public class News {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
