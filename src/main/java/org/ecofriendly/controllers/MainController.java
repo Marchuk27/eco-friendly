@@ -1,7 +1,7 @@
 package org.ecofriendly.controllers;
 
 import org.ecofriendly.db.entity.CompanyForm;
-import org.ecofriendly.db.repository.CompanyFormRepository;
+import org.ecofriendly.db.repository.UserFormRempository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class MainController {
-    private CompanyFormRepository companyFormRepository;
+    private UserFormRempository userFormRempository;
 
     @Autowired
-    private void setUserRepository(CompanyFormRepository companyFormRepository) {
-        this.companyFormRepository = companyFormRepository;
+    private void setUserRepository(UserFormRempository userFormRempository) {
+        this.userFormRempository = userFormRempository;
     }
 
     /**
@@ -38,7 +38,7 @@ public class MainController {
     @PostMapping("/for-companies")
     public String sendCompanyRequest(CompanyForm companyform, Model model) {
         model.addAttribute("companyForm", companyform);
-        companyFormRepository.save(companyform);
+        userFormRempository.save(companyform);
         model.asMap().clear();
         return "for-companies-sended";
     }
