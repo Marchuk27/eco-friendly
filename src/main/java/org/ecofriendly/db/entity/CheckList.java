@@ -13,7 +13,7 @@ import java.util.List;
 public class CheckList {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long    id;
+    private Long id;
     @OneToOne
     private Account account;
 
