@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+/**
+ * Dymmy doc
+ */
 @RestController
 @RequestMapping("/api/")
 public class Profile {

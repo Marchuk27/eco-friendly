@@ -16,6 +16,7 @@ public class News {
     private Integer id;
 
     private String textContent;
+
     private String urlToImage;
     private Date dateOfPublish;
     private Integer likeAmount;
